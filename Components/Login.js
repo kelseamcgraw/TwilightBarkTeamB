@@ -6,7 +6,8 @@ import {
     Button,
     View,
     TextInput,
-    StyleSheet
+    StyleSheet,
+    Text
 } from 'react-native';
 
 class Login extends React.Component {
@@ -27,7 +28,7 @@ class Login extends React.Component {
     }
 
     handleLoginButtonPress = () => {
-        console.log("Login Button Pressed");
+        console.log("Username: " + this.state.email + " Password: " + this.state.password);
     }
 
     render() {
@@ -35,7 +36,7 @@ class Login extends React.Component {
             <View style={styles.container}>
                 <TextInput
                 value={this.state.username}
-                onChangeText={(username) => this.setState({ username })}
+                onChangeText={(email) => this.setState({ email })}
                 placeholder={'Username'}
                 style={styles.input}
                 />
@@ -46,13 +47,13 @@ class Login extends React.Component {
                 secureTextEntry={true}
                 style={styles.input}
                 />
-                
                 <Button
                 title={'Login'}
                 style={styles.input}
                 onPress={this.handleLoginButtonPress.bind(this)}
                 />
-      </View>
+                <Text>google/facebook here</Text>
+            </View>
         );
     }
 

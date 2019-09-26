@@ -11,6 +11,7 @@ import {  TextInput,
           View 
         } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import WelcomScreen from './Components/Welcome';
 
 
 export default function App(props) {
@@ -27,7 +28,7 @@ export default function App(props) {
   } else {
     return (
       <View style={styles.container}>
-        <Login />
+        <WelcomScreen />
       </View>
       // <View style={styles.container}>
       //   {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
