@@ -1,23 +1,11 @@
 import { AppLoading } from 'expo';
-import { Asset } from 'expo-asset';
-import * as Font from 'expo-font';
-import Login from './Components/Login'
 import React, { useState } from 'react';
 
-import LoginScreen from './Components/Login';
-import WelcomScreen from './Components/Welcome'
-
-import {createAppContainer} from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
-
-import {  TextInput, 
-          Button, 
-          Platform, 
-          StatusBar, 
+import {  
           StyleSheet, 
           View 
         } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+
 import AppNavigator from './Navigation/AppNavigator';
 
 

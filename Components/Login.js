@@ -18,15 +18,7 @@ class Login extends React.Component {
             password: ""
         }
     }
-
-    emailChange = (email) => {
-        this.setState({ email: email });
-    }
-
-    passwordChange =( password) => {
-        this.setState({ password: password});
-    }
-
+    
     handleLoginButtonPress = () => {
         console.log("Username: " + this.state.email + " Password: " + this.state.password);
     }

@@ -10,19 +10,6 @@ import {
 
 class WelcomScreen extends React.Component {
 
-    handleCreateAccountButtonPress = () => {
-
-        console.log("show create account");
-
-    }
-
-    handleMakeQuickReport = () => {
-        // todo show i found or lost a dog options"
-        console.log("Quick Report");
-
-    }
-
-
     render() {
       const { navigate } = this.props.navigation;
         return (
@@ -37,12 +24,16 @@ class WelcomScreen extends React.Component {
                 <Button
                 title={"I'm new here"}
                 style={styles.input}
-                onPress={this.handleCreateAccountButtonPress.bind(this)}
+                onPress={() =>
+                  this.props.navigation.navigate('CreateAccount')
+                }
                 />
                 <Button
                 title={'Make a report without account'}
                 style={styles.input}
-                onPress={this.handleMakeQuickReport.bind(this)}
+                onPress={() =>
+                  this.props.navigation.navigate("QuickReport")
+                }
                 />
             </View>
         );
