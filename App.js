@@ -3,6 +3,13 @@ import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
 import Login from './Components/Login'
 import React, { useState } from 'react';
+
+import LoginScreen from './Components/Login';
+import WelcomScreen from './Components/Welcome'
+
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
+
 import {  TextInput, 
           Button, 
           Platform, 
@@ -11,7 +18,7 @@ import {  TextInput,
           View 
         } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import WelcomScreen from './Components/Welcome';
+import AppNavigator from './Navigation/AppNavigator';
 
 
 export default function App(props) {
@@ -28,12 +35,8 @@ export default function App(props) {
   } else {
     return (
       <View style={styles.container}>
-        <WelcomScreen />
+        <AppNavigator/>
       </View>
-      // <View style={styles.container}>
-      //   {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-      //   <AppNavigator />
-      // </View>
     );
   }
 }

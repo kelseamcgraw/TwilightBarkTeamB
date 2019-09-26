@@ -1,11 +1,5 @@
 import * as React from 'react';
 
-import { StackNavigator, NavigationEvents } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
-
-import LoginScreen from '../Components/Login';
-
-
 import { 
     Button,
     View,
@@ -14,22 +8,7 @@ import {
     Text
 } from 'react-native';
 
-const Navigator = createStackNavigator({
-    Login: { screen: Login }
-    // CreateAccount: { screen: CreateAccount },
-    // QuickReport: { screen: QuickReport }
-});
-
-const LoginStack = createStackNavigator(
-    {
-      Login: LoginScreen,
-    },
-    config
-  );
-
 class WelcomScreen extends React.Component {
-
-
 
     handleCreateAccountButtonPress = () => {
 
@@ -45,12 +24,15 @@ class WelcomScreen extends React.Component {
 
 
     render() {
+      const { navigate } = this.props.navigation;
         return (
             <View style= { styles.container}>
                 <Button
                 title={'Login'}
                 style={styles.input}
-                onPress={ () => Navigator('Login')}
+                onPress = {() => 
+                  this.props.navigation.navigate('Login')
+                }
                 />
                 <Button
                 title={"I'm new here"}
