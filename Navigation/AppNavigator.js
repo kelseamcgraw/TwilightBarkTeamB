@@ -1,10 +1,13 @@
+// https://stackoverflow.com/questions/53367195/invariant-violation-the-navigation-prop-is-missing-for-this-navigator
+// was used as a reference for this page
+
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation';
 
-import LoginScreen from '../Components/Login';
-import WelcomScreen from '../Components/Welcome';
-import QuickReportScreen from '../Components/QuickReport';
-import CreateAccountScreen from '../Components/CreateAccount';
+import LoginScreen from '../Screens/Login';
+import WelcomScreen from '../Screens/Welcome';
+import QuickReportScreen from '../Screens/QuickReport';
+import CreateAccountScreen from '../Screens/CreateAccount';
 
 const AppNavigator = createStackNavigator({
     Welcome: { screen: WelcomScreen},
