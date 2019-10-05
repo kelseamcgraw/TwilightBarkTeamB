@@ -225,22 +225,6 @@ declare module 'react-native-gesture-handler' {
           bottom?: number;
           vertical?: number;
           horizontal?: number;
-        }
-      | {
-          width: number;
-          left: number;
-        }
-      | {
-          width: number;
-          right: number;
-        }
-      | {
-          height: number;
-          top: number;
-        }
-      | {
-          height: number;
-          bottom: number;
         };
   }
 
@@ -378,7 +362,6 @@ declare module 'react-native-gesture-handler' {
     onPress?: (pointerInside: boolean) => void;
     onActiveStateChange?: (active: boolean) => void;
     style?: StyleProp<ViewStyle>;
-    rippleColor?: string;
   }
 
   export interface RectButtonProperties extends BaseButtonProperties {
@@ -459,7 +442,7 @@ declare module 'react-native-gesture-handler' {
 }
 
 declare module 'react-native-gesture-handler/Swipeable' {
-  import { Animated, StyleProp, ViewStyle } from 'react-native';
+  import { Animated } from 'react-native';
 
   interface SwipeableProperties {
     friction?: number;
@@ -485,8 +468,6 @@ declare module 'react-native-gesture-handler/Swipeable' {
       dragAnimatedValue: Animated.AnimatedInterpolation
     ) => React.ReactNode;
     useNativeAnimations?: boolean;
-    containerStyle?: StyleProp<ViewStyle>;
-    childrenContainerStyle?: StyleProp<ViewStyle>;
   }
 
   export default class Swipeable extends React.Component<SwipeableProperties> {
@@ -505,8 +486,6 @@ declare module 'react-native-gesture-handler/DrawerLayout' {
 
   export type DrawerType = 'front' | 'back' | 'slide';
 
-  export type DrawerLockMode = 'unlocked' | 'locked-closed' | 'locked-open';
-
   export type DrawerKeyboardDismissMode = 'none' | 'on-drag';
 
   export interface DrawerLayoutProperties {
@@ -516,7 +495,6 @@ declare module 'react-native-gesture-handler/DrawerLayout' {
     drawerPosition?: DrawerPosition;
     drawerWidth?: number;
     drawerBackgroundColor?: string;
-    drawerLockMode?: DrawerLockMode;
     keyboardDismissMode?: DrawerKeyboardDismissMode;
     onDrawerClose?: () => void;
     onDrawerOpen?: () => void;

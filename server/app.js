@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 
 const userRoutes = require('./api/routes/user');
+const db = require("./models");
 
 app.use(morgan("dev"));
 app.use('/uploads', express.static('uploads'));
@@ -18,11 +19,17 @@ app.use((req, res, next) => {
   );
   if (req.method === "OPTIONS") {
     res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
-    return res.status(200).json({});
+    return res.status(200).json({
+      Message: "todo add what options are available"
+    });
   }
   next();
 });
 
+db.sequelize.sync({
+  force: true,
+  paranoid: true
+})
 // Routes which should handle requests
 app.use("/user", userRoutes);
 
