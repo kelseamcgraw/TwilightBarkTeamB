@@ -10,6 +10,10 @@ module.exports = {
       },
       username: {
         required: true,
+        type: Sequelize.STRING,
+        unique: true
+      },
+      token: {
         type: Sequelize.STRING
       },
       password: {
@@ -18,6 +22,9 @@ module.exports = {
       },
       email: {
         type: Sequelize.STRING
+      },
+      isAdmin: {
+        type: Sequelize.BOOLEAN
       },
       phoneNumber: {
         required: true,

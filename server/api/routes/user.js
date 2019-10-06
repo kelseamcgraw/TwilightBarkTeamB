@@ -3,33 +3,53 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const authorize = require("../middleware/check-auth");
+const isAdmin = require("../middleware/check-isAdmin");
 const router = express.Router();
 const model = require('../../models/index');
 
 const hashCount = 12;
 
-router.get('/users', (req, res) => {
+router.get('/users',[authorize, isAdmin], (req, res) => {
   model.User.findAll().then(users => res.json(users));
 });
 
 router.post("/signup", (req, res, next) => {
-  // to do hash password and send token if successful
-  bcrypt.hash(req.body.password, hashCount, function(err, hash) {
+  
+  model.User.findAll({ 
+    
+    where: { username: req.body.username } 
+  
+  })
+  .then(user => {
+    if(user.length > 0) {
 
-    req.body.password = hash;
+      return res.json({
 
-    model.User.create(req.body)
-    .then(user => res.json({
+        message: "username already taken"
 
-      data: user,
-      message: "New User Created"
+      });
 
-    }))
-    .catch(error => res.json({
+    } else {
 
-      error: error
+        bcrypt.hash(req.body.password, hashCount, function(err, hash) {
 
-    }));
+        req.body.password = hash;
+
+        model.User.create(req.body)
+        .then(user => res.json({
+
+          message: "New User Created"
+
+        }))
+        .catch(error => res.json({
+
+          error: error
+
+        }));
+
+      });
+
+    }
 
   });
 
@@ -43,46 +63,64 @@ router.post("/login", (req, res, next) => {
   
   })
   .then(user => { 
-
-    let hash = bcrypt.hashSync(req.body.password, hashCount);
-
-    bcrypt.compare(req.body.password, hash, (err, result) => {
-
-      if(result) {
-        jwt.sign({ username: req.body.username }, process.env.tokenKey, (err, token) => {
-
-          if(err) {
-
-            res.json({
-
-              error: err
-
-            });
-
-          } else {
-
-            res.json({
-
-              message: "login success",
-              token: token
-            
-            });
-
-          }
-
-        });
+    if(user) {
       
-      } else {
+      let hash = bcrypt.hashSync(req.body.password, hashCount);
+
+      bcrypt.compare(req.body.password, hash, (err, result) => {
+  
+        if(result) {
+  
+          jwt.sign({ 
+            id: user.id, 
+            username: user.username, 
+            isAdmin: user.isAdmin,
+            exp: Date.now()
+           }, process.env.tokenKey, (err, token) => {
+  
+            if(err) {
+  
+              res.json({
+  
+                error: err
+  
+              });
+  
+            } else {
+  
+              res.json({
+  
+                message: "login success",
+                token: token
+              
+              });
+  
+            }
+  
+          });
         
-        res.json({
+        } else {
           
-          message: "username or password incorrect"
+          res.json({
+            
+            message: "username or password incorrect"
+          
+          });
         
-        });
+        }
       
-      }
-    
-    });    //to do bcrypt check password and send token if successful
+      });
+
+    } else {
+
+      res.json({
+            
+        message: "username or password incorrect"
+      
+      });
+
+    }
+
   
   })
   .catch((error) => {
@@ -97,7 +135,7 @@ router.post("/login", (req, res, next) => {
 
 });
 
-router.delete("/delete/:userId",  authorize, (req, res, next) => {
+router.delete("/delete/:userId",  [authorize, isAdmin], (req, res, next) => {
 
   model.User.destroy({ 
 
