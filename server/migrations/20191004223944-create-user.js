@@ -8,6 +8,10 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      dogName: {
+        required: true,
+        type: Sequelize.STRING
+      },
       username: {
         required: true,
         type: Sequelize.STRING,
