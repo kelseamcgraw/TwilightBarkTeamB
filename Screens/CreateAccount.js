@@ -4,6 +4,7 @@ import * as React from 'react';
 import { 
     Button,
     View,
+    Text,
     TextInput,
     StyleSheet,
 } from 'react-native';
@@ -13,49 +14,68 @@ class CreateAccount extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            name: "",
-            color: "",
-            size: "",
-            gender: "",
-            address: ""
+            username : "",
+            password : "",
+            repassword : "",
+            phoneNumber : "",
+            email : ""
         }
     }
 
     handleCreateAccountButton = () => {
-        console.log("account Createds");
+        fetch('http://127.0.0.1:3000/user/signup', {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            username: this.state.username,
+            password: this.state.password,
+            email: this.state.email,
+            phoneNumber: this.state.phoneNumber
+        }),
+        })
+        .then((res) => {
+            console.log("new ACCOUNT")
+        })
+        .catch((error) => {
+            console.error(error);
+        });
     }
 
     render() {
         return (
             <View style={styles.container}>
+                <Text>sign up with google/facebook</Text>
                 <TextInput
                     value={this.state.name}
-                    onChangeText={(name) => this.setState({ name })}
-                    placeholder={ "Name" }
+                    onChangeText={(username) => this.setState({ username })}
+                    placeholder={ "username" }
                     style={ styles.input }
                 />
                 <TextInput
                     value={this.state.color}
-                    onChangeText={(color) => this.setState({ color })}
-                    placeholder={ "color" }
+                    onChangeText={(password) => this.setState({ password })}
+                    placeholder={ "password" }
                     style={ styles.input }
                 />
                 <TextInput
                     value={this.state.size}
-                    onChangeText={(size) => this.setState({ size })}
-                    placeholder={ "size" }
+                    onChangeText={(repassword) => this.setState({ repassword })}
+                    placeholder={ "re enter password" }
                     style={ styles.input }
                 />
                 <TextInput
                     value={this.state.gender}
-                    onChangeText={(gender) => this.setState({ gender })}
-                    placeholder={ "gender" }
+                    onChangeText={(phoneNumber) => this.setState({ phoneNumber })}
+                    placeholder={ "phone number" }
                     style={ styles.input }
                 />
                 <TextInput
                     value={this.state.address}
-                    onChangeText={(address) => this.setState({ address })}
-                    placeholder={ "Dogs Address" }
+                    onChangeText={(email) => this.setState({ email })}
+                    placeholder={ "email" }
                     style={ styles.input }
                 />
                 <Button
@@ -77,7 +97,7 @@ const styles = StyleSheet.create({
       backgroundColor: '#ecf0f1',
     },
     input: {
-      width: 200,
+      width: 250,
       height: 44,
       padding: 10,
       borderWidth: 1,

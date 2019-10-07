@@ -43,7 +43,8 @@ router.post("/signup", [validateInput], (req, res, next) => {
         bcrypt.hash(req.body.password, hashCount, function(err, hash) {
 
         req.body.password = hash;
-
+        req.body.isAdmin = false;
+        
         model.User.create(req.body)
         .then(user => res.json({
 
