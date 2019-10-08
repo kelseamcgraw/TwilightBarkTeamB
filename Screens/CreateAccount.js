@@ -14,6 +14,7 @@ class CreateAccount extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            dogName : "",
             username : "",
             password : "",
             repassword : "",
@@ -26,18 +27,34 @@ class CreateAccount extends React.Component {
         fetch('http://127.0.0.1:3000/user/signup', {
         method: 'POST',
         headers: {
+
             Accept: 'application/json',
             'Content-Type': 'application/json',
+
         },
         body: JSON.stringify({
+
+            dogName: this.state.dogName,
             username: this.state.username,
             password: this.state.password,
             email: this.state.email,
             phoneNumber: this.state.phoneNumber
+
         }),
         })
-        .then((res) => {
-            console.log("new ACCOUNT")
+        .then((res) => res.json())
+        .then((resjson) => {
+
+            if(resjson.error) {
+
+                console.log(resjson.error.msg);
+
+            } else {
+
+                console.log(resjson);
+
+            }
+
         })
         .catch((error) => {
             console.error(error);
@@ -48,6 +65,12 @@ class CreateAccount extends React.Component {
         return (
             <View style={styles.container}>
                 <Text>sign up with google/facebook</Text>
+                <TextInput
+                    value={this.state.size}
+                    onChangeText={(dogName) => this.setState({ dogName })}
+                    placeholder={ "Dogs Name" }
+                    style={ styles.input }
+                />
                 <TextInput
                     value={this.state.name}
                     onChangeText={(username) => this.setState({ username })}

@@ -3,7 +3,7 @@
   "expoServerPort": null,
   "packagerPort": null,
   "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "expoServerNgrokUrl": "https://hu-xhm.anonymous.twilightbarkteamb.exp.direct",
+  "packagerNgrokUrl": "https://packager.hu-xhm.anonymous.twilightbarkteamb.exp.direct",
+  "ngrokPid": 16268
 }
