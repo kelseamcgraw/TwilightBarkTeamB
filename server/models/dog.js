@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     fileLocation: DataTypes.STRING
   }, {});
   Dog.associate = function(models) {
-    Dog.belongsTo(models.User, {foreignKey: 'id', as: 'User'});
+    // Dog.belongsTo(models.User, {foreignKey: 'id', as: 'User'});
   };
   return Dog;
 };
