@@ -4,6 +4,8 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 
 const userRoutes = require('./api/routes/user');
+const dogRoutes = require('./api/routes/dog');
+
 const db = require("./models");
 
 app.use(morgan("dev"));
@@ -32,6 +34,7 @@ db.sequelize.sync({
 })
 // Routes which should handle requests
 app.use("/user", userRoutes);
+app.use("/dog", dogRoutes)
 
 app.use((req, res, next) => {
   const error = new Error("Not found");

@@ -6,10 +6,10 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     isAdmin: DataTypes.BOOLEAN,
     token: DataTypes.STRING,
-    phoneNumber: DataTypes.STRING,
+    phoneNumber: DataTypes.STRING
   }, {});
   User.associate = function(models) {
-    // associations can be defined here
+    User.hasMany(models.Dog, {foreignKey: 'userID', as: 'dog'});
   };
   return User;
 };

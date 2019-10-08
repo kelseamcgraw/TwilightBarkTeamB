@@ -8,16 +8,65 @@ const isAdmin = require("../middleware/check-isAdmin");
 const router = express.Router();
 
 const validateUserLogin = require("../middleware/validateUserLogin")
-const validateInput = require("../middleware/validateCreateUser");
+const validateCreateUser = require("../middleware/validateCreateUser");
 const model = require('../../models/index');
 
 const hashCount = 12;
 
-router.get('/users',[authorize, isAdmin], (req, res) => {
-  model.User.findAll().then(users => res.json(users));
+router.get('/users', [authorize], (req, res) => {
+
+  model.User.findAll({
+    where : {
+      id : req.userData.id
+    },
+    include: [
+      {
+        model:  model.Dog,
+         as: "dog"
+      }
+    ]
+  }).then(users => {
+
+    const resObj = users.map(user => {
+
+      return Object.assign(
+        {},
+        {
+
+          userId : user.id,
+          username : user.username,
+          email : user.email,
+          phoneNumber : user.phoneNumber,
+          dogs : user.dog.map(dog => {
+
+            return Object.assign(
+              {},
+              {
+
+                dogId : dog.id,
+                dogName : dog.dogName,
+                userId : dog.userID,
+                dogAge : dog.dogAge,
+                breed : dog.breed,
+                color : dog.color,
+                size: dog.size,
+                file : dog.fileLocation
+
+              })
+
+            })
+
+          })
+
+      });
+
+      res.json(resObj);
+
+  });
+
 });
 
-router.post("/signup", [validateInput], (req, res, next) => {
+router.post("/signup", [validateCreateUser], (req, res, next) => {
 
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -43,7 +92,8 @@ router.post("/signup", [validateInput], (req, res, next) => {
         bcrypt.hash(req.body.password, hashCount, function(err, hash) {
 
         req.body.password = hash;
-
+        req.body.isAdmin = false;
+        
         model.User.create(req.body)
         .then(user => res.json({
 

@@ -1,9 +1,13 @@
 const { check } = require('express-validator');
 
+const blacklist = "!#@$%^&*(){}[]|,<>/?-_=+;:";
+
+
 module.exports = [
 
     check('username')
         .not().isEmpty().withMessage("username cannot be empty")
+        .blacklist(blacklist)
         .trim()
         .escape()
         .isString().withMessage("invalid format for username")

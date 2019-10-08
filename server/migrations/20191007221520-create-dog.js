@@ -1,45 +1,37 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Users', {
+    return queryInterface.createTable('Dogs', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      username: {
-        required: true,
-        type: Sequelize.STRING,
-        unique: true
-      },
-      token: {
+      // userId: {
+      //   type: Sequelize.INTEGER,
+      //   allowNull: false,
+      //   references: {         
+      //     model: 'Users',
+      //     key: 'id'
+      //   }
+      // },
+      dogName: {
         type: Sequelize.STRING
       },
-      password: {
-        required: true,
+      dogAge: {
+        type: Sequelize.INTEGER
+      },
+      breed: {
         type: Sequelize.STRING
       },
-      address: {
+      color: {
         type: Sequelize.STRING
       },
-      city: {
+      size: {
         type: Sequelize.STRING
       },
-      state: {
-        type: Sequelize.STRING
-      },
-      zipCode: {
-        type: Sequelize.STRING
-      },
-      email: {
-        type: Sequelize.STRING
-      },
-      isAdmin: {
-        type: Sequelize.BOOLEAN
-      },
-      phoneNumber: {
-        required: true,
+      fileLocation: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -53,6 +45,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Users');
+    return queryInterface.dropTable('Dogs');
   }
 };
