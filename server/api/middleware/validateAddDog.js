@@ -8,35 +8,42 @@
 
 const { check } = require('express-validator');
 
+const blacklist = "!#@$%^&*(){}[]|,<>/?-_=+;:";
+
 module.exports = [
 
         check('dogName')
-          .not().isEmpty().withMessage("dog name cannot be empty")
-          .trim()
-          .escape()
-          .isString().withMessage("invalid format for username"),
+            .not().isEmpty().withMessage("dog name cannot be empty")
+            .blacklist(blacklist)
+            .trim()
+            .escape()
+            .isString().withMessage("invalid format for username"),
         check("userID")
             .not().isEmpty().withMessage("userID cannot be empty")
             .trim()
             .escape()
-            .isInt().withMessage("userID must be an integer"),
+            .isNumeric().withMessage("userID must be an integer"),
         check("dogAge")
             .trim()
-            .isInt().withMessage("dog age must be an integer")
+            .isNumeric().withMessage("dog age must be an integer")
             .escape(),
         check("breed")
+            .blacklist(blacklist)
             .isString().withMessage("Invalid format for breed")
             .trim()
             .escape(),
         check("color")
+            .blacklist(blacklist)
             .isString().withMessage("Invalid format for color")
             .trim()
             .escape(),
         check("size")
+            .blacklist(blacklist)
             .isString().withMessage("Invalid format for size")
             .trim()
             .escape(),
         check("fileLocation")
+            .blacklist(blacklist)
             .isString().withMessage("Invalid format for fileLocation")
             .trim()
             .escape()

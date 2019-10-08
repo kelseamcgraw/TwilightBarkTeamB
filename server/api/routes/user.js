@@ -8,7 +8,7 @@ const isAdmin = require("../middleware/check-isAdmin");
 const router = express.Router();
 
 const validateUserLogin = require("../middleware/validateUserLogin")
-const validateInput = require("../middleware/validateCreateUser");
+const validateCreateUser = require("../middleware/validateCreateUser");
 const model = require('../../models/index');
 
 const hashCount = 12;
@@ -66,7 +66,7 @@ router.get('/users', [authorize], (req, res) => {
 
 });
 
-router.post("/signup", [validateInput], (req, res, next) => {
+router.post("/signup", [validateCreateUser], (req, res, next) => {
 
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
