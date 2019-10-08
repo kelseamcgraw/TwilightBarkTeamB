@@ -29,72 +29,26 @@ router.post("/add", [validateAddDog], (req, res, next) => {
 
 });
 
-router.post("/login", (req, res, next) => {
-  
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(422).json({ errors: errors.array() });
-  }
+router.post("/update", (req, res, next) => {
 
-  model.User.findOne({ 
+  model.Dog.update(req.body, { 
     
-    where: { username: req.body.username } 
+    where: { dogName: req.body.dogName } 
   
   })
-  .then(user => { 
-    if(user) {
-      
-      let hash = bcrypt.hashSync(req.body.password, hashCount);
+  .then(dog => { 
 
-      bcrypt.compare(req.body.password, hash, (err, result) => {
-  
-        if(result) {
-  
-          jwt.sign({ 
-            id: user.id, 
-            username: user.username, 
-            isAdmin: user.isAdmin,
-            exp: Date.now()
-           }, process.env.tokenKey, (err, token) => {
-  
-            if(err) {
-  
-              res.json({
-  
-                error: err
-  
-              });
-  
-            } else {
-  
-              res.json({
-  
-                message: "login success",
-                token: token
-              
-              });
-  
-            }
-  
-          });
-        
-        } else {
-          
-          res.json({
-            
-            message: "username or password incorrect"
-          
-          });
-        
-        }
-      
-      });
+    if(dog) {
+
+      res.json({
+          message: dog
+      })
 
     } else {
 
       res.json({
             
-        message: "username or password incorrect"
+        message: dog
       
       });
 
