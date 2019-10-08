@@ -13,9 +13,12 @@ const model = require('../../models/index');
 
 const hashCount = 12;
 
-router.get('/users', (req, res) => {
+router.get('/users', [authorize], (req, res) => {
 
   model.User.findAll({
+    where : {
+      id : req.userData.id
+    },
     include: [
       {
         model:  model.Dog,
