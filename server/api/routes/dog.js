@@ -69,7 +69,7 @@ router.post("/update", (req, res, next) => {
 });
 
 router.delete("/delete/:dogId",  [
-  check("userId").not().isEmpty().withMessage("userId not provided")
+  check("dogId").not().isEmpty().withMessage("dogId not provided")
   .trim()
   .escape()
   .isNumeric().withMessage("not a number"),
@@ -81,16 +81,16 @@ router.delete("/delete/:dogId",  [
     return res.status(422).json({ errors: errors.array() });
   }
 
-  model.User.destroy({ 
+  model.Dog.destroy({ 
 
-    where: { id: req.params.userId} 
+    where: { id: req.params.dogId} 
 
   })
-  .then((user) => {
+  .then((dog) => {
 
     res.json({
 
-      user
+      dog
    
     })
  
