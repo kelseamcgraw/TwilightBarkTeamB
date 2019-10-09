@@ -3,17 +3,18 @@ const { check, validationResult } = require('express-validator');
 
 const authorize = require("../middleware/check-auth");
 const router = express.Router();
-const validateAddDog = require("../middleware/validateAddDog");
+const isAdmin = require("../middleware/check-isAdmin");
 
 const model = require('../../models/index');
 
-const hashCount = 12;
+const { dogUpdate, dogCreate, dogId, validate } = require("../middleware/validateData");
 
-router.get('/dogs', (req, res) => {
+
+router.get('/dogs', [authorize, isAdmin], (req, res) => {
   model.Dog.findAll().then(dogs => res.json(dogs));
 });
 
-router.post("/add", [validateAddDog], (req, res, next) => {
+router.post("/add", [authorize, dogCreate(), validate], (req, res, next) => {
 
     model.Dog.create(req.body)
     .then(user => res.json({
@@ -29,11 +30,14 @@ router.post("/add", [validateAddDog], (req, res, next) => {
 
 });
 
-router.post("/update", (req, res, next) => {
+router.post("/update", [authorize, dogUpdate(), validate], (req, res, next) => {
 
   model.Dog.update(req.body, { 
     
-    where: { dogName: req.body.dogName } 
+    where: { 
+        id: req.body.dogId,
+        userId: req.body.userId
+    } 
   
   })
   .then(dog => { 
@@ -69,11 +73,10 @@ router.post("/update", (req, res, next) => {
 });
 
 router.delete("/delete/:dogId",  [
-  check("dogId").not().isEmpty().withMessage("dogId not provided")
-  .trim()
-  .escape()
-  .isNumeric().withMessage("not a number"),
-  authorize
+    dogId(),
+    validate,
+    isAdmin,
+    authorize
 ], (req, res, next) => {
 
   const errors = validationResult(req);
