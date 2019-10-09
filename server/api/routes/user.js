@@ -7,13 +7,13 @@ const authorize = require("../middleware/check-auth");
 const isAdmin = require("../middleware/check-isAdmin");
 const router = express.Router();
 
-const validateUserLogin = require("../middleware/validateUserLogin")
-const validateCreateUser = require("../middleware/validateCreateUser");
+const { userLogin, updateUser, userId, userCreate, validate } = require("../middleware/validateData");
+
 const model = require('../../models/index');
 
 const hashCount = 12;
 
-router.get('/users', [authorize], (req, res) => {
+router.get('/dogs', [authorize], (req, res) => {
 
   model.User.findAll({
     where : {
@@ -66,7 +66,7 @@ router.get('/users', [authorize], (req, res) => {
 
 });
 
-router.post("/signup", [validateCreateUser], (req, res, next) => {
+router.post("/signup", [userCreate(), validate], (req, res, next) => {
 
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -114,7 +114,7 @@ router.post("/signup", [validateCreateUser], (req, res, next) => {
 
 });
 
-router.post("/login", [validateUserLogin], (req, res, next) => {
+router.post("/login", [userLogin(), validate], (req, res, next) => {
   
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -199,14 +199,47 @@ router.post("/login", [validateUserLogin], (req, res, next) => {
 
 });
 
-router.delete("/delete/:userId",  [
-  check("userId").not().isEmpty().withMessage("userId not provided")
-  .trim()
-  .escape()
-  .isNumeric().withMessage("not a number"),
-  authorize, 
-  isAdmin
-], (req, res, next) => {
+router.post("/update", [updateUser(), validate, authorize], (req, res, next) => {
+
+  model.User.update(req.body, { 
+    
+    where: { id: req.userData.id } 
+  
+  })
+  .then(user => { 
+
+    if(user) {
+
+      res.json({
+          message: user
+      })
+
+    } else {
+
+      res.json({
+            
+        message: "Error"
+      
+      });
+
+    }
+
+  
+  })
+  .catch((error) => {
+
+    res.json({
+      
+      error: error
+
+    });
+
+  });
+
+});
+
+
+router.delete("/delete",  [authorize], (req, res, next) => {
 
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -215,7 +248,7 @@ router.delete("/delete/:userId",  [
 
   model.User.destroy({ 
 
-    where: { id: req.params.userId} 
+    where: { id: req.userData.id} 
 
   })
   .then((user) => {
