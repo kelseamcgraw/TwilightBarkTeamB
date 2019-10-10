@@ -144,7 +144,7 @@ const dogCreate = () => {
             .escape(),
         check("size")
             .blacklist(blacklist)
-            .not.isEmpty().withMessage("size cannot be empty")
+            .not().isEmpty().withMessage("size cannot be empty")
             .isString().withMessage("Invalid format for size")
             .trim()
             .escape(),

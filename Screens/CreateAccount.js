@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import deviceStorage from '../services/deviceStorage'; 
 
 import { 
     Button,
@@ -14,7 +15,7 @@ class CreateAccount extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            dogName : "",
+            errors: [],
             username : "",
             password : "",
             repassword : "",
@@ -34,7 +35,6 @@ class CreateAccount extends React.Component {
         },
         body: JSON.stringify({
 
-            dogName: this.state.dogName,
             username: this.state.username,
             password: this.state.password,
             email: this.state.email,
@@ -45,13 +45,15 @@ class CreateAccount extends React.Component {
         .then((res) => res.json())
         .then((resjson) => {
 
-            if(resjson.error) {
-
-                console.log(resjson.error.msg);
+            if(resjson.errors) {
+                
+                console.log(resjson.errors);
 
             } else {
-
-                console.log(resjson);
+                deviceStorage.saveItem("id_token", resjson.token);
+                deviceStorage.getJWT().then(token => {
+                    console.log(token);
+                });
 
             }
 
@@ -65,12 +67,6 @@ class CreateAccount extends React.Component {
         return (
             <View style={styles.container}>
                 <Text>sign up with google/facebook</Text>
-                <TextInput
-                    value={this.state.size}
-                    onChangeText={(dogName) => this.setState({ dogName })}
-                    placeholder={ "Dogs Name" }
-                    style={ styles.input }
-                />
                 <TextInput
                     value={this.state.name}
                     onChangeText={(username) => this.setState({ username })}
