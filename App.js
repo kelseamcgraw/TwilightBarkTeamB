@@ -1,5 +1,6 @@
 import { AppLoading } from 'expo';
 import React, { useState } from 'react';
+// import axios from 'axios';
 
 import {  
           StyleSheet, 
@@ -8,9 +9,12 @@ import {
 
 import AppNavigator from './Navigation/AppNavigator';
 
+const baseurl = 'http://127.0.0.1:3000';
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
+
+  // axios.defaults.baseURL(baseurl);
 
   if (!isLoadingComplete && !props.skipLoadingScreen) {
     return (

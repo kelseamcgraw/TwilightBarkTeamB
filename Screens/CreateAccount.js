@@ -1,5 +1,5 @@
 import * as React from 'react';
-
+import axios from '../u';
 
 import { 
     Button,
@@ -14,7 +14,6 @@ class CreateAccount extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            dogName : "",
             username : "",
             password : "",
             repassword : "",
@@ -23,42 +22,59 @@ class CreateAccount extends React.Component {
         }
     }
 
+
+
     handleCreateAccountButton = () => {
-        fetch('http://127.0.0.1:3000/user/signup', {
-        method: 'POST',
-        headers: {
 
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
+        axios.post('/user/signup', {
 
-        },
-        body: JSON.stringify({
-
-            dogName: this.state.dogName,
             username: this.state.username,
             password: this.state.password,
             email: this.state.email,
             phoneNumber: this.state.phoneNumber
-
-        }),
+    
         })
-        .then((res) => res.json())
-        .then((resjson) => {
-
-            if(resjson.error) {
-
-                console.log(resjson.error.msg);
-
-            } else {
-
-                console.log(resjson);
-
-            }
-
+        .then((res) => {
+            console.log(res);
         })
-        .catch((error) => {
-            console.error(error);
+        .catch((err) => {
+            console.log("error");
         });
+
+    //     fetch('http://127.0.0.1:3000/user/signup', {
+    //     method: 'POST',
+    //     headers: {
+
+    //         Accept: 'application/json',
+    //         'Content-Type': 'application/json',
+
+    //     },
+    //     body: JSON.stringify({
+
+    //         username: this.state.username,
+    //         password: this.state.password,
+    //         email: this.state.email,
+    //         phoneNumber: this.state.phoneNumber
+
+    //     }),
+    //     })
+    //     .then((res) => res.json())
+    //     .then((resjson) => {
+
+    //         if(resjson.error) {
+
+    //             console.log(resjson.error.msg);
+
+    //         } else {
+
+    //             console.log(resjson);
+
+    //         }
+
+    //     })
+    //     .catch((error) => {
+    //         console.error(error);
+    //     });
     }
 
     render() {
