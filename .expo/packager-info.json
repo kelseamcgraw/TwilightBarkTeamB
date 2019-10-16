@@ -1,18 +1,9 @@
 {
   "devToolsPort": 19002,
-<<<<<<< HEAD
   "expoServerPort": null,
   "packagerPort": null,
   "packagerPid": null,
   "expoServerNgrokUrl": null,
   "packagerNgrokUrl": null,
   "ngrokPid": null
-=======
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 9004,
-  "expoServerNgrokUrl": "https://jw-jh2.anonymous.twilightbarkteamb.exp.direct",
-  "packagerNgrokUrl": "https://packager.jw-jh2.anonymous.twilightbarkteamb.exp.direct",
-  "ngrokPid": 9013
->>>>>>> 762d721add02b69c55f2dd7b65f13774de0e3751
 }
