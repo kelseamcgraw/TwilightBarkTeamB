@@ -14,21 +14,53 @@ class Login extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            email: "",
+            username: "",
             password: ""
         }
     }
-    
-    handleLoginButtonPress = () => {
-        console.log("Username: " + this.state.email + " Password: " + this.state.password);
-    }
 
+    handleLoginButtonPress = () => {
+        fetch('http://127.0.0.1:3000/user/login', {
+            method: 'POST',
+            headers: {
+    
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+    
+            },
+            body: JSON.stringify({
+    
+                username: this.state.username,
+                password: this.state.password
+    
+            }),
+            })
+            .then((res) => res.json())
+            .then((resjson) => {
+    
+                if(resjson.error) {
+    
+                    console.log("there was an error");
+    
+                } else {
+    
+                    console.log(resjson.messaage);
+    
+                }
+    
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
+    
+    
     render() {
         return (
             <View style={styles.container}>
                 <TextInput
                 value={this.state.username}
-                onChangeText={(email) => this.setState({ email })}
+                onChangeText={(username) => this.setState({ username })}
                 placeholder={'Username'}
                 style={styles.input}
                 />
@@ -50,6 +82,8 @@ class Login extends React.Component {
     }
 
 }
+
+
 
 const styles = StyleSheet.create({
     container: {

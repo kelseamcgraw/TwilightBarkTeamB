@@ -126,21 +126,25 @@ const dogCreate = () => {
             .escape()
             .isNumeric().withMessage("userID must be an integer"),
         check("dogAge")
+            .optional()
             .trim()
             .isNumeric().withMessage("dog age must be an integer")
             .escape(),
         check("breed")
+            .optional()
             .blacklist(blacklist)
             .isString().withMessage("Invalid format for breed")
             .trim()
             .escape(),
         check("color")
+            .optional()
             .blacklist(blacklist)
             .isString().withMessage("Invalid format for color")
             .trim()
             .escape(),
         check("size")
             .blacklist(blacklist)
+            .not().isEmpty().withMessage("size cannot be empty")
             .isString().withMessage("Invalid format for size")
             .trim()
             .escape(),

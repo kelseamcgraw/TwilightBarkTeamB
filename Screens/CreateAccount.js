@@ -1,5 +1,7 @@
 import * as React from 'react';
-import axios from '../u';
+import axios from '../util/Axios';
+
+import deviceStorage from '../services/deviceStorage'; 
 
 import { 
     Button,
@@ -14,6 +16,7 @@ class CreateAccount extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            errors: [],
             username : "",
             password : "",
             repassword : "",
@@ -67,8 +70,15 @@ class CreateAccount extends React.Component {
 
     //         } else {
 
-    //             console.log(resjson);
+            // if(resjson.errors) {
+                    
+            //     console.log(resjson.errors);
 
+            // } else {
+            //     deviceStorage.saveItem("id_token", resjson.token);
+            //     deviceStorage.getJWT().then(token => {
+            //         console.log(token);
+            // });
     //         }
 
     //     })
@@ -81,12 +91,6 @@ class CreateAccount extends React.Component {
         return (
             <View style={styles.container}>
                 <Text>sign up with google/facebook</Text>
-                <TextInput
-                    value={this.state.size}
-                    onChangeText={(dogName) => this.setState({ dogName })}
-                    placeholder={ "Dogs Name" }
-                    style={ styles.input }
-                />
                 <TextInput
                     value={this.state.name}
                     onChangeText={(username) => this.setState({ username })}
