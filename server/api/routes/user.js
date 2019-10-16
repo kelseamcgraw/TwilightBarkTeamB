@@ -102,7 +102,7 @@ router.post("/signup", [userCreate(), validate], (req, res, next) => {
             username: user.username, 
             isAdmin: user.isAdmin,
             exp: Date.now()
-           }, process.env.tokenKey, (err, token) => {
+           }, process.env.TOKEN_KEY, (err, token) => {
   
             if(err) {
   
@@ -116,7 +116,6 @@ router.post("/signup", [userCreate(), validate], (req, res, next) => {
   
               res.json({
   
-                message: "New User Created",
                 token: token
               
               });
@@ -161,7 +160,7 @@ router.post("/login", [userLogin(), validate], (req, res, next) => {
             username: user.username, 
             isAdmin: user.isAdmin,
             exp: Date.now()
-           }, process.env.tokenKey, (err, token) => {
+           }, process.env.TOKEN_KEY, (err, token) => {
   
             if(err) {
   
@@ -175,7 +174,6 @@ router.post("/login", [userLogin(), validate], (req, res, next) => {
   
               res.json({
   
-                message: "login success",
                 token: token
               
               });
