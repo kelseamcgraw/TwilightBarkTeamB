@@ -1,5 +1,5 @@
 import * as React from 'react';
-
+import axios from '../util/Axios';
 // https://snack.expo.io/@zvona/a-simple-login-form was referenced for this file
 
 import { 
@@ -20,38 +20,20 @@ class Login extends React.Component {
     }
 
     handleLoginButtonPress = () => {
-        fetch('http://127.0.0.1:3000/user/login', {
-            method: 'POST',
-            headers: {
+
+        axios.post('/user/login', {
+
+            username: this.state.username,
+            password: this.state.password
     
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-    
-            },
-            body: JSON.stringify({
-    
-                username: this.state.username,
-                password: this.state.password
-    
-            }),
-            })
-            .then((res) => res.json())
-            .then((resjson) => {
-    
-                if(resjson.error) {
-    
-                    console.log("there was an error");
-    
-                } else {
-    
-                    console.log(resjson.messaage);
-    
-                }
-    
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+        })
+        .then((res) => {
+            console.log(res.data);
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+
     }
     
     

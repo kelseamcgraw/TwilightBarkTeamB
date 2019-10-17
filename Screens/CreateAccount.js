@@ -38,53 +38,12 @@ class CreateAccount extends React.Component {
     
         })
         .then((res) => {
-            console.log(res.response);
+            console.log(res.data);
         })
         .catch((err) => {
-            console.log("error");
+            console.log(err);
         });
-
-    //     fetch('http://127.0.0.1:3000/user/signup', {
-    //     method: 'POST',
-    //     headers: {
-
-    //         Accept: 'application/json',
-    //         'Content-Type': 'application/json',
-
-    //     },
-    //     body: JSON.stringify({
-
-    //         username: this.state.username,
-    //         password: this.state.password,
-    //         email: this.state.email,
-    //         phoneNumber: this.state.phoneNumber
-
-    //     }),
-    //     })
-    //     .then((res) => res.json())
-    //     .then((resjson) => {
-
-    //         if(resjson.error) {
-
-    //             console.log(resjson.error.msg);
-
-    //         } else {
-
-            // if(resjson.errors) {
-                    
-            //     console.log(resjson.errors);
-
-            // } else {
-            //     deviceStorage.saveItem("id_token", resjson.token);
-            //     deviceStorage.getJWT().then(token => {
-            //         console.log(token);
-            // });
-    //         }
-
-    //     })
-    //     .catch((error) => {
-    //         console.error(error);
-    //     });
+ 
     }
 
     render() {
