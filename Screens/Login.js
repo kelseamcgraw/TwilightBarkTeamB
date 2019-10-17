@@ -28,7 +28,11 @@ class Login extends React.Component {
     
         })
         .then((res) => {
-            console.log(res.data);
+            if(res.data.message || res.data.error) {
+                console.log(res.data)
+            } else {
+                console.log(res.data.token);
+            }
         })
         .catch((err) => {
             console.log(err);

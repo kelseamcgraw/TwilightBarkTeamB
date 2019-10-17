@@ -57,25 +57,25 @@ class CreateAccount extends React.Component {
                     style={ styles.input }
                 />
                 <TextInput
-                    value={this.state.color}
+                    value={this.state.password}
                     onChangeText={(password) => this.setState({ password })}
                     placeholder={ "password" }
                     style={ styles.input }
                 />
                 <TextInput
-                    value={this.state.size}
+                    value={this.state.repassword}
                     onChangeText={(repassword) => this.setState({ repassword })}
                     placeholder={ "re enter password" }
                     style={ styles.input }
                 />
                 <TextInput
-                    value={this.state.gender}
+                    value={this.state.phoneNumber}
                     onChangeText={(phoneNumber) => this.setState({ phoneNumber })}
                     placeholder={ "phone number" }
                     style={ styles.input }
                 />
                 <TextInput
-                    value={this.state.address}
+                    value={this.state.email}
                     onChangeText={(email) => this.setState({ email })}
                     placeholder={ "email" }
                     style={ styles.input }

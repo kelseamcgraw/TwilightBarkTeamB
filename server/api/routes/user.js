@@ -149,9 +149,7 @@ router.post("/login", [userLogin(), validate], (req, res, next) => {
   .then(user => { 
     if(user) {
       
-      let hash = bcrypt.hashSync(req.body.password, hashCount);
-
-      bcrypt.compare(req.body.password, hash, (err, result) => {
+      bcrypt.compare(req.body.password, user.password, (err, result) => {
   
         if(result) {
   
