@@ -1,6 +1,8 @@
 import * as React from 'react';
-import axios from '../util/Axios';
+import axios from '../../util/Axios';
 // https://snack.expo.io/@zvona/a-simple-login-form was referenced for this file
+
+import deviceStorage from '../../services/deviceStorage';
 
 import { 
     Button,
@@ -28,10 +30,16 @@ class Login extends React.Component {
     
         })
         .then((res) => {
-            if(res.data.message || res.data.error) {
-                console.log(res.data)
-            } else {
-                console.log(res.data.token);
+
+            if(res.data.message !== undefined || res.data.error !== undefined) {
+                //to-do show error or message
+                console.log(res.data);
+    
+            } else if (res.data.token !== undefined) {
+
+                const { navigate } = this.props.navigation;
+                deviceStorage.saveItem("token", res.data.token);
+                this.props.navigation.navigate('AuthLoading');
             }
         })
         .catch((err) => {
@@ -40,6 +48,12 @@ class Login extends React.Component {
 
     }
     
+    handleFailedLogin = (data) => {
+
+
+
+    }
+
     
     render() {
         return (
@@ -48,12 +62,15 @@ class Login extends React.Component {
                 value={this.state.username}
                 onChangeText={(username) => this.setState({ username })}
                 placeholder={'Username'}
+                autoCapitalize = 'none'
                 style={styles.input}
                 />
                 <TextInput
+                secureTextEntry={true}
                 value={this.state.password}
                 onChangeText={(password) => this.setState({ password })}
                 placeholder={'Password'}
+                autoCapitalize = 'none'
                 secureTextEntry={true}
                 style={styles.input}
                 />

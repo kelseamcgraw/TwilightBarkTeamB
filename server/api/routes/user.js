@@ -68,11 +68,6 @@ router.get('/dogs', [authorize], (req, res) => {
 
 router.post("/signup", [userCreate(), validate], (req, res, next) => {
 
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(422).json({ errors: errors.array() });
-  }
-
   model.User.findAll({ 
     
     where: { username: req.body.username } 
@@ -135,11 +130,6 @@ router.post("/signup", [userCreate(), validate], (req, res, next) => {
 });
 
 router.post("/login", [userLogin(), validate], (req, res, next) => {
-  
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(422).json({ errors: errors.array() });
-  }
 
   model.User.findOne({ 
     

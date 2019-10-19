@@ -1,7 +1,7 @@
 import * as React from 'react';
-import axios from '../util/Axios';
+import axios from '../../util/Axios';
 
-import deviceStorage from '../services/deviceStorage'; 
+import deviceStorage from '../../services/deviceStorage'; 
 
 import { 
     Button,
@@ -16,7 +16,6 @@ class CreateAccount extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            errors: [],
             username : "",
             password : "",
             repassword : "",
@@ -38,7 +37,15 @@ class CreateAccount extends React.Component {
     
         })
         .then((res) => {
-            console.log(res.data);
+            if(res.data.message !== undefined || res.data.error !== undefined) {
+                //to-do show error or message
+                console.log(res.data);
+    
+            } else if (res.data.token !== undefined) {
+                const { navigate } = this.props.navigation;
+                deviceStorage.saveItem("token", res.data.token);
+                this.props.navigation.navigate('AuthLoading');
+            }
         })
         .catch((err) => {
             console.log(err);
@@ -54,31 +61,38 @@ class CreateAccount extends React.Component {
                     value={this.state.name}
                     onChangeText={(username) => this.setState({ username })}
                     placeholder={ "username" }
+                    autoCapitalize = 'none'
                     style={ styles.input }
                 />
                 <TextInput
+                    secureTextEntry={true}
                     value={this.state.password}
                     onChangeText={(password) => this.setState({ password })}
                     placeholder={ "password" }
+                    autoCapitalize = 'none'
                     style={ styles.input }
                 />
                 <TextInput
+                    secureTextEntry={true}
                     value={this.state.repassword}
                     onChangeText={(repassword) => this.setState({ repassword })}
                     placeholder={ "re enter password" }
                     style={ styles.input }
+                    autoCapitalize = 'none'
                 />
                 <TextInput
                     value={this.state.phoneNumber}
                     onChangeText={(phoneNumber) => this.setState({ phoneNumber })}
                     placeholder={ "phone number" }
                     style={ styles.input }
+                    autoCapitalize = 'none'
                 />
                 <TextInput
                     value={this.state.email}
                     onChangeText={(email) => this.setState({ email })}
                     placeholder={ "email" }
                     style={ styles.input }
+                    autoCapitalize = 'none'
                 />
                 <Button
                     title={ 'Create Account' }

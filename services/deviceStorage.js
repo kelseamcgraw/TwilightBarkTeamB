@@ -10,9 +10,9 @@ const deviceStorage = {
       }
     },
 
-    async getJWT() {
+    async getItem(key) {
         try {
-          const token = await AsyncStorage.getItem('id_token');
+          const token = await AsyncStorage.getItem(key);
           if (token !== null) {
             return token;
           } else {
@@ -23,9 +23,9 @@ const deviceStorage = {
         }
       },
 
-      async deleteJWT() {
+      async deleteItem(key) {
         try{
-          await AsyncStorage.removeItem('id_token');
+          await AsyncStorage.removeItem(key);
         } catch (error) {
           console.log('AsyncStorage Error: ' + error.message);
         }
