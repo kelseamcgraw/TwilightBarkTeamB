@@ -1,6 +1,6 @@
 const { check, validationResult } = require('express-validator')
 
-const blacklist = "!#$%^&*(){}[]|,<>/?-_=+;:";
+const blacklist = "!#$%^&*(){}[]|,<>?-_=+;:";
 
 const userCreate = () => {
 
@@ -120,11 +120,6 @@ const dogCreate = () => {
             .trim()
             .escape()
             .isString().withMessage("invalid format for username"),
-        check("userID")
-            .not().isEmpty().withMessage("userID cannot be empty")
-            .trim()
-            .escape()
-            .isNumeric().withMessage("userID must be an integer"),
         check("dogAge")
             .optional()
             .trim()
@@ -148,11 +143,7 @@ const dogCreate = () => {
             .isString().withMessage("Invalid format for size")
             .trim()
             .escape(),
-        check("fileLocation")
-            .blacklist(blacklist)
-            .isString().withMessage("Invalid format for fileLocation")
-            .trim()
-            .escape()
+
 
     ];
 
@@ -179,12 +170,6 @@ const dogUpdate = () => {
             .trim()
             .escape()
             .isString().withMessage("invalid format for username"),
-        check("userID")
-            .optional()
-            .not().isEmpty().withMessage("userID cannot be empty")
-            .trim()
-            .escape()
-            .isNumeric().withMessage("userID must be an integer"),
         check("dogAge")
             .optional()
             .trim()
@@ -208,12 +193,6 @@ const dogUpdate = () => {
             .isString().withMessage("Invalid format for size")
             .trim()
             .escape(),
-        check("fileLocation")
-            .optional()
-            .blacklist(blacklist)
-            .isString().withMessage("Invalid format for fileLocation")
-            .trim()
-            .escape()
 
     ];
 }

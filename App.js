@@ -1,7 +1,6 @@
 import { AppLoading } from 'expo';
 import React, { useState } from 'react';
 
-
 import {  
           StyleSheet, 
           View 

@@ -1,3 +1,4 @@
 .vscode/
 /server/.env
 /bin
+.env

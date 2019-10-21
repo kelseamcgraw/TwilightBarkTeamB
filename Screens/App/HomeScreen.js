@@ -1,29 +1,42 @@
 import * as React from 'react';
 
+import axios from '../../util/Axios';
+
+import deviceStorage from '../../services/deviceStorage'; 
+
+import { List, ListItem} from 'react-native-elements';
 
 import { 
-    Button,
     View,
-    TextInput,
-    StyleSheet,
-    Text
+    StyleSheet
 } from 'react-native';
 
+import Dog from '../../Components/Dog';
 class Home extends React.Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            person: ""
+            isLoading: true
+            
         }
     }
+
+
+
+    handleAddDog = () => {
+        const { navigate } = this.props.navigation;
+
+        this.props.navigation.navigate('AddDog');
+    }
+    
 
     render() {
         return (
             <View style={styles.container}>
-                <Text>Home</Text>
+                <Dog action={this.handleAddDog.bind(this)}/>
             </View>
-        );
+        )
     }
 
 }
@@ -35,13 +48,10 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       backgroundColor: '#ecf0f1',
     },
-    input: {
+    text: {
       width: 250,
       height: 44,
       padding: 10,
-      borderWidth: 1,
-      borderColor: 'black',
-      marginBottom: 10,
     },
   });
 

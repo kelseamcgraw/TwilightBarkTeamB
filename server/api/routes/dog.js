@@ -16,8 +16,18 @@ router.get('/dogs', [authorize, isAdmin], (req, res) => {
 
 router.post("/add", [authorize, dogCreate(), validate], (req, res, next) => {
 
-    model.Dog.create(req.body)
-    .then(user => res.json({
+    const dog = {
+      dogName: req.body.dogName,
+      userID : req.userData.id,
+      dogAge : parseInt(req.body.dogAge, 10),
+      breed : req.body.breed,
+      color : req.body.color,
+      size: req.body.size,
+      fileLocation: "" // to do get filelocation server side
+    }
+    console.log(dog);
+    model.Dog.create(dog)
+    .then(dog => res.json({
 
         message: "New Dog Added"
 
@@ -36,7 +46,7 @@ router.post("/update", [authorize, dogUpdate(), validate], (req, res, next) => {
     
     where: { 
         id: req.body.dogId,
-        userId: req.body.userId
+        userId: req.userData.id
     } 
   
   })

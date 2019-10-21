@@ -21,11 +21,11 @@ class Profile extends React.Component {
 
     handleLogoutButton = () => {
         const { navigate } = this.props.navigation;
-        deviceStorage.deleteItem('token');
+        deviceStorage.deleteItem("userKey");
         this.props.navigation.navigate('AuthLoading');
     }
 
-    render() {
+    render() { 
         return (
             <View style={styles.container}>
                 <Text>Profile</Text>

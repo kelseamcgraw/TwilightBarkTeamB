@@ -38,7 +38,7 @@ class Login extends React.Component {
             } else if (res.data.token !== undefined) {
 
                 const { navigate } = this.props.navigation;
-                deviceStorage.saveItem("token", res.data.token);
+                deviceStorage.saveItem("userKey", res.data.token);
                 this.props.navigation.navigate('AuthLoading');
             }
         })

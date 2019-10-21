@@ -38,12 +38,12 @@ class CreateAccount extends React.Component {
         })
         .then((res) => {
             if(res.data.message !== undefined || res.data.error !== undefined) {
-                //to-do show error or message
+                //to-do show error or message and check repassword and password match
                 console.log(res.data);
     
             } else if (res.data.token !== undefined) {
                 const { navigate } = this.props.navigation;
-                deviceStorage.saveItem("token", res.data.token);
+                deviceStorage.saveItem("userKey", res.data.token);
                 this.props.navigation.navigate('AuthLoading');
             }
         })
