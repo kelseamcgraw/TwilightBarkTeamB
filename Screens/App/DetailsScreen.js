@@ -1,34 +1,33 @@
 import * as React from 'react';
+
 import axios from '../../util/Axios';
 
 import deviceStorage from '../../services/deviceStorage'; 
 
+import { List, ListItem} from 'react-native-elements';
+
 import { 
-    Button,
-    View,
     Text,
     TextInput,
-    StyleSheet,
+    Button,
+    View,
+    StyleSheet
 } from 'react-native';
 
-class CreateAccount extends React.Component {
+class DetailsScreen extends React.Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            username : "",
-            password : "",
-            repassword : "",
-            phoneNumber : "",
-            email : ""
+            city: "",
+            state: "",
+            zipCode: ""            
         }
     }
 
+    handleUpdateUser = () => {
 
-
-    handleCreateAccountButton = () => {
-
-        axios.post('/user/signup', {
+        axios.post('/user/update', {
 
             username: this.state.username,
             password: this.state.password,
@@ -50,57 +49,43 @@ class CreateAccount extends React.Component {
         .catch((err) => {
             console.log(err);
         });
- 
+
     }
 
     render() {
         return (
             <View style={styles.container}>
-                <Text>sign up with google/facebook</Text>
+                <Text>Add your Address</Text>
                 <TextInput
-                    value={this.state.name}
-                    onChangeText={(username) => this.setState({ username })}
-                    placeholder={ "username" }
+                    value={this.state.city}
+                    onChangeText={(city) => this.setState({ city })}
+                    placeholder={ "City" }
                     autoCapitalize = 'none'
                     style={ styles.input }
                 />
                 <TextInput
                     secureTextEntry={true}
-                    value={this.state.password}
-                    onChangeText={(password) => this.setState({ password })}
-                    placeholder={ "password" }
+                    value={this.state.state}
+                    onChangeText={(state) => this.setState({ state })}
+                    placeholder={ "State" }
                     autoCapitalize = 'none'
                     style={ styles.input }
                 />
                 <TextInput
                     secureTextEntry={true}
-                    value={this.state.repassword}
-                    onChangeText={(repassword) => this.setState({ repassword })}
-                    placeholder={ "re enter password" }
-                    style={ styles.input }
-                    autoCapitalize = 'none'
-                />
-                <TextInput
-                    value={this.state.phoneNumber}
-                    onChangeText={(phoneNumber) => this.setState({ phoneNumber })}
-                    placeholder={ "phone number" }
-                    style={ styles.input }
-                    autoCapitalize = 'none'
-                />
-                <TextInput
-                    value={this.state.email}
-                    onChangeText={(email) => this.setState({ email })}
-                    placeholder={ "email" }
+                    value={this.state.zipCode}
+                    onChangeText={(zipCode) => this.setState({ zipCode })}
+                    placeholder={ "Zip Code" }
                     style={ styles.input }
                     autoCapitalize = 'none'
                 />
                 <Button
-                    title={ 'Create Account' }
+                    title={ 'Save' }
                     style={ styles.input }
-                    onPress={this.handleCreateAccountButton.bind(this)}
+                    onPress={this.handleUpdateUser.bind(this)}
                 />
             </View>
-        );
+        )
     }
 
 }
@@ -113,13 +98,18 @@ const styles = StyleSheet.create({
       backgroundColor: '#ecf0f1',
     },
     input: {
+        width: 250,
+        height: 44,
+        padding: 10,
+        borderWidth: 1,
+        borderColor: 'black',
+        marginBottom: 10,
+      },
+    text: {
       width: 250,
       height: 44,
       padding: 10,
-      borderWidth: 1,
-      borderColor: 'black',
-      marginBottom: 10,
     },
   });
 
-export default CreateAccount;
+export default DetailsScreen;

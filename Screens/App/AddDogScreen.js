@@ -26,7 +26,24 @@ class AddDog extends React.Component {
         
     }
 
-    async handleAddDogButton(){
+    clearState() {
+        console.log("clearing")
+        this.state = {
+            dogName : "",
+            dogAge : "",
+            breed : "",
+            color : "",
+            size : "",
+            token : ""
+        }
+    }
+
+    handleDoneButton() {
+        const { navigate } = this.props.navigation;
+        this.props.navigation.navigate('Home');
+    }
+
+    async handleAddDogButton() {
         const token = await deviceStorage.getItem("userKey");    
         const data = {
             breed: this.state.breed,
@@ -47,10 +64,10 @@ class AddDog extends React.Component {
         .then((res) => {
             if(res.data.message === "New Dog Added") {
 
-                this.props.navigation.navigate('Home');
+                this.clearState(this);
     
             } 
-            console.log("success")
+            
         })
         .catch((err) => {
             console.log(err);
@@ -99,6 +116,11 @@ class AddDog extends React.Component {
                     title={ 'Add Dog' }
                     style={ styles.input }
                     onPress={this.handleAddDogButton.bind(this)}
+                />
+                <Button
+                    title={ 'Done' }
+                    style={ styles.input }
+                    onPress={this.handleDoneButton.bind(this)}
                 />
             </View>
         );

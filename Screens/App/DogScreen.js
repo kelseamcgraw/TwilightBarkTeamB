@@ -7,13 +7,12 @@ import deviceStorage from '../../services/deviceStorage';
 import { List, ListItem} from 'react-native-elements';
 
 import { 
-    Text,
     View,
     StyleSheet
 } from 'react-native';
 
 import Dog from '../../Components/Dog';
-class Home extends React.Component {
+class DogScreen extends React.Component {
 
     constructor(props) {
         super(props)
@@ -25,13 +24,17 @@ class Home extends React.Component {
 
 
 
+    handleAddDog = () => {
+        const { navigate } = this.props.navigation;
 
+        this.props.navigation.navigate('AddDog');
+    }
     
 
     render() {
         return (
             <View style={styles.container}>
-                <Text>Home</Text>
+                <Dog action={this.handleAddDog.bind(this)}/>
             </View>
         )
     }
@@ -52,4 +55,4 @@ const styles = StyleSheet.create({
     },
   });
 
-export default Home;
+export default DogScreen;

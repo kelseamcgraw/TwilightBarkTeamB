@@ -10,6 +10,7 @@ import {
     TouchableOpacity, 
     StyleSheet,
     Text, 
+    ScrollView,
     ActivityIndicator
 } from 'react-native';
 import Icon from "react-native-vector-icons/Ionicons";
@@ -21,7 +22,6 @@ class Dog extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            uri : "",
             isLoading: true,
             dogList: []
         }
@@ -46,72 +46,52 @@ class Dog extends React.Component {
         }
     }
 
-    renderItem(data) {
-            return (
-                <View style={styles.dataView}>
-                    <Image
-                    source={ require('../dogo.jpeg') }
-                    style={styles.image}
-                    PlaceholderContent={<ActivityIndicator />}
-                    /><Text style={styles.text}>
-                        {data.item.dogName} 
-                        {data.item.dogAge} 
-                        {data.item.size} 
-                        {data.item.breed}
-                        </Text>
-                </View>
-            );
-    }
-
-
     render() {
         const { dogList, isLoading } = this.state;
 
         if(!isLoading){
             if(dogList.length > 0) {
                 return (
-                    <View style={styles.cardContainer}>
-                        <Card style={styles.card} >
-                        {
-                        dogList.map((d, i) => {
-                            return (
-                            <ListItem
-                                key={i}
-                                style={styles.listItems}
-                                roundAvatar
-                                title={d.dogName}
-                                avatar={{uri: require('../dogo.jpeg')}}
-                            />
-                            );
-                        })
-                        }
-                    </Card>
-                    <Card style={styles.card}>
-                        <Icon
-                            style={styles.inputs}
-                            name="md-add"
-                            color="#007AFF"
-                            size={25}
-                            onPress={ this.props.action}
-                        ><Text>
-                            Add A Dog
-                        </Text></Icon>
-                    </Card>
-                  </View>
+                
+                    <View style={styles.container}>
+                            {
+                            dogList.map((d, i) => {
+                                return (
+                                <View key={i} style={styles.cardContainer}>
+                                    <Card style={styles.card} >
+                                        <Image  
+                                            style={styles.image}
+                                            source={require('../images/dogo.jpeg')}
+                                        />
+                                        <ListItem
+                                            style={styles.listItems}
+                                            title={d.dogName}
+                                        />
+                                    </Card>
+                                </View>
+                                );
+                            })
+                            }
+                            <Card style={styles.card}>
+                                <TouchableOpacity onPress={ this.props.action }>
+                                    <Text style={styles.addDog}>
+                                    + Add A Dog
+                                    </Text>
+                                </TouchableOpacity>
+                            </Card>
+                    </View>
+                
                 );
             } else {
                 return ( 
                     <View style={styles.container}>
                         <Card style={styles.card}>
-                        <Icon
-                            name="md-add"
-                            color="#007AFF"
-                            size={25}
-                            onPress={ this.props.action}
-                        ><Text>
-                            Add A Dog
-                        </Text></Icon>
-                    </Card>
+                            <TouchableOpacity onPress={ this.props.action }>
+                                <Text style={styles.addDog}>
+                                + Add A Dog
+                                </Text>
+                            </TouchableOpacity>
+                        </Card>
                     </View>
                 );
             }
@@ -125,32 +105,32 @@ class Dog extends React.Component {
 const styles = StyleSheet.create({
     container: {
       backgroundColor: '#ecf0f1',
+      flex: 1,
     },  
     cardContainer: {
-        alignItems: 'center'
+        alignItems: 'center',
+        flexDirection: 'column'
     },
+    addDog: {
+        fontSize: 20,
+        color: "#007AFF"
+    }, 
     card: {
-        flex: 1,
         padding: 0, 
-        maxHeight: 100,
+        flex: 1,
+        flexDirection: 'row',
+        maxHeight: 50,
         alignItems: 'center'
     },
     image: {
-        width: 100, 
-        height: 100
+        width: 50, 
+        height: 50,
+        alignItems: "flex-start"
     },
-    text: {
-        width: 250,
-        height: 44,
-        padding: 10,
-      },
     listItems: {
         flexDirection: 'row',
         alignItems: 'center',
-    },
-    input: {
-        
-    },
+    }
   });
 
 export default Dog;

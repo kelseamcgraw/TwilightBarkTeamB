@@ -35,6 +35,15 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
+      city: {
+        type: Sequelize.STRING
+      },
+      state: {
+        type: Sequelize.STRING
+      },
+      zipCode: {
+        type: Sequelize.STRING
+      },
       isAdmin: {
         type: Sequelize.BOOLEAN
       },

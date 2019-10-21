@@ -5,10 +5,13 @@ import deviceStorage from '../../services/deviceStorage';
 import { 
     Button,
     View,
-    TextInput,
+    TouchableOpacity,
     StyleSheet,
     Text
 } from 'react-native';
+
+import { Card } from 'react-native-elements';
+
 
 class Profile extends React.Component {
 
@@ -22,18 +25,50 @@ class Profile extends React.Component {
     handleLogoutButton = () => {
         const { navigate } = this.props.navigation;
         deviceStorage.deleteItem("userKey");
-        this.props.navigation.navigate('AuthLoading');
+        this.props.navigation.navigate('Splash');
     }
+
+    handleDogsButton = () => {
+        const { navigate } = this.props.navigation;
+        this.props.navigation.navigate('Dog');
+    }
+
+    handleDetailsButton = () => {
+        const { navigate } = this.props.navigation;
+        this.props.navigation.navigate('Details');
+    }
+
 
     render() { 
         return (
             <View style={styles.container}>
-                <Text>Profile</Text>
-                <Button
-                    title={ 'Logout' }
-                    style={ styles.input }
-                    onPress={this.handleLogoutButton.bind(this)}
-                />
+                <TouchableOpacity
+                onPress={this.handleLogoutButton.bind(this)}
+                >
+                    <Card 
+                    style={styles.card}
+                    >
+                        <Text style={styles.text}>Logout</Text>
+                    </Card>
+                </TouchableOpacity>
+                <TouchableOpacity
+                onPress={this.handleDetailsButton.bind(this)}
+                >
+                    <Card 
+                    style={styles.card}
+                    >
+                        <Text style={styles.text}>Details</Text>
+                    </Card>
+                </TouchableOpacity>
+                <TouchableOpacity
+                onPress={this.handleDogsButton.bind(this)}
+                >
+                    <Card 
+                    style={styles.card}
+                    >
+                        <Text style={styles.text}>My Dogs</Text>
+                    </Card>
+                </TouchableOpacity>
             </View>
         );
     }
@@ -43,18 +78,16 @@ class Profile extends React.Component {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
       backgroundColor: '#ecf0f1',
     },
-    input: {
-      width: 250,
-      height: 44,
-      padding: 10,
-      borderWidth: 1,
-      borderColor: 'black',
-      marginBottom: 10,
+    card: {
+        flex: 1,
+        padding: 0, 
+        maxHeight: 50,
     },
+    text: {
+        alignSelf: 'center'
+    }
   });
 
 export default Profile;

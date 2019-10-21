@@ -45,7 +45,6 @@ const updateUser = () => {
 
         check('username')
             .optional()
-            .not().isEmpty().withMessage("username cannot be empty")
             .blacklist(blacklist)
             .trim()
             .escape()
@@ -53,7 +52,6 @@ const updateUser = () => {
             .isLength(6).withMessage("username must be at leat 6 characters"),
         check("password")
             .optional()
-            .not().isEmpty().withMessage("password cannot be empty")
             .trim()
             .matches('[0-9]').withMessage("password must contain one number")
             .matches('[a-z]').withMessage("password must contain one lowercase letter")
@@ -64,7 +62,6 @@ const updateUser = () => {
         check("email")
             .optional()
             .blacklist(blacklist)
-            .not().isEmpty().withMessage("Email cannot be empty")
             .isEmail().withMessage("not a valid email")
             .trim()
             .escape(),
@@ -72,9 +69,23 @@ const updateUser = () => {
             .optional()
             .blacklist(blacklist)
             .isMobilePhone().withMessage("this is not a valid phone number")
-            .not().isEmpty().withMessage("Phone number cannot be empty")
             .trim()
             .escape(),
+        check("city")
+            .optional()
+            .blacklist(blacklist)
+            .trim()
+        .escape(),check("state")
+            .optional()
+            .blacklist(blacklist)
+            .trim()
+            .escape(),
+        check("zipCode")
+            .optional()
+            .blacklist(blacklist)
+            .trim()
+            .escape(),
+
     
       ];
 
