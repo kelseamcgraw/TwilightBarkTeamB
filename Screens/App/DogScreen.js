@@ -1,13 +1,9 @@
 import * as React from 'react';
-
-import axios from '../../util/Axios';
-
-import deviceStorage from '../../services/deviceStorage'; 
-
 import { List, ListItem} from 'react-native-elements';
 
 import { 
     View,
+    ScrollView,
     StyleSheet
 } from 'react-native';
 
@@ -33,9 +29,9 @@ class DogScreen extends React.Component {
 
     render() {
         return (
-            <View style={styles.container}>
-                <Dog action={this.handleAddDog.bind(this)}/>
-            </View>
+            <ScrollView style={styles.container}>
+                <Dog style={styles.dogo} action={this.handleAddDog.bind(this)}/>
+            </ScrollView>
         )
     }
 
@@ -43,16 +39,14 @@ class DogScreen extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
+
       backgroundColor: '#ecf0f1',
     },
-    text: {
-      width: 250,
-      height: 44,
-      padding: 10,
-    },
+    dogo: {
+        flex: 1,
+        flexDirection: 'row'
+    }
+
   });
 
 export default DogScreen;

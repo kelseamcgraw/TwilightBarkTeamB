@@ -28,14 +28,12 @@ class AddDog extends React.Component {
 
     clearState() {
         console.log("clearing")
-        this.state = {
-            dogName : "",
-            dogAge : "",
-            breed : "",
-            color : "",
-            size : "",
-            token : ""
-        }
+        this.state.dogName = "";
+        this.state.dogAge = "";
+        this.state.breed = "";
+        this.state.color = "";
+        this.state.size = "";
+        
     }
 
     handleDoneButton() {

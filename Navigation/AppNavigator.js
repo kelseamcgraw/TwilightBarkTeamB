@@ -5,7 +5,7 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 import AddDogScreen from '../Screens/App/AddDogScreen';
 import DogScreen from '../Screens/App/DogScreen';
 import ProfileScreen from '../Screens/App/ProfileScreen';
-import HomeScreen from '../Screens/App/HomeScreen';
+import FeedScreen from '../Screens/App/FeedScreen';
 
 import AuthLoadingScreen from '../Screens/AuthLoading';
 // welcome page navigator componenets
@@ -15,20 +15,22 @@ import QuickReportScreen from '../Screens/WelcomeScreen/QuickReportScreen';
 import CreateAccountScreen from '../Screens/WelcomeScreen/CreateAccount';
 import SplashScreen from '../Screens/SpashScreen';
 import DetailsScreen from '../Screens/App/DetailsScreen';
+import EditDogScreen from '../Screens/App/EditDogScreen';
 
-const HomeStack = createStackNavigator({
-    Home: { screen: HomeScreen },
+const FeedStack = createStackNavigator({
+    Feed: { screen: FeedScreen },
 });
 
 const ProfileStack = createStackNavigator({
     Profile: { screen: ProfileScreen },
     AddDog: { screen: AddDogScreen },
     Dog: { screen: DogScreen },
-    Details: { screen: DetailsScreen }
+    Details: { screen: DetailsScreen },
+    EditDog : { screen: EditDogScreen }
 });
 
 const TabNavigator = createBottomTabNavigator({ 
-    Home: HomeStack, 
+    Home: FeedStack, 
     Profile: ProfileStack
 });
 

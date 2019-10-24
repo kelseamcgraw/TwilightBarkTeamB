@@ -31,7 +31,7 @@ class Home extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>Home</Text>
+                <Text>Feed</Text>
             </View>
         )
     }

@@ -29,10 +29,9 @@ class DetailsScreen extends React.Component {
 
         axios.post('/user/update', {
 
-            username: this.state.username,
-            password: this.state.password,
-            email: this.state.email,
-            phoneNumber: this.state.phoneNumber
+            city: this.state.city,
+            state: this.state.state,
+            zipCode: this.state.zipCode,
     
         })
         .then((res) => {
@@ -56,28 +55,26 @@ class DetailsScreen extends React.Component {
         return (
             <View style={styles.container}>
                 <Text>Add your Address</Text>
+                <Text>City: {this.state.city}</Text>
+                <Text>State: {this.state.state.toUpperCase()}</Text>
+                <Text>zipCode: {this.state.zipCode}</Text>
                 <TextInput
                     value={this.state.city}
                     onChangeText={(city) => this.setState({ city })}
                     placeholder={ "City" }
-                    autoCapitalize = 'none'
                     style={ styles.input }
                 />
                 <TextInput
-                    secureTextEntry={true}
                     value={this.state.state}
                     onChangeText={(state) => this.setState({ state })}
                     placeholder={ "State" }
-                    autoCapitalize = 'none'
                     style={ styles.input }
                 />
                 <TextInput
-                    secureTextEntry={true}
                     value={this.state.zipCode}
                     onChangeText={(zipCode) => this.setState({ zipCode })}
                     placeholder={ "Zip Code" }
                     style={ styles.input }
-                    autoCapitalize = 'none'
                 />
                 <Button
                     title={ 'Save' }

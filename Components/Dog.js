@@ -46,41 +46,54 @@ class Dog extends React.Component {
         }
     }
 
+    handleCardPress = () => {
+        const { navigate } = this.props.navigation;
+
+        this.props.navigation.navigate('EditDog');
+    }
+
     render() {
         const { dogList, isLoading } = this.state;
 
         if(!isLoading){
             if(dogList.length > 0) {
                 return (
-                
-                    <View style={styles.container}>
-                            {
-                            dogList.map((d, i) => {
-                                return (
-                                <View key={i} style={styles.cardContainer}>
-                                    <Card style={styles.card} >
-                                        <Image  
-                                            style={styles.image}
-                                            source={require('../images/dogo.jpeg')}
-                                        />
-                                        <ListItem
-                                            style={styles.listItems}
-                                            title={d.dogName}
-                                        />
-                                    </Card>
-                                </View>
-                                );
-                            })
-                            }
-                            <Card style={styles.card}>
-                                <TouchableOpacity onPress={ this.props.action }>
-                                    <Text style={styles.addDog}>
-                                    + Add A Dog
-                                    </Text>
-                                </TouchableOpacity>
-                            </Card>
-                    </View>
-                
+                <View style={styles.container}>
+                    {
+                    dogList.map((d, i) => {
+                        return (
+                    <TouchableOpacity
+                    key={i}
+                    onPress={ this.handleCardPress.bind(this)} 
+                    >
+                        <Card 
+                         style={styles.card}
+                        >
+                            <ListItem
+                            style={styles.listItems}
+                            leftAvatar={{
+                                title: d.dogName,
+                                size: "medium",
+                                source: require('../images/dogo.jpeg'),
+                                showEditButton: false
+                            }}
+                            title={d.dogName}
+                            subtitle={d.dogAge + ""}
+                            chevron
+                            />
+                        </Card>
+                    </TouchableOpacity>
+                        );
+                    })
+                    }
+                    <Card style={styles.card}>
+                        <TouchableOpacity onPress={ this.props.action }>
+                            <Text style={styles.addDog}>
+                            + Add A Dog
+                            </Text>
+                        </TouchableOpacity>
+                    </Card>
+                </View>
                 );
             } else {
                 return ( 
@@ -103,34 +116,12 @@ class Dog extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    container: {
-      backgroundColor: '#ecf0f1',
-      flex: 1,
-    },  
-    cardContainer: {
-        alignItems: 'center',
-        flexDirection: 'column'
-    },
+
     addDog: {
         fontSize: 20,
         color: "#007AFF"
     }, 
-    card: {
-        padding: 0, 
-        flex: 1,
-        flexDirection: 'row',
-        maxHeight: 50,
-        alignItems: 'center'
-    },
-    image: {
-        width: 50, 
-        height: 50,
-        alignItems: "flex-start"
-    },
-    listItems: {
-        flexDirection: 'row',
-        alignItems: 'center',
-    }
+
   });
 
 export default Dog;
