@@ -24,9 +24,9 @@ const FeedStack = createStackNavigator({
 const ProfileStack = createStackNavigator({
     Profile: { screen: ProfileScreen },
     AddDog: { screen: AddDogScreen },
+    EditDog : { screen: EditDogScreen },
     Dog: { screen: DogScreen },
     Details: { screen: DetailsScreen },
-    EditDog : { screen: EditDogScreen }
 });
 
 const TabNavigator = createBottomTabNavigator({ 
@@ -39,7 +39,6 @@ const AuthStack = createStackNavigator({
     Login: { screen: LoginScreen },
     QuickReport: { screen: QuickReportScreen },
     CreateAccount: { screen: CreateAccountScreen},
-    AddDog: { screen: AddDogScreen }
  });
 
 export default createAppContainer(

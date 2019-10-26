@@ -30,7 +30,11 @@ class DogScreen extends React.Component {
     render() {
         return (
             <ScrollView style={styles.container}>
-                <Dog style={styles.dogo} action={this.handleAddDog.bind(this)}/>
+                <Dog 
+                style={styles.dogo} 
+                action={this.handleAddDog.bind(this)}
+                navigation={ this.props.navigation }
+                />
             </ScrollView>
         )
     }
