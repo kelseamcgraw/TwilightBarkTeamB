@@ -42,7 +42,6 @@ class CreateAccount extends React.Component {
                 console.log(res.data);
     
             } else if (res.data.token !== undefined) {
-                const { navigate } = this.props.navigation;
                 deviceStorage.saveItem("userKey", res.data.token);
                 this.props.navigation.navigate('AddDog');
             }

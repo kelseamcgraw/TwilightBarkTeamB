@@ -30,7 +30,7 @@ const ProfileStack = createStackNavigator({
 });
 
 const TabNavigator = createBottomTabNavigator({ 
-    Home: FeedStack, 
+    Feed: FeedStack, 
     Profile: ProfileStack
 });
 

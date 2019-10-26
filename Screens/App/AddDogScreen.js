@@ -3,6 +3,8 @@ import axios from '../../util/Axios';
 
 import deviceStorage from '../../services/deviceStorage'; 
 
+import { StackActions, NavigationActions }from 'react-navigation';
+
 import { 
     Button,
     View,
@@ -27,18 +29,35 @@ class AddDog extends React.Component {
     }
 
     clearState() {
-        console.log("clearing")
         this.state.dogName = "";
         this.state.dogAge = "";
         this.state.breed = "";
         this.state.color = "";
         this.state.size = "";
-        
+
+        let resetAction = StackActions.reset({
+            index: 0,
+            actions: [
+              NavigationActions.navigate({ routeName: 'Profile' })
+            ],
+          });
+          
+          this.props.navigation.dispatch(resetAction);
+          this.props.navigation.navigate('AddDog');
+
     }
 
+    
     handleDoneButton() {
-        const { navigate } = this.props.navigation;
-        this.props.navigation.navigate('Home');
+        let resetAction = StackActions.reset({
+            index: 0,
+            actions: [
+              NavigationActions.navigate({ routeName: 'Profile' })
+            ],
+          });
+          
+        this.props.navigation.dispatch(resetAction);
+        this.props.navigation.navigate('Profile');
     }
 
     async handleAddDogButton() {
@@ -61,7 +80,6 @@ class AddDog extends React.Component {
         })
         .then((res) => {
             if(res.data.message === "New Dog Added") {
-
                 this.clearState(this);
     
             } 

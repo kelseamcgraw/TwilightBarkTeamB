@@ -48,7 +48,6 @@ class Dog extends React.Component {
 
     handleCardPress = () => {
         const { navigate } = this.props.navigation;
-
         this.props.navigation.navigate('EditDog');
     }
 
