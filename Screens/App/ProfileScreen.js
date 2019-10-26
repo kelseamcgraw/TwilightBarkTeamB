@@ -25,7 +25,9 @@ class Profile extends React.Component {
     handleLogoutButton = () => {
         const { navigate } = this.props.navigation;
         deviceStorage.deleteItem("userKey");
-        this.props.navigation.navigate('Splash');
+        this.props.navigation.navigate('Splash', {
+            nextScreen: "Auth"
+        });
     }
 
     handleDogsButton = () => {

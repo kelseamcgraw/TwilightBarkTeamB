@@ -13,14 +13,17 @@ class SplashScreen extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-
+            nextScreen: this.props.navigation.getParam("nextScreen", "default value")
         }
     }
 
     componentDidMount() {
         setTimeout(() => {
+            if(this.state.nextScreen === "default value") {
+                this.state.nextScreen = "AuthLoading";
+            }
             const { navigate } = this.props.navigation;
-            this.props.navigation.navigate('AuthLoading');
+            this.props.navigation.navigate(this.state.nextScreen);
         }, 1 * 1000    
         );
     }

@@ -46,8 +46,17 @@ class Dog extends React.Component {
         }
     }
 
-    handleCardPress = () => {
-        this.props.navigation.navigate('EditDog');
+    handleCardPress = (i, e) => {
+        this.props.navigation.navigate('EditDog', {
+            dogId: this.state.dogList[i].dogId,
+            breed: this.state.dogList[i].breed,
+            color: this.state.dogList[i].color,
+            dogAge: this.state.dogList[i].dogAge.toString(),
+            file: this.state.dogList[i].file,
+            size: this.state.dogList[i].size,
+            dogName: this.state.dogList[i].dogName,
+
+        });
     }
 
     render() {
@@ -62,7 +71,7 @@ class Dog extends React.Component {
                         return (
                     <TouchableOpacity
                     key={i}
-                    onPress={ this.handleCardPress.bind(this)} 
+                    onPress={ this.handleCardPress.bind(this, i)} 
                     >
                         <Card 
                          style={styles.card}

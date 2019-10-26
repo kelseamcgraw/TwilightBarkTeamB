@@ -52,21 +52,9 @@ router.post("/update", [authorize, dogUpdate(), validate], (req, res, next) => {
   })
   .then(dog => { 
 
-    if(dog) {
-
       res.json({
           message: dog
       })
-
-    } else {
-
-      res.json({
-            
-        message: dog
-      
-      });
-
-    }
 
   
   })
