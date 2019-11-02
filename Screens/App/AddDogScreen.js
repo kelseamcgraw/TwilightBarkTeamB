@@ -3,18 +3,14 @@ import axios from '../../util/Axios';
 
 import deviceStorage from '../../services/deviceStorage'; 
 
-import * as ImagePicker from 'expo-image-picker';
-import Constants from 'expo-constants';
-import * as Permissions from 'expo-permissions';
 import { StackActions, NavigationActions }from 'react-navigation';
+import AddDogImage from '../../Components/AddDogImage';
 
 import { 
     Button,
     View,
-    Text,
     TextInput,
     StyleSheet,
-    Image
 } from 'react-native';
 
 class AddDog extends React.Component {
@@ -29,22 +25,14 @@ class AddDog extends React.Component {
             color : "",
             size : "",
             token : "",
-            image: null
         }
         
     }
 
     render() {
-        let { image } = this.state;
         return (
             <View style={styles.container}>
-                <Button
-                    title={ "Photo"}
-                    onPress= {this._pickImage }
-                />
-                {image &&
-                    <Image source={{ uri: image }} style={{ width: 200, height: 200 }} 
-                    />}
+                <AddDogImage/>
                 <TextInput
                     value={this.state.name}
                     onChangeText={(dogName) => this.setState({ dogName })}
@@ -113,7 +101,6 @@ class AddDog extends React.Component {
 
     async componentDidMount() {
 
-        this.getPermissionAsync();
         this.state.isLoggedIn = await deviceStorage.getItem('isLoggedIn');
 
     }
@@ -171,26 +158,6 @@ class AddDog extends React.Component {
         });
 
     }
-    getPermissionAsync = async () => {
-        if (Constants.platform.ios) {
-        const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
-        if (status !== 'granted') {
-            alert('Sorry, we need camera roll permissions to make this work!');
-        }
-        }
-    }
-
-    _pickImage = async () => {
-        let result = await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ImagePicker.MediaTypeOptions.All,
-        allowsEditing: true,
-        aspect: [4, 3],
-        });
-
-        if (!result.cancelled) {
-        this.setState({ image: result.uri });
-        }
-    };
 
 }
 
