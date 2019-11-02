@@ -30,6 +30,7 @@ app.use((req, res, next) => {
 });
 
 db.sequelize.sync({
+  // force: true,
   paranoid: true
 })
 // Routes which should handle requests

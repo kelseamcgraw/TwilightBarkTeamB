@@ -17,13 +17,14 @@ class Dog extends React.Component {
         super(props)
         this.state = {
             isLoading: true,
-            dogName: this.props.navigation.getParam('dogName', 'default value'),
-            color: this.props.navigation.getParam('color', 'default value'),
-            size: this.props.navigation.getParam('size', 'default value'),
-            breed: this.props.navigation.getParam('breed', 'default value'),
-            file: this.props.navigation.getParam('file', 'default value'),
-            dogAge: this.props.navigation.getParam('dogAge', 'default value'),
-            dogId: this.props.navigation.getParam('dogId', 'NO-ID')
+            dogName: this.props.navigation.getParam('dogName', 'My Name'),
+            color: this.props.navigation.getParam('color', 'What Color\'s am I '),
+            size: this.props.navigation.getParam('size', 'My Size'),
+            breed: this.props.navigation.getParam('breed', 'My Breed'),
+            file: this.props.navigation.getParam('file', 'No file found'),
+            dogAge: this.props.navigation.getParam('dogAge', 'My Age'),
+            dogId: this.props.navigation.getParam('dogId', 'NO-ID'),
+            alerts: this.props.navigation.getParam('dogId', 'alerts')
 
         }
     }

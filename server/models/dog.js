@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     dogAge: DataTypes.INTEGER,
     breed: DataTypes.STRING,
     color: DataTypes.STRING,
+    alerts: DataTypes.STRING,
     size: DataTypes.STRING,
     fileLocation: DataTypes.STRING
   }, {});

@@ -25,8 +25,12 @@ const deviceStorage = {
         } catch (error) {
           console.log('AsyncStorage Error: ' + error.message);
         }
-      }
+      },
     
+      async removeAllKeys() {
+        AsyncStorage.getAllKeys()
+        .then(keys => AsyncStorage.multiRemove(keys));
+      }
 };
 
 export default deviceStorage;

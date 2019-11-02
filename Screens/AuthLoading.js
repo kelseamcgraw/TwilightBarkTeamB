@@ -28,7 +28,6 @@ class AuthLoadingScreen extends React.Component {
   render() {
     return (
       <View styles= {styles.container}>
-        <Text>Somethings</Text>
         <StatusBar barStyle="default" />
       </View>
     );
