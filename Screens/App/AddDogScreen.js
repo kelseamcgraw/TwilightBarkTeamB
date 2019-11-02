@@ -14,6 +14,7 @@ import {
     Text,
     TextInput,
     StyleSheet,
+    Image
 } from 'react-native';
 
 class AddDog extends React.Component {
