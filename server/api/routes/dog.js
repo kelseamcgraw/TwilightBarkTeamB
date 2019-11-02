@@ -1,12 +1,13 @@
 const express = require("express");
 const { check, validationResult } = require('express-validator');
 
+const crypto = require("crypto");
 const authorize = require("../middleware/check-auth");
 const router = express.Router();
 const isAdmin = require("../middleware/check-isAdmin");
 
 const model = require('../../models/index');
-
+var upload = require('../middleware/upload');
 const { dogUpdate, dogCreate, dogId, validate } = require("../middleware/validateData");
 
 
@@ -14,8 +15,7 @@ router.get('/dogs', [authorize, isAdmin], (req, res) => {
   model.Dog.findAll().then(dogs => res.json(dogs));
 });
 
-router.post("/add", [authorize, dogCreate(), validate], (req, res, next) => {
-
+router.post("/add", [upload.single('dogImage'), authorize,  dogCreate(), validate], (req, res, next) => {
     const dog = {
       dogName: req.body.dogName,
       userID : req.userData.id,
@@ -23,9 +23,9 @@ router.post("/add", [authorize, dogCreate(), validate], (req, res, next) => {
       breed : req.body.breed,
       color : req.body.color,
       size: req.body.size,
-      fileLocation: "" // to do get filelocation server side
+      fileLocation: req.file.filename // to do get filelocation server side
     }
-    console.log(dog);
+
     model.Dog.create(dog)
     .then(dog => res.json({
 
@@ -40,7 +40,7 @@ router.post("/add", [authorize, dogCreate(), validate], (req, res, next) => {
 
 });
 
-router.post("/update", [authorize, dogUpdate(), validate], (req, res, next) => {
+router.post("/update", [upload.single('dogImage'), authorize, dogUpdate(), validate], (req, res, next) => {
 
   model.Dog.update(req.body, { 
     

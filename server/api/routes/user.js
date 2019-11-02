@@ -3,9 +3,10 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { check, validationResult } = require('express-validator');
 
+const upload = require('../middleware/upload');
 const authorize = require("../middleware/check-auth");
-const isAdmin = require("../middleware/check-isAdmin");
 const router = express.Router();
+
 
 const { userLogin, updateUser, userId, userCreate, validate } = require("../middleware/validateData");
 
@@ -66,7 +67,7 @@ router.get('/dogs', [authorize], (req, res) => {
 
 });
 
-router.post("/signup", [userCreate(), validate], (req, res, next) => {
+router.post("/signup", [upload.none(), userCreate(), validate], (req, res, next) => {
 
   model.User.findAll({ 
     
@@ -129,7 +130,7 @@ router.post("/signup", [userCreate(), validate], (req, res, next) => {
 
 });
 
-router.post("/login", [userLogin(), validate], (req, res, next) => {
+router.post("/login", [upload.none(), userLogin(), validate], (req, res, next) => {
 
   model.User.findOne({ 
     
@@ -206,7 +207,7 @@ router.post("/login", [userLogin(), validate], (req, res, next) => {
 
 });
 
-router.post("/update", [updateUser(), validate, authorize], (req, res, next) => {
+router.post("/update", [upload.none(), updateUser(), validate, authorize], (req, res, next) => {
 
   model.User.update(req.body, { 
     
