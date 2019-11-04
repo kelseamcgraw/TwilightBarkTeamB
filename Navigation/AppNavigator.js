@@ -12,6 +12,7 @@ import LoginScreen from '../Screens/WelcomeScreen/LoginScreen';
 import WelcomScreen from '../Screens/WelcomeScreen/WelcomeScreen';
 import QuickReportScreen from '../Screens/WelcomeScreen/QuickReportScreen';
 import CreateAccountScreen from '../Screens/WelcomeScreen/CreateAccount';
+import VerifyAccountScreen from '../Screens/WelcomeScreen/VerifyAccount';
 
 
 const TabNavigator = createBottomTabNavigator({ 
@@ -24,6 +25,7 @@ const AuthStack = createStackNavigator({
     Login: { screen: LoginScreen },
     QuickReport: { screen: QuickReportScreen },
     CreateAccount: { screen: CreateAccountScreen},
+    VerifyAccount: { screen: VerifyAccountScreen},
  });
 
 export default createAppContainer(

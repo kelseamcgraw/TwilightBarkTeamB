@@ -3,6 +3,7 @@ import axios from '../../util/Axios';
 
 import deviceStorage from '../../services/deviceStorage'; 
 
+
 import { 
     Button,
     View,
@@ -10,6 +11,8 @@ import {
     TextInput,
     StyleSheet,
 } from 'react-native';
+
+
 
 class CreateAccount extends React.Component {
 
@@ -51,6 +54,11 @@ class CreateAccount extends React.Component {
             console.log(err);
         });
  
+    }
+
+    handleEmail = () => {
+        //SEND EMAIL HERE
+        this.props.navigation.navigate('VerifyAccount');
     }
 
     render() {
@@ -98,6 +106,13 @@ class CreateAccount extends React.Component {
                     title={ 'Create Account' }
                     style={ styles.input }
                     onPress={this.handleCreateAccountButton.bind(this)}
+                />
+                <Button
+                    title={ 'Email' }
+                    style={ styles.input }
+                    onPress = {() =>
+                        this.props.navigation.navigate('VerifyAccount')
+                    }
                 />
             </View>
         );
