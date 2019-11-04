@@ -10,6 +10,7 @@ import {
     StyleSheet,
 } from 'react-native';
 import deviceStorage from '../../services/deviceStorage'; 
+import styles from '../Styles.js';
 
 import { StackActions, NavigationActions }from 'react-navigation';
 import * as ImagePicker from 'expo-image-picker';
@@ -209,22 +210,5 @@ class AddDog extends React.Component {
     }
 
 }
-
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: '#ecf0f1',
-    },
-    input: {
-      width: 250,
-      height: 44,
-      padding: 10,
-      borderWidth: 1,
-      borderColor: 'black',
-      marginBottom: 10,
-    },
-  });
 
 export default AddDog;

@@ -1,0 +1,79 @@
+import * as React from 'react';
+import axios from '../../util/Axios';
+
+import { 
+    View,
+    TouchableOpacity,
+    Image,
+    Button,
+} from 'react-native';
+import styles from '../Styles.js';
+
+class AddDogSize extends React.Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            isLoggedIn: "",
+            size : "",
+        }
+        
+    }
+
+    handleNextButton() {
+
+        this.props.navigation.navigate('AddDogColor', {
+            dogName: this.props.dogName,
+            dogAge: this.props.dogAge,
+            size: this.state.size
+        });    
+
+    }
+
+    handleImagePress(s) {
+        console.log(s);
+        this.setState({size: s});
+    }
+
+    render() {
+        return (
+            <View style={styles.container}>
+                <View style={styles.imageContainer}>
+                    <TouchableOpacity
+                    onPress={ this.handleImagePress.bind(this, 'Small')}
+                    >
+                        <Image 
+                        style={styles.smallImage}
+                        source={ require('../../images/paw.jpg') } 
+                        />
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                    onPress={ this.handleImagePress.bind(this, 'Medium')}
+                    >
+                        <Image 
+                        style={styles.mediumImage}
+                        source={ require('../../images/paw.jpg') } 
+                        />
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                    onPress={ this.handleImagePress.bind(this,'Large')}
+                    >
+                        <Image 
+                        style={styles.largeImage}
+                        source={ require('../../images/paw.jpg') } 
+                        />
+                    </TouchableOpacity>
+                </View>
+                <Button
+                    title={ 'Next' }
+                    style={ styles.input }
+                    onPress={this.handleNextButton.bind(this)}
+                />
+            </View>
+        );
+    }
+
+    
+}
+
+export default AddDogSize;

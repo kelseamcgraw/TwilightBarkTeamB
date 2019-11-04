@@ -8,9 +8,9 @@ import {
     Button,
     View,
     TextInput,
-    StyleSheet,
     Text
 } from 'react-native';
+import styles from '../Styles.js';
 
 class Login extends React.Component {
     constructor(props) {
@@ -85,24 +85,5 @@ class Login extends React.Component {
     }
 
 }
-
-
-
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: '#ecf0f1',
-    },
-    input: {
-      width: 250,
-      height: 44,
-      padding: 10,
-      borderWidth: 1,
-      borderColor: 'black',
-      marginBottom: 10,
-    },
-  });
 
 export default Login;
