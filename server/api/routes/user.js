@@ -1,14 +1,14 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { check, validationResult } = require('express-validator');
+const { validationResult } = require('express-validator');
 
 const upload = require('../middleware/upload');
 const authorize = require("../middleware/check-auth");
 const router = express.Router();
+const isAdmin = require('../middleware/check-isAdmin');
 
-
-const { userLogin, updateUser, userId, userCreate, validate } = require("../middleware/validateData");
+const { userLogin, updateUser, userCreate, validate } = require("../middleware/validateData");
 
 const model = require('../../models/index');
 
@@ -51,7 +51,7 @@ router.get('/dogs', [authorize], (req, res) => {
                 breed : dog.breed,
                 color : dog.color,
                 size: dog.size,
-                file : dog.fileLocation
+                fileName : dog.fileName
 
               })
 
@@ -68,7 +68,7 @@ router.get('/dogs', [authorize], (req, res) => {
 });
 
 router.post("/signup", [upload.none(), userCreate(), validate], (req, res, next) => {
-
+  console.log(req.body.username)
   model.User.findAll({ 
     
     where: { username: req.body.username } 
@@ -207,7 +207,7 @@ router.post("/login", [upload.none(), userLogin(), validate], (req, res, next) =
 
 });
 
-router.post("/update", [upload.none(), updateUser(), validate, authorize], (req, res, next) => {
+router.post("/update", [authorize, upload.none(), updateUser(), validate], (req, res, next) => {
 
   model.User.update(req.body, { 
     
@@ -270,7 +270,5 @@ router.delete("/delete",  [authorize], (req, res, next) => {
   })
 
 });
-
-const generateToken = () => {}
 
 module.exports = router;

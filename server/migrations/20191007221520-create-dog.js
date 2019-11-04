@@ -24,7 +24,7 @@ module.exports = {
       size: {
         type: Sequelize.STRING
       },
-      fileLocation: {
+      fileName: {
         type: Sequelize.STRING
       },
       createdAt: {

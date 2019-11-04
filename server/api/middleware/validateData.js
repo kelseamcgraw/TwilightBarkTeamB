@@ -7,33 +7,33 @@ const userCreate = () => {
   return [
 
     check('username')
-            .not().isEmpty().withMessage("username cannot be empty")
-            .blacklist(blacklist)
-            .trim()
-            .escape()
-            .isString().withMessage("invalid format for username")
-            .isLength(6).withMessage("username must be at leat 6 characters"),
-          check("password")
-            .not().isEmpty().withMessage("password cannot be empty")
-            .trim()
-            .matches('[0-9]').withMessage("password must contain one number")
-            .matches('[a-z]').withMessage("password must contain one lowercase letter")
-            .matches('[A-Z]').withMessage("password must contain one uppercase letter")
-            .escape()
-            .isString().withMessage("invalid format for password")
-            .isLength(6).withMessage("password must be at leat 6 characters"),
-          check("email")
-            .blacklist(blacklist)
-            .not().isEmpty().withMessage("Email cannot be empty")
-            .isEmail().withMessage("not a valid email")
-            .trim()
-            .escape(),
-          check("phoneNumber")
-            .blacklist(blacklist)
-            .isMobilePhone().withMessage("this is not a valid phone number")
-            .not().isEmpty().withMessage("Phone number cannot be empty")
-            .trim()
-            .escape(),
+        .not().isEmpty().withMessage("username cannot be empty")
+        .blacklist(blacklist)
+        .trim()
+        .escape()
+        .isString().withMessage("invalid format for username")
+        .isLength(6).withMessage("username must be at leat 6 characters"),
+    check("password")
+        .not().isEmpty().withMessage("password cannot be empty")
+        .trim()
+        .matches('[0-9]').withMessage("password must contain one number")
+        .matches('[a-z]').withMessage("password must contain one lowercase letter")
+        .matches('[A-Z]').withMessage("password must contain one uppercase letter")
+        .escape()
+        .isString().withMessage("invalid format for password")
+        .isLength(6).withMessage("password must be at leat 6 characters"),
+    check("email")
+        .blacklist(blacklist)
+        .not().isEmpty().withMessage("Email cannot be empty")
+        .isEmail().withMessage("not a valid email")
+        .trim()
+        .escape(),
+    check("phoneNumber")
+        .blacklist(blacklist)
+        .isMobilePhone().withMessage("this is not a valid phone number")
+        .not().isEmpty().withMessage("Phone number cannot be empty")
+        .trim()
+        .escape(),
 
   ];
 
@@ -217,7 +217,7 @@ const validate = (req, res, next) => {
     return next()
 
   }
-
+  console.log(errors);
   const extractedErrors = []
 
   errors.array().map(err => extractedErrors.push({ [err.param]: err.msg }))

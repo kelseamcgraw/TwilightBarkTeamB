@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     color: DataTypes.STRING,
     alerts: DataTypes.STRING,
     size: DataTypes.STRING,
-    fileLocation: DataTypes.STRING
+    fileName: DataTypes.STRING
   }, {});
   Dog.associate = function(models) {
   };

@@ -52,7 +52,7 @@ class Dog extends React.Component {
             breed: this.state.dogList[i].breed,
             color: this.state.dogList[i].color,
             dogAge: this.state.dogList[i].dogAge.toString(),
-            file: this.state.dogList[i].file,
+            fileName: this.state.dogList[i].fileName,
             size: this.state.dogList[i].size,
             dogName: this.state.dogList[i].dogName,
 
@@ -81,7 +81,7 @@ class Dog extends React.Component {
                             leftAvatar={{
                                 title: d.dogName,
                                 size: "medium",
-                                source: require('../images/dogo.jpeg'),
+                                source: {uri: axios.defaults.baseURL + '/images/' + d.fileName},
                                 showEditButton: false
                             }}
                             title={d.dogName}

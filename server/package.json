@@ -27,6 +27,7 @@
     "multer": "^1.3.0",
     "mysql": "^2.17.1",
     "mysql2": "^1.7.0",
+    "pug": "^2.0.4",
     "sequelize": "^5.19.2",
     "sequelize-cli": "^5.5.1"
   },

@@ -1,21 +1,37 @@
 const express = require("express");
-const { check, validationResult } = require('express-validator');
+const { validationResult } = require('express-validator');
 
-const crypto = require("crypto");
 const authorize = require("../middleware/check-auth");
 const router = express.Router();
-const isAdmin = require("../middleware/check-isAdmin");
 
 const model = require('../../models/index');
 var upload = require('../middleware/upload');
 const { dogUpdate, dogCreate, dogId, validate } = require("../middleware/validateData");
 
 
-router.get('/dogs', [authorize, isAdmin], (req, res) => {
-  model.Dog.findAll().then(dogs => res.json(dogs));
+router.get('/lost/:dogId', [authorize], (req, res) => {
+  model.Dog.findAll({ 
+    raw:true,
+    where: { 
+      id: req.params.dogId,
+      userId: req.userData.id 
+    } 
+  
+  })
+  .then(dog => {
+    file="/images/" + dog[0].fileName;
+    res.render('dog', { 
+      title: dog[0].dogName, 
+      message: 'Help I am Lost', 
+      file: file
+    })
+
+  })
+
+
 });
 
-router.post("/add", [upload.single('dogImage'), authorize,  dogCreate(), validate], (req, res, next) => {
+router.post("/add", [authorize, upload.single('dogImage')], (req, res, next) => {
     const dog = {
       dogName: req.body.dogName,
       userID : req.userData.id,
@@ -23,9 +39,9 @@ router.post("/add", [upload.single('dogImage'), authorize,  dogCreate(), validat
       breed : req.body.breed,
       color : req.body.color,
       size: req.body.size,
-      fileLocation: req.file.filename // to do get filelocation server side
+      fileName: req.file.filename // to do get filelocation server side
     }
-
+    console.log(dog);
     model.Dog.create(dog)
     .then(dog => res.json({
 
@@ -40,7 +56,7 @@ router.post("/add", [upload.single('dogImage'), authorize,  dogCreate(), validat
 
 });
 
-router.post("/update", [upload.single('dogImage'), authorize, dogUpdate(), validate], (req, res, next) => {
+router.post("/update", [authorize, upload.single('dogImage'), dogUpdate(), validate], (req, res, next) => {
 
   model.Dog.update(req.body, { 
     
@@ -70,12 +86,7 @@ router.post("/update", [upload.single('dogImage'), authorize, dogUpdate(), valid
 
 });
 
-router.delete("/delete/:dogId",  [
-    dogId(),
-    validate,
-    isAdmin,
-    authorize
-], (req, res, next) => {
+router.delete("/delete/:dogId",  [authorize, validate, dogId()], (req, res, next) => {
 
   const errors = validationResult(req);
   if (!errors.isEmpty()) {

@@ -104,16 +104,16 @@ class AddDog extends React.Component {
         this.setState({size: ""});
         this.setState({isLoadingImage: false});
         this.setState({image: null});
-
-        // let resetAction = StackActions.reset({
-        //     index: 0,
-        //     actions: [
-        //     NavigationActions.navigate({ routeName: 'AddDog' })
-        //     ],
-        // });
+        console.log("state cleared");
+        let resetAction = StackActions.reset({
+            index: 0,
+            actions: [
+            NavigationActions.navigate({ routeName: 'AddDog' })
+            ],
+        });
         
-        // this.props.navigation.dispatch(resetAction);
-        // this.props.navigation.navigate('AddDog');
+        this.props.navigation.dispatch(resetAction);
+        this.props.navigation.navigate('AddDog');
 
     }
 
@@ -172,18 +172,16 @@ class AddDog extends React.Component {
     async handleAddDogButton() {
         const token = await deviceStorage.getItem("userKey");    
         const data = new FormData();
-        data.append({
-            breed: this.state.breed,
-            dogAge: parseInt(this.state.dogAge, 10),
-            color: this.state.color,
-            size: this.state.size, 
-            dogName: this.state.dogName,
-            dogImage: this.state.image
-        });
+        data.append('breed', this.state.breed)
+        data.append('dogAge', parseInt(this.state.dogAge, 10))
+        data.append('color', this.state.color)
+        data.append('size', this.state.size)
+        data.append('dogName', this.state.dogName)
+
 
         data.append('dogImage', {
-            uri: this.state.image, // your file path string
-            name: 'my_image',
+            uri: this.state.image, 
+            name: 'my-image',
             type: 'image/jpg'
         })
 
@@ -196,14 +194,16 @@ class AddDog extends React.Component {
         headers: headers
         })
         .then((res) => {
+
             if(res.data.message === "New Dog Added") {
-                this.clearState(this);
+
+                this.clearState();
 
             } 
             
         })
         .catch((err) => {
-            console.log(err);
+            console.log(err.message);
         });
 
     }
