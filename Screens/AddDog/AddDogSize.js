@@ -23,15 +23,14 @@ class AddDogSize extends React.Component {
     handleNextButton() {
 
         this.props.navigation.navigate('AddDogColor', {
-            dogName: this.props.dogName,
-            dogAge: this.props.dogAge,
+            dogName: this.props.navigation.getParam("dogName","dogName"),
+            dogAge: this.props.navigation.getParam("dogAge", "dogAge"),
             size: this.state.size
         });    
 
     }
 
     handleImagePress(s) {
-        console.log(s);
         this.setState({size: s});
     }
 

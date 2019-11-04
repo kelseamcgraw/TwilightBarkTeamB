@@ -2,5 +2,4 @@
 /server/.env
 /bin
 .env
-images/
 server/images

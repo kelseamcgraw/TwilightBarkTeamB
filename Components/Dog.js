@@ -5,15 +5,11 @@ import deviceStorage from '../services/deviceStorage';
 
 import { 
     View,
-    Image,  
-    FlatList, 
     TouchableOpacity, 
     StyleSheet,
     Text, 
-    ScrollView,
     ActivityIndicator
 } from 'react-native';
-import Icon from "react-native-vector-icons/Ionicons";
 
 import { Card, ListItem, Avatar, Button } from 'react-native-elements';
 
@@ -81,7 +77,7 @@ class Dog extends React.Component {
                             leftAvatar={{
                                 title: d.dogName,
                                 size: "medium",
-                                source: require('../images/dogo.jpeg'),
+                                source: require('../images/dogo.jpg'),
                                 showEditButton: false
                             }}
                             title={d.dogName}
