@@ -27,11 +27,23 @@ class AddDogColor extends React.Component {
     }
 
     handleAddColor = () => {
-        console.log(this.state.colors);
+        this.props.navigation.navigate('AddDogBreed',  {
+            colors: this.state.colors
+        });
     }
 
-    handleButtonPress() {
-        this.props.navigation.navigate('AddBreed');
+
+    handleInsertColor = (color) => {
+        this.setState({colors: [...this.state.colors, color]})
+    }
+
+    handleRemoveColor = (color) => {
+        var array = [...this.state.colors]; // make a separate copy of the array
+        var index = array.indexOf(color)
+        if (index !== -1) {
+            array.splice(index, 1);
+            this.setState({colors: array});
+  }
     }
 
     render() {
@@ -40,8 +52,8 @@ class AddDogColor extends React.Component {
         return (
             <View>
                 <ColorPalette
-                
-                    // onChange={(color) => selectedColor = color}
+                    removeColor={(color) => this.handleRemoveColor(color)}
+                    insertColor={(color) => this.handleInsertColor(color) }
                     maxCount={3}
                     setCount={(count) => this.setState({count: count})}
                     title={ "Choose your colors up to three" }

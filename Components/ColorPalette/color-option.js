@@ -15,12 +15,12 @@ const ColorOption = (props) => {
       onPress={() => {
         if(isSelected == false && count < 3) {
           setSelect(true)
-          addSelected();
+          addSelected(color);
         } else if(count == 3 && isSelected != true) {
           setSelect(false)
         } else if (isSelected == true){
           setSelect(false)
-          subtractSelected();
+          subtractSelected(color);
         }
 
       }}

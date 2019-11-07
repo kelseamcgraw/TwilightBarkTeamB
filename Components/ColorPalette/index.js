@@ -12,13 +12,14 @@ const ColorPalette = (props) => {
     onChange,
     setCount,
     paletteStyles,
+    insertColor,
+    removeColor,
     maxCount,
     scaleToWindow,
     title,
     titleStyles,
     value,
   } = props;
-  const [selectedColors, insertColor] = useState([]);
   const [count, numSelected] = useState(0);
   const [color, setColor] = useState(colors[0]);
   useEffect(() => {
@@ -29,6 +30,7 @@ const ColorPalette = (props) => {
   const addSelected = useCallback((color) => {
     if(count < maxCount) {
       setColor(color);
+      insertColor(color);
       numSelected(count => count + 1 );
       setCount(count);
       onChange(color);
@@ -36,8 +38,9 @@ const ColorPalette = (props) => {
     }
   }, []);
 
-  const subtractSelected = useCallback(() => {
+  const subtractSelected = useCallback((color) => {
     numSelected(count => count - 1 );
+    removeColor(color)
     setCount(count);
   }, []);
 
