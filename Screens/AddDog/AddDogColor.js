@@ -8,10 +8,10 @@ import {
     Button,
     TextInput,
     StyleSheet,
+    Text,
 } from 'react-native';
-import Icon from "react-native-vector-icons/Ionicons";
 
-import ColorPalette from 'react-native-color-palette'
+import ColorPalette from '../../Components/ColorPalette/index';
 
 class AddDogColor extends React.Component {
 
@@ -19,30 +19,44 @@ class AddDogColor extends React.Component {
         super(props)
         this.state = {
             isLoggedIn: "",
-            color : "",
+            colors: [],
+            count : 0
 
         }
         
     }
 
+    handleAddColor = () => {
+        console.log(this.state.colors);
+    }
+
+    handleButtonPress() {
+        this.props.navigation.navigate('AddBreed');
+    }
+
     render() {
+        let selectedColor = '';
+
         return (
-            <ControlledColorPicker/>
+            <View>
+                <ColorPalette
+                
+                    // onChange={(color) => selectedColor = color}
+                    maxCount={3}
+                    setCount={(count) => this.setState({count: count})}
+                    title={ "Choose your colors up to three" }
+                    value={selectedColor}
+                    colors={['#000000', '#A52A2A', '#FFFFFF', '#FFD700', '#F5F5DC', '#D2B48C', '#808080']}        
+                />
+                <Button
+                    title={ "Next" }
+                    onPress={ this.handleAddColor.bind(this)}
+                />
+            </View>
         );
     }
 
 }
 
-const ControlledColorPicker = () => {
-    let selectedColor = '#C0392B';
-    return (
-      <ColorPalette
-        onChange={color => selectedColor = color}
-        value={selectedColor}
-        colors={['#C0392B', '#E74C3C', '#9B59B6', '#8E44AD', '#2980B9']}
-        title={"Choose your dogs color's up to three"}
-        
-    />)
-  }
 
 export default AddDogColor;

@@ -21,9 +21,9 @@ class DogScreen extends React.Component {
 
 
     handleAddDog = () => {
-        const { navigate } = this.props.navigation;
 
         this.props.navigation.navigate('AddDog');
+        
     }
     
 
