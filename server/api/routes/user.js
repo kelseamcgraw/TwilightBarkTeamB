@@ -96,7 +96,7 @@ router.post("/signup", [userCreate(), validate], (req, res, next) => {
           transportMethod: 'SMTP', // default is SMTP. Accepts anything that nodemailer accepts
           auth: {
             user: 'roesslma@miamioh.edu',
-            pass: '#ELLA3552!'
+            pass: ''
           }
         });
 
