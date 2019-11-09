@@ -1,9 +1,9 @@
 {
-  "devToolsPort": 19002,
-  "expoServerPort": null,
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "devToolsPort": 19003,
+  "expoServerPort": 19004,
+  "packagerPort": 19005,
+  "packagerPid": 32497,
+  "expoServerNgrokUrl": "https://2y-fy7.anonymous.twilightbarkteamb.exp.direct",
+  "packagerNgrokUrl": "https://packager.2y-fy7.anonymous.twilightbarkteamb.exp.direct",
+  "ngrokPid": 32510
 }
