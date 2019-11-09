@@ -21,11 +21,6 @@ class Autocomplete extends Component {
      */
     containerStyle: ViewPropTypes.style,
     /**
-     * Assign an array of data objects which should be
-     * rendered in respect to the entered text.
-     */
-    data: PropTypes.object,
-    /**
      * Set to `true` to hide the suggestion list.
      */
     hideResults: PropTypes.bool,

@@ -6,8 +6,6 @@ import {
     TouchableOpacity,
     Image,
     Button,
-    TextInput,
-    StyleSheet,
 } from 'react-native';
 import deviceStorage from '../../services/deviceStorage'; 
 import styles from '../Styles.js';
@@ -17,19 +15,14 @@ import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
 
-class AddDog extends React.Component {
+class AddDogImage extends React.Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            isLoggedIn: "",
-            dogName : "",
-            dogAge : "",
-            breed : "",
-            color : "",
+
             isLoadingImage: false,
             image: null,
-            size : "",
             token : "",
         }
         
@@ -50,44 +43,6 @@ class AddDog extends React.Component {
                     />
 
                 </TouchableOpacity>
-                <TextInput
-                    value={this.state.name}
-                    onChangeText={(dogName) => this.setState({ dogName })}
-                    placeholder={ "Dog Name" }
-                    style={ styles.input }
-                />
-                <TextInput
-                    value={this.state.dogAge}
-                    onChangeText={(dogAge) => this.setState({ dogAge })}
-                    placeholder={ "Dogs Age" }
-                    style={ styles.input }
-                />
-                <TextInput
-                    value={this.state.breed}
-                    onChangeText={(breed) => this.setState({ breed })}
-                    placeholder={ "Dogs Breed" }
-                    style={ styles.input }
-                    autoCapitalize = 'none'
-                />
-                <TextInput
-                    value={this.state.color}
-                    onChangeText={(color) => this.setState({ color })}
-                    placeholder={ "What color is the Dog" }
-                    style={ styles.input }
-                    autoCapitalize = 'none'
-                />
-                <TextInput
-                    value={this.state.size}
-                    onChangeText={(size) => this.setState({ size })}
-                    placeholder={ "what is the dog's size " }
-                    style={ styles.input }
-                    autoCapitalize = 'none'
-                />
-                <Button
-                    title={ 'Add Dog' }
-                    style={ styles.input }
-                    onPress={this.handleAddDogButton.bind(this)}
-                />
                 <Button
                     title={ 'Done' }
                     style={ styles.input }
@@ -97,26 +52,6 @@ class AddDog extends React.Component {
         );
     }
 
-    clearState() {
-        this.setState({dogName: ""});
-        this.setState({dogAge: ""});
-        this.setState({breed: ""});
-        this.setState({color: ""});
-        this.setState({size: ""});
-        this.setState({isLoadingImage: false});
-        this.setState({image: null});
-
-        // let resetAction = StackActions.reset({
-        //     index: 0,
-        //     actions: [
-        //     NavigationActions.navigate({ routeName: 'AddDog' })
-        //     ],
-        // });
-        
-        // this.props.navigation.dispatch(resetAction);
-        // this.props.navigation.navigate('AddDog');
-
-    }
 
     async componentDidMount() {
 
@@ -211,4 +146,4 @@ class AddDog extends React.Component {
 
 }
 
-export default AddDog;
+export default AddDogImage;
