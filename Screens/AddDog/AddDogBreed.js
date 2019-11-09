@@ -1,62 +1,76 @@
 import * as React from 'react';
-import axios from '../../util/Axios';
-import deviceStorage from '../../services/deviceStorage';
 
 import { 
     View,
+    TouchableOpacity,
+    Text,
     Button,
-    TextInput,
 } from 'react-native';
-import styles from '../Styles';
 
+import styles from '../Styles';
+import Autocomplete from 'react-native-autocomplete-input';
+
+const dogBreeds = require('../../dogBreeds.json');
 class AddDogBreed extends React.Component {
 
     constructor(props) {
         super(props)
         this.state = {
             breed : "",
+            breeds: [],
+            query: "",
             token : ""
         }
         
     }
 
     async componentDidMount() {
-        try {
-            this.state.token = await deviceStorage.getItem("userKey");
-
-            const tmp =  await axios.get('https://dog.ceo/api/breeds/list/all')
-            const breeds = tmp.data.message;
-            console.log(breeds);
-
-        } catch(err) {
-                console.log(err);
-        }
+        
     }
 
-    render() {
-        return (
-            <View style={styles.container}>
-                <TextInput
-                    value={this.state.breed}
-                    onChangeText={(breed) => this.setState({ breed })}
-                    placeholder={ "choose your breed up to three " }
-                    style={ styles.input }
-                    autoCapitalize = 'none'
-                />
-                <Button
-                    title={ 'Next' }
-                    style={ styles.input }
-                    onPress={this.handleNextButton.bind(this)}
-                />
-            </View>
-        );
+    async _filterData(query) {
+        
+        // let queryData = this.state.breeds.filter((e) => {
+        //     String(e).includes(query);
+        // });
+
+        let filterData = [];
+        // // console.log(String(this.state.breeds[0].data));
+
+        dogBreeds.forEach(element => {
+            if(String(element.Breed).includes(query)) {
+                filterData.push(element.Breed);
+            }
+        });
+
+
+        console.log(filterData);
+        return filterData;
     }
 
     
-    async handleNextButton() {
-       
-                
-    }
+    render() {
+        const { query } = this.state;
+        const data = this._filterData("");
+
+        return (
+            <View style={styles.container}>
+                <Autocomplete
+                    data={data}
+                    defaultValue={query}
+                    autoCorrect={false}
+                    style={{width:200}}
+                    keyExtractor={(item, index) => index.toString()}
+                    onChangeText={text => this.setState({ query: text })}
+                    renderItem={({ item, i }) => (
+                    <TouchableOpacity onPress={() => this.setState({ query: item })}>
+                        <Text>{item}</Text>
+                    </TouchableOpacity>
+                    )}
+                />
+            </View>
+        );
+      }
 
 }
 
