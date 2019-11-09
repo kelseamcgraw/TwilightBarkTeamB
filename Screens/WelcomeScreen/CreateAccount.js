@@ -1,9 +1,9 @@
 import * as React from 'react';
 import axios from '../../util/Axios';
 
-import deviceStorage from '../../services/deviceStorage'; 
+import deviceStorage from '../../services/deviceStorage';
 
-import { 
+import {
     Button,
     View,
     Text,
@@ -34,13 +34,13 @@ class CreateAccount extends React.Component {
             password: this.state.password,
             email: this.state.email,
             phoneNumber: this.state.phoneNumber
-    
+
         })
         .then((res) => {
             if(res.data.message !== undefined || res.data.error !== undefined) {
                 //to-do show error or message
                 console.log(res.data);
-    
+
             } else if (res.data.token !== undefined) {
                 const { navigate } = this.props.navigation;
                 deviceStorage.saveItem("token", res.data.token);
@@ -50,7 +50,7 @@ class CreateAccount extends React.Component {
         .catch((err) => {
             console.log(err);
         });
- 
+
     }
 
     render() {
@@ -99,6 +99,7 @@ class CreateAccount extends React.Component {
                     style={ styles.input }
                     onPress={this.handleCreateAccountButton.bind(this)}
                 />
+                <Text>Your information will not be shared with third parties.</Text>
             </View>
         );
     }

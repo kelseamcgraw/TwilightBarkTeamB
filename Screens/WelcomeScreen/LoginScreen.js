@@ -4,7 +4,7 @@ import axios from '../../util/Axios';
 
 import deviceStorage from '../../services/deviceStorage';
 
-import { 
+import {
     Button,
     View,
     TextInput,
@@ -27,14 +27,14 @@ class Login extends React.Component {
 
             username: this.state.username,
             password: this.state.password
-    
+
         })
         .then((res) => {
 
             if(res.data.message !== undefined || res.data.error !== undefined) {
                 //to-do show error or message
                 console.log(res.data);
-    
+
             } else if (res.data.token !== undefined) {
 
                 const { navigate } = this.props.navigation;
@@ -47,14 +47,14 @@ class Login extends React.Component {
         });
 
     }
-    
+
     handleFailedLogin = (data) => {
 
 
 
     }
 
-    
+
     render() {
         return (
             <View style={styles.container}>
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
       borderWidth: 1,
       borderColor: 'black',
       marginBottom: 10,
-    },
+    }
   });
 
 export default Login;
