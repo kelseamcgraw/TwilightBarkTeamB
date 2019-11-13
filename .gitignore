@@ -2,4 +2,4 @@
 /server/.env
 /bin
 .env
-server/images
+server/static/

@@ -4,12 +4,16 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 
 const userRoutes = require('./api/routes/user');
+const dogBreedsRoutes = require('./api/routes/dogBreeds')
 const dogRoutes = require('./api/routes/dog');
+const breedRoutes = require('./api/routes/breed');
 const cors = require('cors');
 const db = require("./models");
+const Authenticate = require('./api/middleware/check-auth');
 
 app.options('/', cors());
 app.use(morgan("dev"));
+// app.use('/uploads', Authenticate)
 app.use('/uploads', express.static('uploads'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -30,12 +34,14 @@ app.use((req, res, next) => {
 });
 
 db.sequelize.sync({
-  // force: true,
+  force: true,
   paranoid: true
 })
 // Routes which should handle requests
 app.use("/user", userRoutes);
 app.use("/dog", dogRoutes)
+app.use("/dogBreed", dogBreedsRoutes)
+app.use("/breed", breedRoutes)
 
 app.use((req, res, next) => {
   const error = new Error("Not found");

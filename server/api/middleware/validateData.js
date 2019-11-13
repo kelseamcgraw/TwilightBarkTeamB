@@ -95,7 +95,7 @@ const userId = () => {
 
     return [
 
-        check("userId").not().isEmpty().withMessage("userId not provided")
+        check("userID").not().isEmpty().withMessage("userId not provided")
             .trim()
             .escape()
             .isNumeric().withMessage("not a number"),
@@ -162,7 +162,7 @@ const dogCreate = () => {
 
 const dogId = () => {
     return [
-        check("dogId")
+        check("dogID")
             .isNumeric().withMessage("not a number")
             .trim()
             .escape()

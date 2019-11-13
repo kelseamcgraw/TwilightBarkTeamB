@@ -3,7 +3,7 @@
   "expoServerPort": null,
   "packagerPort": null,
   "packagerPid": null,
-  "expoServerNgrokUrl": "https://vj-nhm.anonymous.twilightbarkteamb.exp.direct",
-  "packagerNgrokUrl": "https://packager.vj-nhm.anonymous.twilightbarkteamb.exp.direct",
-  "ngrokPid": 69858
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }

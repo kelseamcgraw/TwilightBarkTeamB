@@ -10,7 +10,6 @@ const model = require('../../models/index');
 var upload = require('../middleware/upload');
 const { dogUpdate, dogCreate, dogId, validate } = require("../middleware/validateData");
 
-
 router.get('/dogs', [authorize, isAdmin], (req, res) => {
   model.Dog.findAll().then(dogs => res.json(dogs));
 });
@@ -45,8 +44,8 @@ router.post("/update", [upload.single('dogImage'), authorize, dogUpdate(), valid
   model.Dog.update(req.body, { 
     
     where: { 
-        id: req.body.dogId,
-        userId: req.userData.id
+        dogID: req.body.dogID,
+        userId: req.userData.userID
     } 
   
   })
@@ -84,7 +83,7 @@ router.delete("/delete/:dogId",  [
 
   model.Dog.destroy({ 
 
-    where: { id: req.params.dogId} 
+    where: { dogID: req.params.dogID} 
 
   })
   .then((dog) => {

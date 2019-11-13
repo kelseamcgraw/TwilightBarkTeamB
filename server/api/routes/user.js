@@ -18,50 +18,61 @@ router.get('/dogs', [authorize], (req, res) => {
 
   model.User.findAll({
     where : {
-      id : req.userData.id
+      userID : req.userData.userID
     },
     include: [
       {
         model:  model.Dog,
-         as: "dog"
+         as: "dogs",
+         include: [
+           {
+           model: model.Breed,
+           as: "fk_dogID"
+           }
+         ]
+
       }
     ]
   }).then(users => {
-
     const resObj = users.map(user => {
 
       return Object.assign(
         {},
         {
 
-          userId : user.id,
+          userId : user.userID,
           username : user.username,
           email : user.email,
           phoneNumber : user.phoneNumber,
-          dogs : user.dog.map(dog => {
+          dogs : user.dogs.map(dog => {
 
             return Object.assign(
               {},
               {
 
-                dogId : dog.id,
+                dogId : dog.dogID,
                 dogName : dog.dogName,
                 userId : dog.userID,
                 dogAge : dog.dogAge,
                 breed : dog.breed,
                 color : dog.color,
                 size: dog.size,
-                file : dog.fileLocation
-
+                file : dog.fileLocation,
+                fk_dogID : dog.fk_dogID.map(breed => {
+                  
+                  return Object.assign(
+                    {},
+                    {
+                      id : breed.breedID,
+                      name: breed.name
+                    })
+                })
               })
-
             })
-
           })
-
       });
 
-      res.json(resObj);
+      res.json(users);
 
   });
 
@@ -94,7 +105,7 @@ router.post("/signup", [upload.none(), userCreate(), validate], (req, res, next)
         .then((user) => {
 
           jwt.sign({ 
-            id: user.id, 
+            userID: user.userID, 
             username: user.username, 
             isAdmin: user.isAdmin,
             exp: Date.now()
@@ -145,7 +156,7 @@ router.post("/login", [upload.none(), userLogin(), validate], (req, res, next) =
         if(result) {
   
           jwt.sign({ 
-            id: user.id, 
+            userID: user.userID, 
             username: user.username, 
             isAdmin: user.isAdmin,
             exp: Date.now()
@@ -211,7 +222,7 @@ router.post("/update", [upload.none(), updateUser(), validate, authorize], (req,
 
   model.User.update(req.body, { 
     
-    where: { id: req.userData.id } 
+    where: { userID: req.userData.userID } 
   
   })
   .then(user => { 
@@ -256,7 +267,7 @@ router.delete("/delete",  [authorize], (req, res, next) => {
 
   model.User.destroy({ 
 
-    where: { id: req.userData.id} 
+    where: { userID: req.userData.userID} 
 
   })
   .then((user) => {

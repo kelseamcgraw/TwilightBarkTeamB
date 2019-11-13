@@ -44,7 +44,7 @@ class Dog extends React.Component {
 
     handleCardPress = (i, e) => {
         this.props.navigation.navigate('EditDog', {
-            dogId: this.state.dogList[i].dogId,
+            dogId: this.state.dogList[i].dogID,
             breed: this.state.dogList[i].breed,
             color: this.state.dogList[i].color,
             dogAge: this.state.dogList[i].dogAge.toString(),
