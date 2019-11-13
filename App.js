@@ -1,48 +1,40 @@
-import { AppLoading } from 'expo';
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 
-import {  
-          StyleSheet, 
-          View 
+import {
+          AppRegistry,
+          StyleSheet,
+          Text,
+          View,
+          TouchableOpacity
         } from 'react-native';
 
-import AppNavigator from './Navigation/AppNavigator';
+import FBSDK, {LoginManager} from react-native-FBSDK
 
-export default function App(props) {
-
-  const [isLoadingComplete, setLoadingComplete] = useState(false);
-
-  if (!isLoadingComplete && !props.skipLoadingScreen) {
-    return (
-      <AppLoading
-        startAsync={loadResourcesAsync}
-        onError={handleLoadingError}
-        onFinish={() => handleFinishLoading(setLoadingComplete)}
-      />
-    );
-  } else {
-    return (
-      <View style={styles.container}>
-        <AppNavigator/>
-      </View>
-    )};
-}
-
-async function loadResourcesAsync() {
-  await Promise.all([
-    
-  ]);
-}
-
-function handleLoadingError(error) {
-  // In this case, you might want to report the error to your error reporting
-  // service, for example Sentry
-  console.warn(error);
-}
-
-function handleFinishLoading(setLoadingComplete) {
-  setLoadingComplete(true);
-}
+export default class facebookLogin extends Component {
+   
+    _facebookAuthentication() {
+        LoginManager.logInWithReadPermissions((['public_profile'])).then(function(result)) {
+            if (result.isCancelled) {
+                console.log('Login cancelled');
+            } else {
+                console.log('Login Successful: ' + result.grantedPermissions);
+            }
+        }, function(error) {
+            console.log('Error occured: ' +error);
+        })
+    }
+    render() {
+        return (
+            <view style = styles.container>
+                <TouchableOpacity onPress = {this._facebookAuthentication}>
+                    <Text>
+                        Login with Facebook
+                    </Text>
+                </TouchableOpacity>
+            </View>
+                
+                )
+    }
 
 const styles = StyleSheet.create({
   container: {
