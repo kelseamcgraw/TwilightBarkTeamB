@@ -15,7 +15,7 @@ app.options('/', cors());
 app.use(morgan("dev"));
 
 // app.use('/uploads', Authenticate)
-app.use('/uploads', express.static('uploads'));
+app.use('/static', express.static('static'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 

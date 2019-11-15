@@ -1,9 +1,10 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 21900,
-  "expoServerNgrokUrl": "https://7d-m4c.anonymous.twilightbarkteamb.exp.direct",
-  "packagerNgrokUrl": "https://packager.7d-m4c.anonymous.twilightbarkteamb.exp.direct",
-  "ngrokPid": 21910
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
+  "webpackServerPort": null
 }

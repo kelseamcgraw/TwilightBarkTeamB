@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 
 import { Card, ListItem, Avatar, Button } from 'react-native-elements';
-
+const urlPath = 'http://127.0.0.1:3000/static/images/';
 class Dog extends React.Component {
 
     constructor(props) {
@@ -64,10 +64,11 @@ class Dog extends React.Component {
                 <View style={styles.container}>
                     {
                     dogList.map((d, i) => {
+
                         return (
                     <TouchableOpacity
                     key={i}
-                    onPress={ this.handleCardPress.bind(this, i)} 
+                    onPress={ this.handleCardPress.bind(this, i) }
                     >
                         <Card 
                          style={styles.card}
@@ -76,8 +77,8 @@ class Dog extends React.Component {
                             style={styles.listItems}
                             leftAvatar={{
                                 title: d.dogName,
-                                size: "medium",
-                                source: require('../images/dogo.jpg'),
+                                size: "large",
+                                source: { uri: urlPath + d.fileLocation },
                                 showEditButton: false
                             }}
                             title={d.dogName}
