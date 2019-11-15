@@ -27,8 +27,16 @@ class AddDogColor extends React.Component {
     }
 
     handleAddColor = () => {
+        let colorString = ""
+        this.state.colors.forEach((element) => {
+            colorString = colorString + element + ","
+        })
+
         this.props.navigation.navigate('AddDogBreed',  {
-            colors: this.state.colors
+            dogName: this.props.navigation.getParam("dogName","dogName"),
+            dogAge: this.props.navigation.getParam("dogAge", "dogAge"),
+            size: this.props.navigation.getParam('size', 'size'),
+            colors: colorString,
         });
     }
 

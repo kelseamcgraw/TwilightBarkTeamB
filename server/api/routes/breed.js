@@ -16,7 +16,7 @@ router.get('/breeds', [authorize], (req, res) => {
 router.get('/', [], (req, res) => {
     const dogbreeds = require('../../dogBreeds.json');
     dogbreeds.forEach(element => {
-        model.Breed.create({ name: element.Breed})
+        model.Breed.create({id: element.id.substr(1), name: element.Breed})
     });
     res.json({
         message: "success"

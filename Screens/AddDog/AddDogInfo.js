@@ -13,6 +13,7 @@ class AddDogInfo extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            dogID: 0,
             isLoggedIn: "",
             dogName : "",
             dogAge : "",

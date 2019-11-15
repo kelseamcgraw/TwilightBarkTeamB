@@ -6,36 +6,30 @@ const router = express.Router();
 const model = require('../../models/index');
 
 
-router.get('/add', [], (req, res) => {
-  getDogs();
+router.post('/add', [authorize], (req, res) => {
 
-// model.Dog.findOne({ where: {dogID: 1} }).then((dog) => {
-//     model.Breed.findOne({where: {breedID: 10}}).then((breed) => {
-//       dog.addBreed([breed]);
-//     });      
-// });
+    model.Dog.findOne({ where: {dogID: req.body.dogID} })
+    .then((dog) => {
+        if(dog === null) {
+            
+            res.json({
+                error: "no dog found"
+            })
 
+        } else {
+            req.body.breeds.forEach(element => {
+                model.Dog_Breeds.create({dogID: req.body.dogID, breedID: element.breedID});
+            });
+            
+        }
+    });
+        
+          
 });
 
-async function getDogs() {
-    try{
-        const dog = await model.Dog.findOne({
-            where: {
-                dogID: 1
-            }
-        });
-        // dog.addBreed( 45)
-        
-        // dog.addBreed( 1, 23)
-        const db = await model.Dog_Breeds.create({dogID: 1, breedID: 2});
-        await model.Dog_Breeds.create({dogID: 1, breedID: 50});
+router.post('/update', [authorize], (req, res) => {
 
-        // console.log(db);
-        // const x = await dog.getBreed()
-    }catch(e) {
-        console.log(e)
-    }
-}
+});
 
 
 module.exports = router;

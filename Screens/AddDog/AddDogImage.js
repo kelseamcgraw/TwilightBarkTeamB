@@ -23,7 +23,13 @@ class AddDogImage extends React.Component {
 
             isLoadingImage: false,
             image: null,
+            isLoggedIn: "0",
             token : "",
+            dogAge: "",
+            size: "",
+            dogName: "",
+            colors: "",
+            breeds: "",
         }
         
     }
@@ -44,6 +50,11 @@ class AddDogImage extends React.Component {
 
                 </TouchableOpacity>
                 <Button
+                    title={ 'Add Another' }
+                    style={ styles.input }
+                    onPress={this.handleAddAnotherButton.bind(this)}
+                />
+                <Button
                     title={ 'Done' }
                     style={ styles.input }
                     onPress={this.handleDoneButton.bind(this)}
@@ -54,13 +65,18 @@ class AddDogImage extends React.Component {
 
 
     async componentDidMount() {
-
-        this.state.isLoggedIn = await deviceStorage.getItem('isLoggedIn');
+        this.setState({dogName:this.props.navigation.getParam("dogName","dogName")});
+        this.setState({dogAge: this.props.navigation.getParam("dogAge", "dogAge")});
+        this.setState({size: this.props.navigation.getParam('size', 'size')});
+        this.setState({colors: this.props.navigation.getParam('colors', 'colors')});
+        this.setState({breeds: this.props.navigation.getParam('breeds', 'breeds')});
         this.getPermissionAsync();
-
+        
     }
 
     async handleDoneButton() {
+
+        this.postData();
         let resetAction = StackActions.reset({
             index: 0,
             actions: [
@@ -70,16 +86,8 @@ class AddDogImage extends React.Component {
 
         this.props.navigation.dispatch(resetAction);
 
-        if(this.state.isLoggedIn === "1") {
-
-            this.props.navigation.navigate('Dog')
-
-        } else {
-
             deviceStorage.saveItem('isLoggedIn', "1");
             this.props.navigation.navigate('Feed')
-
-        }
                 
     }
 
@@ -105,20 +113,32 @@ class AddDogImage extends React.Component {
         }
     };
 
-    async handleAddDogButton() {
-        const token = await deviceStorage.getItem("userKey");    
-        const data = new FormData();
-        data.append({
-            breed: this.state.breed,
-            dogAge: parseInt(this.state.dogAge, 10),
-            color: this.state.color,
-            size: this.state.size, 
-            dogName: this.state.dogName,
-            dogImage: this.state.image
+    async handleAddAnotherButton() {
+        this.postData();
+        let resetAction = StackActions.reset({
+            index: 0,
+            actions: [
+            NavigationActions.navigate({ routeName: 'Profile' })
+            ],
         });
 
+        this.props.navigation.dispatch(resetAction);
+
+        this.props.navigation.navigate('AddDogInfo')
+    }
+
+    async postData() {
+        const token = await deviceStorage.getItem("userKey");    
+        const data = new FormData();
+        data.append("breeds", this.state.breeds);
+        data.append("dogAge", this.state.dogAge);
+        data.append("colors", this.state.colors);
+        data.append("size", this.state.size);
+        data.append("dogName", this.state.dogName);
+        data.append("dogImage", this.state.dogImage);
+
         data.append('dogImage', {
-            uri: this.state.image, // your file path string
+            uri: this.state.image,
             name: 'my_image',
             type: 'image/jpg'
         })

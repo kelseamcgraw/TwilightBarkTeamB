@@ -27,8 +27,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {});
   DogBreeds.associate = function(models) {
-    // DogBreeds.belongsToMany(models.Breed, { foreignKey: 'breedID', through: 'Dog_Breeds', as: 'fk_breedID' });
-    // DogBreeds.belongsToMany(models.Dog, { foreignKey: 'dogID', through: 'Dog_Breeds', as: 'fk_dogID'});
   };
   return DogBreeds;
 };

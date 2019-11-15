@@ -13,6 +13,7 @@ const Authenticate = require('./api/middleware/check-auth');
 
 app.options('/', cors());
 app.use(morgan("dev"));
+
 // app.use('/uploads', Authenticate)
 app.use('/uploads', express.static('uploads'));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -34,7 +35,7 @@ app.use((req, res, next) => {
 });
 
 db.sequelize.sync({
-  force: true,
+  // force: true,
   paranoid: true
 })
 // Routes which should handle requests

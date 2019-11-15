@@ -21,7 +21,6 @@ class AddDogSize extends React.Component {
     }
 
     handleNextButton() {
-
         this.props.navigation.navigate('AddDogColor', {
             dogName: this.props.navigation.getParam("dogName","dogName"),
             dogAge: this.props.navigation.getParam("dogAge", "dogAge"),

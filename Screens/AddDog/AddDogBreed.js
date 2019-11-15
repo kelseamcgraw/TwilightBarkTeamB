@@ -16,7 +16,6 @@ class AddDogBreed extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            breeds: [],
             data: [],
             isLoading: true,
             selectedItems: [],
@@ -45,10 +44,17 @@ class AddDogBreed extends React.Component {
     }
 
     handleNextButton = () => {
-        console.log(this.state.selectedItems)
-        // this.props.navigation.navigate('AddDogImage',  {
-        //     breeds: this.state.breeds
-        // });
+        let breedString = "";
+        this.state.selectedItems.forEach((element) => {
+            breedString = breedString + element.toString() + ",";
+        })
+        this.props.navigation.navigate('AddDogImage',  {
+            breeds: breedString,
+            dogName: this.props.navigation.getParam("dogName","dogName"),
+            dogAge: this.props.navigation.getParam("dogAge", "dogAge"),
+            size: this.props.navigation.getParam('size', 'size'),
+            colors: this.props.navigation.getParam('colors', 'colors')
+        });
     }
 
     onSelectedItemsChange = selectedItems => {
@@ -59,7 +65,6 @@ class AddDogBreed extends React.Component {
         const data = this.state.data
         const { selectedItems } = this.state;
         if(!this.state.isLoading) {
-            console.log(data)
             return (
                     <View style={{ flex: 1, padding: 30 }}>
                         <Text>Choose what breeds you are</Text>

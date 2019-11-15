@@ -14,23 +14,36 @@ router.get('/dogs', [authorize, isAdmin], (req, res) => {
   model.Dog.findAll().then(dogs => res.json(dogs));
 });
 
-router.post("/add", [upload.single('dogImage'), authorize,  dogCreate(), validate], (req, res, next) => {
+router.post("/add", [upload.single('dogImage'), authorize], (req, res, next) => {
     const dog = {
       dogName: req.body.dogName,
-      userID : req.userData.id,
+      userID : req.userData.userID,
       dogAge : parseInt(req.body.dogAge, 10),
-      breed : req.body.breed,
       color : req.body.color,
       size: req.body.size,
-      fileLocation: req.file.filename // to do get filelocation server side
+      fileLocation: req.file.filename 
     }
-
+    let parts = req.body.breeds.split(",")
+    
+    
     model.Dog.create(dog)
-    .then(dog => res.json({
+    .then((dog) => {
+      
+      try{
+        parts.forEach(element => {
+          if(element !== "") {
+            model.Dog_Breeds.create({dogID: dog.dogID, breedID: parseInt(element, 10)})
+          }
+       });        
+      }catch(error) {
+        console.log(error);
+      }
+        res.json({
 
-        message: "New Dog Added"
+          dog
 
-    }))
+      })
+    })
     .catch(error => res.json({
 
         error: error
