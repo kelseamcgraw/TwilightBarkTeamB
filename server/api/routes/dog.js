@@ -19,7 +19,7 @@ router.get('/lost/:dogId', [authorize], (req, res) => {
   
   })
   .then(dog => {
-    file="/images/" + dog[0].fileName;
+    file="/static/images/" + dog[0].fileLocation;
     res.render('dog', { 
       title: dog[0].dogName, 
       message: 'Help I am Lost', 
@@ -31,22 +31,16 @@ router.get('/lost/:dogId', [authorize], (req, res) => {
 
 });
 
-
-router.get('/dogs', [authorize, isAdmin], (req, res) => {
-  model.Dog.findAll().then(dogs => res.json(dogs));
-});
-
 router.post("/add", [upload.single('dogImage'), authorize], (req, res, next) => {
     const dog = {
       dogName: req.body.dogName,
       userID : req.userData.userID,
       dogAge : parseInt(req.body.dogAge, 10),
-      color : req.body.color,
+      colors : req.body.colors,
       size: req.body.size,
       fileLocation: req.file.filename 
     }
     let parts = req.body.breeds.split(",")
-    
     
     model.Dog.create(dog)
     .then((dog) => {

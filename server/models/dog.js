@@ -10,10 +10,10 @@ module.exports = (sequelize, DataTypes) => {
     dogName: DataTypes.STRING,
     userID: DataTypes.INTEGER,
     dogAge: DataTypes.INTEGER,
-    color: DataTypes.STRING,
+    colors: DataTypes.STRING,
     alerts: DataTypes.STRING,
     size: DataTypes.STRING,
-    fileName: DataTypes.STRING
+    fileLocation: DataTypes.STRING
   }, {});
   Dog.associate = function(models) {
     Dog.belongsToMany( models.Breed, {

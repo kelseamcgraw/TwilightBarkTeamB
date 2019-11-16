@@ -15,16 +15,13 @@ module.exports = {
       dogAge: {
         type: Sequelize.INTEGER
       },
-      breed: {
-        type: Sequelize.STRING
-      },
-      color: {
+      colors: {
         type: Sequelize.STRING
       },
       size: {
         type: Sequelize.STRING
       },
-      fileName: {
+      fileLocation: {
         type: Sequelize.STRING
       },
       createdAt: {

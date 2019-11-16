@@ -45,7 +45,6 @@ router.get('/dogs', [authorize], (req, res) => {
           email : user.email,
           phoneNumber : user.phoneNumber,
           dogs : user.dogs.map(dog => {
-
             return Object.assign(
               {},
               {
@@ -54,11 +53,10 @@ router.get('/dogs', [authorize], (req, res) => {
                 dogName : dog.dogName,
                 userId : dog.userID,
                 dogAge : dog.dogAge,
-                breed : dog.breed,
-                color : dog.color,
+                colors : dog.colors,
                 size: dog.size,
-                file : dog.fileLocation,
-                fk_dogID : dog.fk_dogID.map(breed => {
+                fileLocation: dog.fileLocation,
+                fk_dogID: dog.fk_dogID.map(breed => {
                   
                   return Object.assign(
                     {},
@@ -72,14 +70,13 @@ router.get('/dogs', [authorize], (req, res) => {
           })
       });
 
-      res.json(users);
+      res.json(resObj);
 
   });
 
 });
 
 router.post("/signup", [upload.none(), userCreate(), validate], (req, res, next) => {
-  console.log(req.body.username)
   model.User.findAll({ 
     
     where: { username: req.body.username } 
