@@ -1,11 +1,11 @@
 {
-  "name": "statelineind",
+  "name": "TwilightBark",
   "version": "1.0.0",
-  "description": "A Node.js RESTful API for StatelineInd",
+  "description": "A Node.js RESTful API for TwilightBark",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "keywords": [
     "node",

@@ -19,7 +19,6 @@ class AddDogBreed extends React.Component {
             data: [],
             isLoading: true,
             selectedItems: [],
-            token : ""
         }
         
     }

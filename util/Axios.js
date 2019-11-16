@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseurl = 'http://127.0.0.1:3000';
+const baseurl = 'https://twilightbark.duckdns.org';
 
 export default axios.create({
     baseURL: baseurl,

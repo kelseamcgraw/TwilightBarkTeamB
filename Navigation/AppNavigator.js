@@ -36,6 +36,7 @@ const AddDogStack = createStackNavigator({
 const ProfileStack = createStackNavigator({
     Profile: { screen: ProfileScreen },
     EditDog : { screen: EditDogScreen },
+    AddDog : {screen: AddDogStack},
     Details: { screen: DetailsScreen },
     MyDogs: { screen: DogScreen }
 });

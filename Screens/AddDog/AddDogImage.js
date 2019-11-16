@@ -23,7 +23,7 @@ class AddDogImage extends React.Component {
 
             isLoadingImage: false,
             image: null,
-            isLoggedIn: "0",
+            isLoggedIn: "",
             token : "",
             dogAge: "",
             size: "",
@@ -64,12 +64,15 @@ class AddDogImage extends React.Component {
     }
 
     async componentDidMount() {
+        
         this.setState({dogName:this.props.navigation.getParam("dogName","dogName")});
         this.setState({dogAge: this.props.navigation.getParam("dogAge", "dogAge")});
         this.setState({size: this.props.navigation.getParam('size', 'size')});
         this.setState({colors: this.props.navigation.getParam('colors', 'colors')});
         this.setState({breeds: this.props.navigation.getParam('breeds', 'breeds')});
         this.getPermissionAsync();
+        const isLoggedIn = await deviceStorage.getItem('isLoggedIn');    
+        this.setState({isLoggedIn: isLoggedIn});
         
     }
 
@@ -82,11 +85,15 @@ class AddDogImage extends React.Component {
             NavigationActions.navigate({ routeName: 'Profile' })
             ],
         });
-
-        this.props.navigation.dispatch(resetAction);
-
+        if(this.state.isLoggedIn === "0") {
+            this.props.navigation.dispatch(resetAction);
             deviceStorage.saveItem('isLoggedIn', "1");
             this.props.navigation.navigate('Feed')
+        } else {
+            this.props.navigation.dispatch(resetAction);
+            this.props.navigation.navigate('Profile')
+        }
+        
                 
     }
 

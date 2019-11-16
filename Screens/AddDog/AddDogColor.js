@@ -18,7 +18,6 @@ class AddDogColor extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            isLoggedIn: "",
             colors: [],
             count : 0
 

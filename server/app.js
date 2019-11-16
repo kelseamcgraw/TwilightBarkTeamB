@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
+const path = require('path');
 
 const userRoutes = require('./api/routes/user');
 const dogBreedsRoutes = require('./api/routes/dogBreeds')
@@ -15,7 +16,7 @@ app.options('/', cors());
 app.use(morgan("dev"));
 
 // app.use('/uploads', Authenticate)
-app.use('/static', express.static('static'));
+app.use('/static', express.static(__dirname + '/static'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.set('view engine', 'pug')
