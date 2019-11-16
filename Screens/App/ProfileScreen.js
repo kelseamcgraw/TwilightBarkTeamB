@@ -33,7 +33,7 @@ class Profile extends React.Component {
 
     handleDogsButton = () => {
         const { navigate } = this.props.navigation;
-        this.props.navigation.navigate('Dog');
+        this.props.navigation.navigate('MyDogs');
     }
 
     handleDetailsButton = () => {

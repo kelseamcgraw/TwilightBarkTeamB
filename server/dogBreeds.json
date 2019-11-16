@@ -1,0 +1,2002 @@
+[
+  {
+    "id": "A1",
+    "Breed": "Affenpinscher"
+  },
+  {
+    "id": "A2",
+    "Breed": "Afghan Hound"
+  },
+  {
+    "id": "A3",
+    "Breed": "Afghan Shepherd"
+  },
+  {
+    "id": "A4",
+    "Breed": "Aidi"
+  },
+  {
+    "id": "A5",
+    "Breed": "Airedale Terrier"
+  },
+  {
+    "id": "A6",
+    "Breed": "Akbash"
+  },
+  {
+    "id": "A7",
+    "Breed": "Akita"
+  },
+  {
+    "id": "A8",
+    "Breed": "Alaskan husky"
+  },
+  {
+    "id": "A9",
+    "Breed": "Alaskan Klee Kai"
+  },
+  {
+    "id": "A10",
+    "Breed": "Alaskan Malamute"
+  },
+  {
+    "id": "A11",
+    "Breed": "Alaunt"
+  },
+  {
+    "id": "A12",
+    "Breed": "Alopekis"
+  },
+  {
+    "id": "A13",
+    "Breed": "Alpine Dachsbracke"
+  },
+  {
+    "id": "A14",
+    "Breed": "Alpine Mastiff"
+  },
+  {
+    "id": "A15",
+    "Breed": "Alpine Spaniel"
+  },
+  {
+    "id": "A16",
+    "Breed": "American Akita"
+  },
+  {
+    "id": "A17",
+    "Breed": "American Bully"
+  },
+  {
+    "id": "A18",
+    "Breed": "American Bulldog"
+  },
+  {
+    "id": "A19",
+    "Breed": "American Cocker Spaniel"
+  },
+  {
+    "id": "A20",
+    "Breed": "American English Coonhound"
+  },
+  {
+    "id": "A21",
+    "Breed": "American Eskimo Dog"
+  },
+  {
+    "id": "A22",
+    "Breed": "American Foxhound"
+  },
+  {
+    "id": "A23",
+    "Breed": "American Hairless Terrier"
+  },
+  {
+    "id": "A24",
+    "Breed": "American Pit Bull Terrier"
+  },
+  {
+    "id": "A25",
+    "Breed": "American Staffordshire Terrier"
+  },
+  {
+    "id": "A26",
+    "Breed": "American Water Spaniel"
+  },
+  {
+    "id": "A27",
+    "Breed": "Anatolian Shepherd Dog"
+  },
+  {
+    "id": "A28",
+    "Breed": "Andalusian Hound"
+  },
+  {
+    "id": "A29",
+    "Breed": "Appenzeller Sennenhund"
+  },
+  {
+    "id": "A30",
+    "Breed": "Argentine Polar Dog"
+  },
+  {
+    "id": "A31",
+    "Breed": "Ariegeois"
+  },
+  {
+    "id": "A32",
+    "Breed": "Armant"
+  },
+  {
+    "id": "A33",
+    "Breed": "Armenian Gampr dog"
+  },
+  {
+    "id": "A34",
+    "Breed": "Artois Hound"
+  },
+  {
+    "id": "A35",
+    "Breed": "Australian Cattle Dog"
+  },
+  {
+    "id": "A36",
+    "Breed": "Australian Kelpie"
+  },
+  {
+    "id": "A37",
+    "Breed": "Australian Shepherd"
+  },
+  {
+    "id": "A38",
+    "Breed": "Australian Terrier"
+  },
+  {
+    "id": "A39",
+    "Breed": "Austrian Black and Tan Hound"
+  },
+  {
+    "id": "A40",
+    "Breed": "Austrian Pinscher"
+  },
+  {
+    "id": "A41",
+    "Breed": "Azawakh"
+  },
+  {
+    "id": "A42",
+    "Breed": "Bakharwal dog"
+  },
+  {
+    "id": "A43",
+    "Breed": "Barbado da Terceira"
+  },
+  {
+    "id": "A44",
+    "Breed": "Barbet"
+  },
+  {
+    "id": "A45",
+    "Breed": "Basenji"
+  },
+  {
+    "id": "A46",
+    "Breed": "Basque Shepherd Dog"
+  },
+  {
+    "id": "A47",
+    "Breed": "Basset Bleu de Gascogne"
+  },
+  {
+    "id": "A48",
+    "Breed": "Basset Fauve de Bretagne"
+  },
+  {
+    "id": "A49",
+    "Breed": "Basset Hound"
+  },
+  {
+    "id": "A50",
+    "Breed": "Bavarian Mountain Hound"
+  },
+  {
+    "id": "A51",
+    "Breed": "Beagle"
+  },
+  {
+    "id": "A52",
+    "Breed": "Beagle-Harrier"
+  },
+  {
+    "id": "A53",
+    "Breed": "Bearded Collie"
+  },
+  {
+    "id": "A54",
+    "Breed": "Beauceron"
+  },
+  {
+    "id": "A55",
+    "Breed": "Bedlington Terrier"
+  },
+  {
+    "id": "A56",
+    "Breed": "Belgian Shepherd Dog (Groenendael)"
+  },
+  {
+    "id": "A57",
+    "Breed": "Belgian Shepherd Dog (Laekenois)"
+  },
+  {
+    "id": "A58",
+    "Breed": "Belgian Shepherd Dog (Malinois)"
+  },
+  {
+    "id": "A59",
+    "Breed": "Belgian Shepherd Dog (Tervuren)"
+  },
+  {
+    "id": "A60",
+    "Breed": "Bergamasco Shepherd"
+  },
+  {
+    "id": "A61",
+    "Breed": "Berger Blanc Suisse"
+  },
+  {
+    "id": "A62",
+    "Breed": "Berger Picard"
+  },
+  {
+    "id": "A63",
+    "Breed": "Bernese Mountain Dog"
+  },
+  {
+    "id": "A64",
+    "Breed": "Billy"
+  },
+  {
+    "id": "A65",
+    "Breed": "Black and Tan Coonhound"
+  },
+  {
+    "id": "A66",
+    "Breed": "Black and Tan Virginia Foxhound"
+  },
+  {
+    "id": "A67",
+    "Breed": "Black Norwegian Elkhound"
+  },
+  {
+    "id": "A68",
+    "Breed": "Black Russian Terrier"
+  },
+  {
+    "id": "A69",
+    "Breed": "Black Mouth Cur"
+  },
+  {
+    "id": "A70",
+    "Breed": "Bloodhound"
+  },
+  {
+    "id": "A71",
+    "Breed": "Blue Heeler"
+  },
+  {
+    "id": "A72",
+    "Breed": "Blue Lacy"
+  },
+  {
+    "id": "A73",
+    "Breed": "Blue Paul Terrier"
+  },
+  {
+    "id": "A74",
+    "Breed": "Blue Picardy Spaniel"
+  },
+  {
+    "id": "A75",
+    "Breed": "Bluetick Coonhound"
+  },
+  {
+    "id": "A76",
+    "Breed": "Boerboel"
+  },
+  {
+    "id": "A77",
+    "Breed": "Bohemian Shepherd"
+  },
+  {
+    "id": "A78",
+    "Breed": "Bolognese"
+  },
+  {
+    "id": "A79",
+    "Breed": "Border Collie"
+  },
+  {
+    "id": "A80",
+    "Breed": "Border Terrier"
+  },
+  {
+    "id": "A81",
+    "Breed": "Borzoi"
+  },
+  {
+    "id": "A82",
+    "Breed": "Bosnian Coarse-haired Hound"
+  },
+  {
+    "id": "A83",
+    "Breed": "Boston Terrier"
+  },
+  {
+    "id": "A84",
+    "Breed": "Bouvier des Ardennes"
+  },
+  {
+    "id": "A85",
+    "Breed": "Bouvier des Flandres"
+  },
+  {
+    "id": "A86",
+    "Breed": "Boxer"
+  },
+  {
+    "id": "A87",
+    "Breed": "Boykin Spaniel"
+  },
+  {
+    "id": "A88",
+    "Breed": "Bracco Italiano"
+  },
+  {
+    "id": "A89",
+    "Breed": "Braque d'Auvergne"
+  },
+  {
+    "id": "A90",
+    "Breed": "Braque de l'Ariege"
+  },
+  {
+    "id": "A91",
+    "Breed": "Braque du Bourbonnais"
+  },
+  {
+    "id": "A92",
+    "Breed": "Braque du Puy"
+  },
+  {
+    "id": "A93",
+    "Breed": "Braque Francais"
+  },
+  {
+    "id": "A94",
+    "Breed": "Braque Saint-Germain"
+  },
+  {
+    "id": "A95",
+    "Breed": "Brazilian Dogo"
+  },
+  {
+    "id": "A96",
+    "Breed": "Brazilian Terrier"
+  },
+  {
+    "id": "A97",
+    "Breed": "Briard"
+  },
+  {
+    "id": "A98",
+    "Breed": "Briquet Griffon Vendéen"
+  },
+  {
+    "id": "A99",
+    "Breed": "Brittany"
+  },
+  {
+    "id": "A100",
+    "Breed": "Broholmer"
+  },
+  {
+    "id": "A101",
+    "Breed": "Bruno Jura Hound"
+  },
+  {
+    "id": "A102",
+    "Breed": "Brussels Griffon"
+  },
+  {
+    "id": "A103",
+    "Breed": "Bucovina Shepherd Dog"
+  },
+  {
+    "id": "A104",
+    "Breed": "Bull and Terrier"
+  },
+  {
+    "id": "A105",
+    "Breed": "Bull Terrier"
+  },
+  {
+    "id": "A106",
+    "Breed": "Bulldog"
+  },
+  {
+    "id": "A107",
+    "Breed": "Bullenbeisser"
+  },
+  {
+    "id": "A108",
+    "Breed": "Bullmastiff"
+  },
+  {
+    "id": "A109",
+    "Breed": "Bully Kutta"
+  },
+  {
+    "id": "A110",
+    "Breed": "Burgos Pointer"
+  },
+  {
+    "id": "A111",
+    "Breed": "Cairn Terrier"
+  },
+  {
+    "id": "A112",
+    "Breed": "Canaan Dog"
+  },
+  {
+    "id": "A113",
+    "Breed": "Canadian Eskimo Dog"
+  },
+  {
+    "id": "A114",
+    "Breed": "Cane Corso"
+  },
+  {
+    "id": "A115",
+    "Breed": "Cantabrian Water Dog"
+  },
+  {
+    "id": "A116",
+    "Breed": "Carolina Dog"
+  },
+  {
+    "id": "A117",
+    "Breed": "Carpathian Shepherd Dog"
+  },
+  {
+    "id": "A118",
+    "Breed": "Catalan Sheepdog"
+  },
+  {
+    "id": "A119",
+    "Breed": "Caucasian Shepherd Dog"
+  },
+  {
+    "id": "A120",
+    "Breed": "Cavalier King Charles Spaniel"
+  },
+  {
+    "id": "A121",
+    "Breed": "Central Asian Shepherd Dog"
+  },
+  {
+    "id": "A122",
+    "Breed": "Cesky Fousek"
+  },
+  {
+    "id": "A123",
+    "Breed": "Cesky Terrier"
+  },
+  {
+    "id": "A124",
+    "Breed": "Chesapeake Bay Retriever"
+  },
+  {
+    "id": "A125",
+    "Breed": "Chien-gris"
+  },
+  {
+    "id": "A126",
+    "Breed": "Chihuahua"
+  },
+  {
+    "id": "A127",
+    "Breed": "Chilean Terrier"
+  },
+  {
+    "id": "A128",
+    "Breed": "Chinese Chongqing Dog"
+  },
+  {
+    "id": "A129",
+    "Breed": "Chinese Crested Dog"
+  },
+  {
+    "id": "A130",
+    "Breed": "Chinese Imperial Dog"
+  },
+  {
+    "id": "A131",
+    "Breed": "Chinook"
+  },
+  {
+    "id": "A132",
+    "Breed": "Chippiparai"
+  },
+  {
+    "id": "A133",
+    "Breed": "Chiribaya Dog"
+  },
+  {
+    "id": "A134",
+    "Breed": "Chow Chow"
+  },
+  {
+    "id": "A135",
+    "Breed": "Cierny Sery"
+  },
+  {
+    "id": "A136",
+    "Breed": "Cirneco dell'Etna"
+  },
+  {
+    "id": "A137",
+    "Breed": "Clumber Spaniel"
+  },
+  {
+    "id": "A138",
+    "Breed": "Collie, Rough"
+  },
+  {
+    "id": "A139",
+    "Breed": "Collie, Smooth"
+  },
+  {
+    "id": "A140",
+    "Breed": "Combai"
+  },
+  {
+    "id": "A141",
+    "Breed": "Cordoba Fighting Dog"
+  },
+  {
+    "id": "A142",
+    "Breed": "Coton de Tulear"
+  },
+  {
+    "id": "A143",
+    "Breed": "Cretan Hound"
+  },
+  {
+    "id": "A144",
+    "Breed": "Croatian Sheepdog"
+  },
+  {
+    "id": "A145",
+    "Breed": "Cumberland Sheepdog"
+  },
+  {
+    "id": "A146",
+    "Breed": "Curly-Coated Retriever"
+  },
+  {
+    "id": "A147",
+    "Breed": "Cursinu"
+  },
+  {
+    "id": "A148",
+    "Breed": "Czechoslovakian Wolfdog"
+  },
+  {
+    "id": "A149",
+    "Breed": "Dachshund"
+  },
+  {
+    "id": "A150",
+    "Breed": "Dalbo dog"
+  },
+  {
+    "id": "A151",
+    "Breed": "Dalmatian"
+  },
+  {
+    "id": "A152",
+    "Breed": "Dandie Dinmont Terrier"
+  },
+  {
+    "id": "A153",
+    "Breed": "Danish-Swedish Farmdog"
+  },
+  {
+    "id": "A154",
+    "Breed": "Deutsche Bracke"
+  },
+  {
+    "id": "A155",
+    "Breed": "Doberman Pinscher"
+  },
+  {
+    "id": "A156",
+    "Breed": "Dogo Argentino"
+  },
+  {
+    "id": "A157",
+    "Breed": "Dogo Cubano"
+  },
+  {
+    "id": "A158",
+    "Breed": "Dogue de Bordeaux"
+  },
+  {
+    "id": "A159",
+    "Breed": "Drentse Patrijshond"
+  },
+  {
+    "id": "A160",
+    "Breed": "Drever"
+  },
+  {
+    "id": "A161",
+    "Breed": "Dunker"
+  },
+  {
+    "id": "A162",
+    "Breed": "Dutch Shepherd"
+  },
+  {
+    "id": "A163",
+    "Breed": "Dutch Smoushond"
+  },
+  {
+    "id": "A164",
+    "Breed": "East Siberian Laika"
+  },
+  {
+    "id": "A165",
+    "Breed": "East European Shepherd"
+  },
+  {
+    "id": "A166",
+    "Breed": "Elo"
+  },
+  {
+    "id": "A167",
+    "Breed": "English Cocker Spaniel"
+  },
+  {
+    "id": "A168",
+    "Breed": "English Foxhound"
+  },
+  {
+    "id": "A169",
+    "Breed": "English Mastiff"
+  },
+  {
+    "id": "A170",
+    "Breed": "English Pointer"
+  },
+  {
+    "id": "A171",
+    "Breed": "English Setter"
+  },
+  {
+    "id": "A172",
+    "Breed": "English Shepherd"
+  },
+  {
+    "id": "A173",
+    "Breed": "English Springer Spaniel"
+  },
+  {
+    "id": "A174",
+    "Breed": "English Toy Terrier (Black & Tan)"
+  },
+  {
+    "id": "A175",
+    "Breed": "English Water Spaniel"
+  },
+  {
+    "id": "A176",
+    "Breed": "English White Terrier"
+  },
+  {
+    "id": "A177",
+    "Breed": "Entlebucher Mountain Dog"
+  },
+  {
+    "id": "A178",
+    "Breed": "Estonian Hound"
+  },
+  {
+    "id": "A179",
+    "Breed": "Estrela Mountain Dog"
+  },
+  {
+    "id": "A180",
+    "Breed": "Eurasier"
+  },
+  {
+    "id": "A181",
+    "Breed": "Eurohound"
+  },
+  {
+    "id": "A182",
+    "Breed": "Field Spaniel"
+  },
+  {
+    "id": "A183",
+    "Breed": "Fila Brasileiro"
+  },
+  {
+    "id": "A184",
+    "Breed": "Finnish Hound"
+  },
+  {
+    "id": "A185",
+    "Breed": "Finnish Lapphund"
+  },
+  {
+    "id": "A186",
+    "Breed": "Finnish Spitz"
+  },
+  {
+    "id": "A187",
+    "Breed": "Flat-Coated Retriever"
+  },
+  {
+    "id": "A188",
+    "Breed": "Fox Terrier, Smooth"
+  },
+  {
+    "id": "A189",
+    "Breed": "Fox Terrier, Wire"
+  },
+  {
+    "id": "A190",
+    "Breed": "French Brittany"
+  },
+  {
+    "id": "A191",
+    "Breed": "French Bulldog"
+  },
+  {
+    "id": "A192",
+    "Breed": "French Spaniel"
+  },
+  {
+    "id": "A193",
+    "Breed": "Gaddi Kutta"
+  },
+  {
+    "id": "A194",
+    "Breed": "Galician Shepherd Dog"
+  },
+  {
+    "id": "A195",
+    "Breed": "Garafian Shepherd"
+  },
+  {
+    "id": "A196",
+    "Breed": "Gascon Saintongeois"
+  },
+  {
+    "id": "A197",
+    "Breed": "Georgian Shepherd"
+  },
+  {
+    "id": "A198",
+    "Breed": "German Longhaired Pointer"
+  },
+  {
+    "id": "A199",
+    "Breed": "German Pinscher"
+  },
+  {
+    "id": "A200",
+    "Breed": "German Roughhaired Pointer"
+  },
+  {
+    "id": "A201",
+    "Breed": "German Shepherd"
+  },
+  {
+    "id": "A202",
+    "Breed": "German Shorthaired Pointer"
+  },
+  {
+    "id": "A203",
+    "Breed": "German Spaniel"
+  },
+  {
+    "id": "A204",
+    "Breed": "German Spitz"
+  },
+  {
+    "id": "A205",
+    "Breed": "German Wirehaired Pointer"
+  },
+  {
+    "id": "A206",
+    "Breed": "Giant Schnauzer"
+  },
+  {
+    "id": "A207",
+    "Breed": "Glen of Imaal Terrier"
+  },
+  {
+    "id": "A208",
+    "Breed": "Golden Retriever"
+  },
+  {
+    "id": "A209",
+    "Breed": "Gordon Setter"
+  },
+  {
+    "id": "A210",
+    "Breed": "Grand Bleu de Gascogne"
+  },
+  {
+    "id": "A211",
+    "Breed": "Great Dane"
+  },
+  {
+    "id": "A212",
+    "Breed": "Great Pyrenees"
+  },
+  {
+    "id": "A213",
+    "Breed": "Greater Swiss Mountain Dog"
+  },
+  {
+    "id": "A214",
+    "Breed": "Greek Harehound"
+  },
+  {
+    "id": "A215",
+    "Breed": "Greek Shepherd"
+  },
+  {
+    "id": "A216",
+    "Breed": "Greenland Dog"
+  },
+  {
+    "id": "A217",
+    "Breed": "Greyhound"
+  },
+  {
+    "id": "A218",
+    "Breed": "Griffon Bleu de Gascogne"
+  },
+  {
+    "id": "A219",
+    "Breed": "Griffon Fauve de Bretagne"
+  },
+  {
+    "id": "A220",
+    "Breed": "Griffon Nivernais"
+  },
+  {
+    "id": "A221",
+    "Breed": "Guatemalan Dogo"
+  },
+  {
+    "id": "A222",
+    "Breed": "Gull Terrier"
+  },
+  {
+    "id": "A223",
+    "Breed": "Hanover Hound"
+  },
+  {
+    "id": "A224",
+    "Breed": "Hare Indian Dog"
+  },
+  {
+    "id": "A225",
+    "Breed": "Harrier"
+  },
+  {
+    "id": "A226",
+    "Breed": "Havanese"
+  },
+  {
+    "id": "A227",
+    "Breed": "Hawaiian Poi Dog"
+  },
+  {
+    "id": "A228",
+    "Breed": "Himalayan Sheepdog"
+  },
+  {
+    "id": "A229",
+    "Breed": "Hokkaido"
+  },
+  {
+    "id": "A230",
+    "Breed": "Hortaya borzaya"
+  },
+  {
+    "id": "A231",
+    "Breed": "Hovawart"
+  },
+  {
+    "id": "A232",
+    "Breed": "Huntaway"
+  },
+  {
+    "id": "A233",
+    "Breed": "Hygen Hound"
+  },
+  {
+    "id": "A234",
+    "Breed": "Ibizan Hound"
+  },
+  {
+    "id": "A235",
+    "Breed": "Icelandic Sheepdog"
+  },
+  {
+    "id": "A236",
+    "Breed": "Indian pariah dog"
+  },
+  {
+    "id": "A237",
+    "Breed": "Indian Spitz"
+  },
+  {
+    "id": "A238",
+    "Breed": "Irish Red and White Setter"
+  },
+  {
+    "id": "A239",
+    "Breed": "Irish Setter"
+  },
+  {
+    "id": "A240",
+    "Breed": "Irish Terrier"
+  },
+  {
+    "id": "A241",
+    "Breed": "Irish Water Spaniel"
+  },
+  {
+    "id": "A242",
+    "Breed": "Irish Wolfhound"
+  },
+  {
+    "id": "A243",
+    "Breed": "Istrian Coarse-haired Hound"
+  },
+  {
+    "id": "A244",
+    "Breed": "Istrian Short-haired Hound"
+  },
+  {
+    "id": "A245",
+    "Breed": "Italian Greyhound"
+  },
+  {
+    "id": "A246",
+    "Breed": "Jack Russell Terrier"
+  },
+  {
+    "id": "A247",
+    "Breed": "Jagdterrier"
+  },
+  {
+    "id": "A248",
+    "Breed": "Swedish Elkhound"
+  },
+  {
+    "id": "A249",
+    "Breed": "Japanese Chin"
+  },
+  {
+    "id": "A250",
+    "Breed": "Japanese Spitz"
+  },
+  {
+    "id": "A251",
+    "Breed": "Japanese Terrier"
+  },
+  {
+    "id": "A252",
+    "Breed": "Jindo"
+  },
+  {
+    "id": "A253",
+    "Breed": "Jonangi"
+  },
+  {
+    "id": "A254",
+    "Breed": "Kaikadi dog"
+  },
+  {
+    "id": "A255",
+    "Breed": "Kai Ken"
+  },
+  {
+    "id": "A256",
+    "Breed": "Kangal Shepherd Dog"
+  },
+  {
+    "id": "A257",
+    "Breed": "Kanni"
+  },
+  {
+    "id": "A258",
+    "Breed": "Karakachan dog"
+  },
+  {
+    "id": "A259",
+    "Breed": "Karelian Bear Dog"
+  },
+  {
+    "id": "A260",
+    "Breed": "Karst Shepherd"
+  },
+  {
+    "id": "A261",
+    "Breed": "Keeshond"
+  },
+  {
+    "id": "A262",
+    "Breed": "Kerry Beagle"
+  },
+  {
+    "id": "A263",
+    "Breed": "Kerry Blue Terrier"
+  },
+  {
+    "id": "A264",
+    "Breed": "King Charles Spaniel"
+  },
+  {
+    "id": "A265",
+    "Breed": "King Shepherd"
+  },
+  {
+    "id": "A266",
+    "Breed": "Kintamani"
+  },
+  {
+    "id": "A267",
+    "Breed": "Kishu Ken"
+  },
+  {
+    "id": "A268",
+    "Breed": "Komondor"
+  },
+  {
+    "id": "A269",
+    "Breed": "Koolie"
+  },
+  {
+    "id": "A270",
+    "Breed": "Koyun dog"
+  },
+  {
+    "id": "A271",
+    "Breed": "Kumaon Mastiff"
+  },
+  {
+    "id": "A272",
+    "Breed": "Kunming Wolfdog"
+  },
+  {
+    "id": "A273",
+    "Breed": "Kurī"
+  },
+  {
+    "id": "A274",
+    "Breed": "Kuvasz"
+  },
+  {
+    "id": "A275",
+    "Breed": "Kyi-Leo"
+  },
+  {
+    "id": "A276",
+    "Breed": "Labrador Husky"
+  },
+  {
+    "id": "A277",
+    "Breed": "Labrador Retriever"
+  },
+  {
+    "id": "A278",
+    "Breed": "Lagotto Romagnolo"
+  },
+  {
+    "id": "A279",
+    "Breed": "Lakeland Terrier"
+  },
+  {
+    "id": "A280",
+    "Breed": "Lancashire Heeler"
+  },
+  {
+    "id": "A281",
+    "Breed": "Landseer"
+  },
+  {
+    "id": "A282",
+    "Breed": "Lapponian Herder"
+  },
+  {
+    "id": "A283",
+    "Breed": "Lapponian Shepherd"
+  },
+  {
+    "id": "A284",
+    "Breed": "Leonberger"
+  },
+  {
+    "id": "A285",
+    "Breed": "Lhasa Apso"
+  },
+  {
+    "id": "A286",
+    "Breed": "Lithuanian Hound"
+  },
+  {
+    "id": "A287",
+    "Breed": "Louisiana Catahoula Leopard Dog"
+  },
+  {
+    "id": "A288",
+    "Breed": "Löwchen"
+  },
+  {
+    "id": "A289",
+    "Breed": "Mackenzie River husky"
+  },
+  {
+    "id": "A290",
+    "Breed": "Mahratta Greyhound"
+  },
+  {
+    "id": "A291",
+    "Breed": "Maltese"
+  },
+  {
+    "id": "A292",
+    "Breed": "Manchester Terrier"
+  },
+  {
+    "id": "A293",
+    "Breed": "Maremma Sheepdog"
+  },
+  {
+    "id": "A294",
+    "Breed": "Marquesan Dog"
+  },
+  {
+    "id": "A295",
+    "Breed": "McNab dog"
+  },
+  {
+    "id": "A296",
+    "Breed": "Miniature American Shepherd"
+  },
+  {
+    "id": "A297",
+    "Breed": "Miniature Bull Terrier"
+  },
+  {
+    "id": "A298",
+    "Breed": "Miniature Fox Terrier"
+  },
+  {
+    "id": "A299",
+    "Breed": "Miniature Pinscher"
+  },
+  {
+    "id": "A300",
+    "Breed": "Miniature Schnauzer"
+  },
+  {
+    "id": "A301",
+    "Breed": "Miniature Shar Pei"
+  },
+  {
+    "id": "A302",
+    "Breed": "Molossus"
+  },
+  {
+    "id": "A303",
+    "Breed": "Molossus of Epirus"
+  },
+  {
+    "id": "A304",
+    "Breed": "Montenegrin Mountain Hound"
+  },
+  {
+    "id": "A305",
+    "Breed": "Moscow Watchdog"
+  },
+  {
+    "id": "A306",
+    "Breed": "Moscow Water Dog"
+  },
+  {
+    "id": "A307",
+    "Breed": "Mountain Cur"
+  },
+  {
+    "id": "A308",
+    "Breed": "Mucuchies"
+  },
+  {
+    "id": "A309",
+    "Breed": "Mudhol Hound"
+  },
+  {
+    "id": "A310",
+    "Breed": "Mudi"
+  },
+  {
+    "id": "A311",
+    "Breed": "Neapolitan Mastiff"
+  },
+  {
+    "id": "A312",
+    "Breed": "Nederlandse Kooikerhondje"
+  },
+  {
+    "id": "A313",
+    "Breed": "Newfoundland"
+  },
+  {
+    "id": "A314",
+    "Breed": "New Zealand Heading Dog"
+  },
+  {
+    "id": "A315",
+    "Breed": "Norfolk Spaniel"
+  },
+  {
+    "id": "A316",
+    "Breed": "Norfolk Terrier"
+  },
+  {
+    "id": "A317",
+    "Breed": "Norrbottenspets"
+  },
+  {
+    "id": "A318",
+    "Breed": "North Country Beagle"
+  },
+  {
+    "id": "A319",
+    "Breed": "Northern Inuit Dog"
+  },
+  {
+    "id": "A320",
+    "Breed": "Norwegian Buhund"
+  },
+  {
+    "id": "A321",
+    "Breed": "Norwegian Elkhound"
+  },
+  {
+    "id": "A322",
+    "Breed": "Norwegian Lundehund"
+  },
+  {
+    "id": "A323",
+    "Breed": "Norwich Terrier"
+  },
+  {
+    "id": "A324",
+    "Breed": "Nova Scotia Duck Tolling Retriever"
+  },
+  {
+    "id": "A325",
+    "Breed": "Old Croatian Sighthound"
+  },
+  {
+    "id": "A326",
+    "Breed": "Old Danish Pointer"
+  },
+  {
+    "id": "A327",
+    "Breed": "Old English Bulldog"
+  },
+  {
+    "id": "A328",
+    "Breed": "Old English Sheepdog"
+  },
+  {
+    "id": "A329",
+    "Breed": "Old English Terrier"
+  },
+  {
+    "id": "A330",
+    "Breed": "Old German Shepherd Dog"
+  },
+  {
+    "id": "A331",
+    "Breed": "Old Spanish Pointer"
+  },
+  {
+    "id": "A332",
+    "Breed": "Old Time Farm Shepherd"
+  },
+  {
+    "id": "A333",
+    "Breed": "Olde English Bulldogge"
+  },
+  {
+    "id": "A334",
+    "Breed": "Otterhound"
+  },
+  {
+    "id": "A335",
+    "Breed": "Pachon Navarro"
+  },
+  {
+    "id": "A336",
+    "Breed": "Pandikona"
+  },
+  {
+    "id": "A337",
+    "Breed": "Paisley Terrier"
+  },
+  {
+    "id": "A338",
+    "Breed": "Papillon"
+  },
+  {
+    "id": "A339",
+    "Breed": "Parson Russell Terrier"
+  },
+  {
+    "id": "A340",
+    "Breed": "Pastore della Lessinia e del Lagorai"
+  },
+  {
+    "id": "A341",
+    "Breed": "Patterdale Terrier"
+  },
+  {
+    "id": "A342",
+    "Breed": "Pekingese"
+  },
+  {
+    "id": "A343",
+    "Breed": "Perro de Pastor Mallorquin"
+  },
+  {
+    "id": "A344",
+    "Breed": "Perro de Presa Canario"
+  },
+  {
+    "id": "A345",
+    "Breed": "Perro de Presa Mallorquin"
+  },
+  {
+    "id": "A346",
+    "Breed": "Peruvian Inca Orchid"
+  },
+  {
+    "id": "A347",
+    "Breed": "Petit Basset Griffon Vendéen"
+  },
+  {
+    "id": "A348",
+    "Breed": "Pharaoh Hound"
+  },
+  {
+    "id": "A349",
+    "Breed": "Phu Quoc Ridgeback"
+  },
+  {
+    "id": "A350",
+    "Breed": "Picardy Spaniel"
+  },
+  {
+    "id": "A351",
+    "Breed": "Plummer Terrier"
+  },
+  {
+    "id": "A352",
+    "Breed": "Plott Hound"
+  },
+  {
+    "id": "A353",
+    "Breed": "Podenco Canario"
+  },
+  {
+    "id": "A354",
+    "Breed": "Poitevin"
+  },
+  {
+    "id": "A355",
+    "Breed": "Polish Greyhound"
+  },
+  {
+    "id": "A356",
+    "Breed": "Polish Hound"
+  },
+  {
+    "id": "A357",
+    "Breed": "Polish Hunting Dog"
+  },
+  {
+    "id": "A358",
+    "Breed": "Polish Lowland Sheepdog"
+  },
+  {
+    "id": "A359",
+    "Breed": "Polish Tatra Sheepdog"
+  },
+  {
+    "id": "A360",
+    "Breed": "Pomeranian"
+  },
+  {
+    "id": "A361",
+    "Breed": "Pont-Audemer Spaniel"
+  },
+  {
+    "id": "A362",
+    "Breed": "Poodle"
+  },
+  {
+    "id": "A363",
+    "Breed": "Porcelaine"
+  },
+  {
+    "id": "A364",
+    "Breed": "Portuguese Podengo"
+  },
+  {
+    "id": "A365",
+    "Breed": "Portuguese Pointer"
+  },
+  {
+    "id": "A366",
+    "Breed": "Portuguese Water Dog"
+  },
+  {
+    "id": "A367",
+    "Breed": "Posavac Hound"
+  },
+  {
+    "id": "A368",
+    "Breed": "Potsdam Greyhound"
+  },
+  {
+    "id": "A369",
+    "Breed": "Pudelpointer"
+  },
+  {
+    "id": "A370",
+    "Breed": "Pug"
+  },
+  {
+    "id": "A371",
+    "Breed": "Puli"
+  },
+  {
+    "id": "A372",
+    "Breed": "Pumi"
+  },
+  {
+    "id": "A373",
+    "Breed": "Pungsan dog"
+  },
+  {
+    "id": "A374",
+    "Breed": "Pyrenean Mastiff"
+  },
+  {
+    "id": "A375",
+    "Breed": "Pyrenean Shepherd"
+  },
+  {
+    "id": "A376",
+    "Breed": "Rafeiro do Alentejo"
+  },
+  {
+    "id": "A377",
+    "Breed": "Rajapalayam"
+  },
+  {
+    "id": "A378",
+    "Breed": "Rampur Greyhound"
+  },
+  {
+    "id": "A379",
+    "Breed": "Rastreador Brasileiro"
+  },
+  {
+    "id": "A380",
+    "Breed": "Rat Terrier"
+  },
+  {
+    "id": "A381",
+    "Breed": "Ratonero Bodeguero Andaluz"
+  },
+  {
+    "id": "A382",
+    "Breed": "Ratonero Mallorquin"
+  },
+  {
+    "id": "A383",
+    "Breed": "Ratonero Murciano de Huerta"
+  },
+  {
+    "id": "A384",
+    "Breed": "Ratonero Valenciano"
+  },
+  {
+    "id": "A385",
+    "Breed": "Redbone Coonhound"
+  },
+  {
+    "id": "A386",
+    "Breed": "Rhodesian Ridgeback"
+  },
+  {
+    "id": "A387",
+    "Breed": "Romanian Mioritic Shepherd Dog"
+  },
+  {
+    "id": "A388",
+    "Breed": "Romanian Raven Shepherd Dog"
+  },
+  {
+    "id": "A389",
+    "Breed": "Rottweiler"
+  },
+  {
+    "id": "A390",
+    "Breed": "Russian Salon Dog"
+  },
+  {
+    "id": "A391",
+    "Breed": "Russian Spaniel"
+  },
+  {
+    "id": "A392",
+    "Breed": "Russian Toy"
+  },
+  {
+    "id": "A393",
+    "Breed": "Russian Tracker"
+  },
+  {
+    "id": "A394",
+    "Breed": "Russo-European Laika"
+  },
+  {
+    "id": "A395",
+    "Breed": "Russell Terrier"
+  },
+  {
+    "id": "A396",
+    "Breed": "Saarloos Wolfdog"
+  },
+  {
+    "id": "A397",
+    "Breed": "Sabueso fino Colombiano"
+  },
+  {
+    "id": "A398",
+    "Breed": "Saint Bernard"
+  },
+  {
+    "id": "A399",
+    "Breed": "Saint John's water dog"
+  },
+  {
+    "id": "A400",
+    "Breed": "Saint-Usuge Spaniel"
+  },
+  {
+    "id": "A401",
+    "Breed": "Sakhalin Husky"
+  },
+  {
+    "id": "A402",
+    "Breed": "Salish Wool Dog"
+  },
+  {
+    "id": "A403",
+    "Breed": "Saluki"
+  },
+  {
+    "id": "A404",
+    "Breed": "Samoyed"
+  },
+  {
+    "id": "A405",
+    "Breed": "Sapsali"
+  },
+  {
+    "id": "A406",
+    "Breed": "Schapendoes"
+  },
+  {
+    "id": "A407",
+    "Breed": "Schillerstövare"
+  },
+  {
+    "id": "A408",
+    "Breed": "Schipperke"
+  },
+  {
+    "id": "A409",
+    "Breed": "Schweizer Laufhund"
+  },
+  {
+    "id": "A410",
+    "Breed": "Schweizerischer Niederlaufhund"
+  },
+  {
+    "id": "A411",
+    "Breed": "Scotch Collie"
+  },
+  {
+    "id": "A412",
+    "Breed": "Scottish Deerhound"
+  },
+  {
+    "id": "A413",
+    "Breed": "Scottish Terrier"
+  },
+  {
+    "id": "A414",
+    "Breed": "Sealyham Terrier"
+  },
+  {
+    "id": "A415",
+    "Breed": "Segugio Italiano"
+  },
+  {
+    "id": "A416",
+    "Breed": "Seppala Siberian Sleddog"
+  },
+  {
+    "id": "A417",
+    "Breed": "Serbian Hound"
+  },
+  {
+    "id": "A418",
+    "Breed": "Serbian Tricolour Hound"
+  },
+  {
+    "id": "A419",
+    "Breed": "Seskar Seal Dog"
+  },
+  {
+    "id": "A420",
+    "Breed": "Shar Pei"
+  },
+  {
+    "id": "A421",
+    "Breed": "Shetland Sheepdog"
+  },
+  {
+    "id": "A422",
+    "Breed": "Shiba Inu"
+  },
+  {
+    "id": "A423",
+    "Breed": "Shih Tzu"
+  },
+  {
+    "id": "A424",
+    "Breed": "Shikoku"
+  },
+  {
+    "id": "A425",
+    "Breed": "Shiloh Shepherd"
+  },
+  {
+    "id": "A426",
+    "Breed": "Siberian Husky"
+  },
+  {
+    "id": "A427",
+    "Breed": "Silken Windhound"
+  },
+  {
+    "id": "A428",
+    "Breed": "Silky Terrier"
+  },
+  {
+    "id": "A429",
+    "Breed": "Sinhala Hound"
+  },
+  {
+    "id": "A430",
+    "Breed": "Skye Terrier"
+  },
+  {
+    "id": "A431",
+    "Breed": "Sloughi"
+  },
+  {
+    "id": "A432",
+    "Breed": "Slovak Cuvac"
+  },
+  {
+    "id": "A433",
+    "Breed": "Slovakian Wirehaired Pointer"
+  },
+  {
+    "id": "A434",
+    "Breed": "Small Greek Domestic Dog"
+  },
+  {
+    "id": "A435",
+    "Breed": "Soft-Coated Wheaten Terrier"
+  },
+  {
+    "id": "A436",
+    "Breed": "South Russian Ovcharka"
+  },
+  {
+    "id": "A437",
+    "Breed": "Southern Hound"
+  },
+  {
+    "id": "A438",
+    "Breed": "Spanish Mastiff"
+  },
+  {
+    "id": "A439",
+    "Breed": "Spanish Water Dog"
+  },
+  {
+    "id": "A440",
+    "Breed": "Spinone Italiano"
+  },
+  {
+    "id": "A441",
+    "Breed": "Sporting Lucas Terrier"
+  },
+  {
+    "id": "A442",
+    "Breed": "Stabyhoun"
+  },
+  {
+    "id": "A443",
+    "Breed": "Staffordshire Bull Terrier"
+  },
+  {
+    "id": "A444",
+    "Breed": "Standard Schnauzer"
+  },
+  {
+    "id": "A445",
+    "Breed": "Stephens Cur"
+  },
+  {
+    "id": "A446",
+    "Breed": "Styrian Coarse-haired Hound"
+  },
+  {
+    "id": "A447",
+    "Breed": "Sussex Spaniel"
+  },
+  {
+    "id": "A448",
+    "Breed": "Swedish Lapphund"
+  },
+  {
+    "id": "A449",
+    "Breed": "Swedish Vallhund"
+  },
+  {
+    "id": "A450",
+    "Breed": "Tahitian Dog"
+  },
+  {
+    "id": "A451",
+    "Breed": "Tahltan Bear Dog"
+  },
+  {
+    "id": "A452",
+    "Breed": "Taigan"
+  },
+  {
+    "id": "A453",
+    "Breed": "Taiwan Dog"
+  },
+  {
+    "id": "A454",
+    "Breed": "Talbot Hound"
+  },
+  {
+    "id": "A455",
+    "Breed": "Tamaskan Dog"
+  },
+  {
+    "id": "A456",
+    "Breed": "Teddy Roosevelt Terrier"
+  },
+  {
+    "id": "A457",
+    "Breed": "Telomian"
+  },
+  {
+    "id": "A458",
+    "Breed": "Tenterfield Terrier"
+  },
+  {
+    "id": "A459",
+    "Breed": "Terceira Mastiff"
+  },
+  {
+    "id": "A460",
+    "Breed": "Thai Bangkaew Dog"
+  },
+  {
+    "id": "A461",
+    "Breed": "Thai Ridgeback"
+  },
+  {
+    "id": "A462",
+    "Breed": "Tibetan Mastiff"
+  },
+  {
+    "id": "A463",
+    "Breed": "Tibetan Spaniel"
+  },
+  {
+    "id": "A464",
+    "Breed": "Tibetan Terrier"
+  },
+  {
+    "id": "A465",
+    "Breed": "Tornjak"
+  },
+  {
+    "id": "A466",
+    "Breed": "Tosa"
+  },
+  {
+    "id": "A467",
+    "Breed": "Toy Bulldog"
+  },
+  {
+    "id": "A468",
+    "Breed": "Toy Fox Terrier"
+  },
+  {
+    "id": "A469",
+    "Breed": "Toy Manchester Terrier"
+  },
+  {
+    "id": "A470",
+    "Breed": "Toy Trawler Spaniel"
+  },
+  {
+    "id": "A471",
+    "Breed": "Transylvanian Hound"
+  },
+  {
+    "id": "A472",
+    "Breed": "Treeing Cur"
+  },
+  {
+    "id": "A473",
+    "Breed": "Treeing Tennessee Brindle"
+  },
+  {
+    "id": "A474",
+    "Breed": "Treeing Walker Coonhound"
+  },
+  {
+    "id": "A475",
+    "Breed": "Trigg Hound"
+  },
+  {
+    "id": "A476",
+    "Breed": "Tweed Water Spaniel"
+  },
+  {
+    "id": "A477",
+    "Breed": "Tyrolean Hound"
+  },
+  {
+    "id": "A478",
+    "Breed": "Vanjari Hound"
+  },
+  {
+    "id": "A479",
+    "Breed": "Villano de Las Encartaciones"
+  },
+  {
+    "id": "A480",
+    "Breed": "Villanuco de Las Encartaciones"
+  },
+  {
+    "id": "A481",
+    "Breed": "Vizsla"
+  },
+  {
+    "id": "A482",
+    "Breed": "Volpino Italiano"
+  },
+  {
+    "id": "A483",
+    "Breed": "Weimaraner"
+  },
+  {
+    "id": "A484",
+    "Breed": "Welsh Corgi, Cardigan"
+  },
+  {
+    "id": "A485",
+    "Breed": "Welsh Corgi, Pembroke"
+  },
+  {
+    "id": "A486",
+    "Breed": "Welsh Sheepdog"
+  },
+  {
+    "id": "A487",
+    "Breed": "Welsh Springer Spaniel"
+  },
+  {
+    "id": "A488",
+    "Breed": "Welsh Terrier"
+  },
+  {
+    "id": "A489",
+    "Breed": "West Highland White Terrier"
+  },
+  {
+    "id": "A490",
+    "Breed": "West Siberian Laika"
+  },
+  {
+    "id": "A491",
+    "Breed": "Westphalian Dachsbracke"
+  },
+  {
+    "id": "A492",
+    "Breed": "Wetterhoun"
+  },
+  {
+    "id": "A493",
+    "Breed": "Whippet"
+  },
+  {
+    "id": "A494",
+    "Breed": "White Shepherd"
+  },
+  {
+    "id": "A495",
+    "Breed": "Wirehaired Pointing Griffon"
+  },
+  {
+    "id": "A496",
+    "Breed": "Wirehaired Vizsla"
+  },
+  {
+    "id": "A497",
+    "Breed": "Xiasi Dog"
+  },
+  {
+    "id": "A498",
+    "Breed": "Xoloitzcuintli"
+  },
+  {
+    "id": "A499",
+    "Breed": "Yakutian Laika"
+  },
+  {
+    "id": "A500",
+    "Breed": "Yorkshire Terrier"
+  }
+]

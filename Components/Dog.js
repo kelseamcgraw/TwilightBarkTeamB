@@ -5,18 +5,14 @@ import deviceStorage from '../services/deviceStorage';
 
 import { 
     View,
-    Image,  
-    FlatList, 
     TouchableOpacity, 
     StyleSheet,
     Text, 
-    ScrollView,
     ActivityIndicator
 } from 'react-native';
-import Icon from "react-native-vector-icons/Ionicons";
 
 import { Card, ListItem, Avatar, Button } from 'react-native-elements';
-
+const urlPath = 'http://127.0.0.1:3000/static/images/';
 class Dog extends React.Component {
 
     constructor(props) {
@@ -48,7 +44,7 @@ class Dog extends React.Component {
 
     handleCardPress = (i, e) => {
         this.props.navigation.navigate('EditDog', {
-            dogId: this.state.dogList[i].dogId,
+            dogId: this.state.dogList[i].dogID,
             breed: this.state.dogList[i].breed,
             color: this.state.dogList[i].color,
             dogAge: this.state.dogList[i].dogAge.toString(),
@@ -68,10 +64,11 @@ class Dog extends React.Component {
                 <View style={styles.container}>
                     {
                     dogList.map((d, i) => {
+
                         return (
                     <TouchableOpacity
                     key={i}
-                    onPress={ this.handleCardPress.bind(this, i)} 
+                    onPress={ this.handleCardPress.bind(this, i) }
                     >
                         <Card 
                          style={styles.card}
@@ -80,8 +77,8 @@ class Dog extends React.Component {
                             style={styles.listItems}
                             leftAvatar={{
                                 title: d.dogName,
-                                size: "medium",
-                                source: {uri: axios.defaults.baseURL + '/images/' + d.fileName},
+                                size: "large",
+                                source: { uri: axios.defaults.baseURL + '/static/images' + d.fileLocation },
                                 showEditButton: false
                             }}
                             title={d.dogName}
