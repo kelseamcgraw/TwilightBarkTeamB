@@ -3,6 +3,9 @@ import axios from '../../util/Axios';
 
 import deviceStorage from '../../services/deviceStorage'; 
 
+import * as Google from 'expo-google-app-auth';
+import * as GoogleSignIn from 'expo-google-sign-in';
+
 import { 
     Button,
     View,
@@ -54,7 +57,8 @@ class CreateAccount extends React.Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <View style={styles.co/ntainer}>
+                <Button/>
                 <Text>sign up with google/facebook</Text>
                 <TextInput
                     value={this.state.name}
@@ -103,5 +107,15 @@ class CreateAccount extends React.Component {
     }
 
 }
+
+// First- obtain access token from Expo's Google API
+// const { type, accessToken, user } = await Google.logInAsync(config);
+
+// if (type === 'success') {
+//   // Then you can use the Google REST API
+//   let userInfoResponse = await fetch('https://www.googleapis.com/userinfo/v2/me', {
+//     headers: { Authorization: `Bearer ${accessToken}` },
+//   });
+// }
 
 export default CreateAccount;

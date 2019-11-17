@@ -9,6 +9,14 @@
       "android",
       "web"
     ],
+    "ios": {
+      "bundleIdentifier": "org.duckdns.twilightbark",
+      "config": {
+        "googleSignIn": {
+          "reservedClientId": "1052898278525-mmgduocm94ekp53nojsnr2bhrho7bt3v.apps.googleusercontent.com"
+        }
+      }
+  },
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
