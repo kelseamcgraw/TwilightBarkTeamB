@@ -7,7 +7,7 @@ const getContrastColor = hex => parseInt(hex.substring(1), 16) > 0xffffff / 2 ? 
 const Icon = (props) => {
   const { icon, color } = props;
   if (icon) return icon;
-  return <Text style={{ color: getContrastColor(color), fontSize: 20 }} adjustsFontSizeToFit>✔︎</Text>;
+  return <Text style={{ color: getContrastColor(color), fontSize: 200 }} adjustsFontSizeToFit>✔︎</Text>;
 }
 
 Icon.defaultProps = {

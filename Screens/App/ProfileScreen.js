@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import axios from '../../util/Axios';
 import deviceStorage from '../../services/deviceStorage';
 
 import { 
@@ -18,27 +19,47 @@ class Profile extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            person: ""
+            dataList: [],
+            isLoading: true
         }
     }
 
     handleLogoutButton = () => {
         deviceStorage.removeAllKeys();
-        deviceStorage.deleteItem("userKey");
-        deviceStorage.deleteItem('isLoggedIn');
         this.props.navigation.navigate('Splash', {
             nextScreen: "Auth"
         });
     }
 
     handleDogsButton = () => {
-        this.props.navigation.navigate('MyDogs');
+        this.props.navigation.navigate('MyDogs', {
+            dataList: this.state.dataList
+        });
     }
 
     handleDetailsButton = () => {
-        this.props.navigation.navigate('Details');
+        this.props.navigation.navigate('Details', {
+            dataList: this.state.dataList
+        });
     }
 
+    async componentDidMount() { 
+        try {
+            const token = await deviceStorage.getItem("userKey");
+            const data =  await axios.get('/user/dogs', {
+                headers: {
+                    Authorization: "Bearer " + token
+                }
+            })
+            if(data.data.length > 0) {
+                this.setState({dataList: data.data[0], isLoading: false});
+            } else {
+                this.setState({dataList: [], isLoading: false})
+            }
+        } catch(err) {
+            console.log(err);
+        }
+    }
 
     render() { 
         return (

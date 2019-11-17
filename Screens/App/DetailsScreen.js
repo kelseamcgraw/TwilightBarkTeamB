@@ -21,38 +21,46 @@ class DetailsScreen extends React.Component {
         this.state = {
             city: "",
             state: "",
-            zipCode: ""            
+            zipCode: "",
+            token: "",
+            dataList: null,
+            message: ""      
         }
     }
 
     handleUpdateUser = () => {
 
-        axios.post('/user/update', {
+        const data = new FormData();
 
-            city: this.state.city,
-            state: this.state.state,
-            zipCode: this.state.zipCode,
-    
-        })
+        data.append("citry", this.state.city);
+        data.append("state", this.state.state);
+        data.append("zipCode", this.state.zipCode);
+
+        const headers = {
+            'Accept':'application/json',
+            'Content-Type':'multipart/form-data',
+            'Authorization':'Bearer ' + this.state.token
+        };
+        axios.post('/user/update', data, {headers: headers})
         .then((res) => {
-            if(res.data.message !== undefined || res.data.error !== undefined) {
-                //to-do show error or message and check repassword and password match
-                console.log(res.data);
-    
-            } else if (res.data.token !== undefined) {
-                deviceStorage.saveItem("userKey", res.data.token);
-                this.props.navigation.navigate('Profile');
-            }
+            this.setState({message: res.message});
         })
         .catch((err) => {
-            console.log(err);
+            this.setState({message: err});
         });
 
+    }
+
+    async componentDidMount() {
+        const token = await deviceStorage.getItem("userKey");
+        this.setState({dataList: this.props.navigation.getParam("dataList", "notfound")})
+        this.setState({token: token});
     }
 
     render() {
         return (
             <View style={styles.container}>
+                <Text>{this.state.message}</Text>
                 <Text>Add your Address</Text>
                 <Text>City: {this.state.city}</Text>
                 <Text>State: {this.state.state.toUpperCase()}</Text>

@@ -30,6 +30,7 @@ class AddDogImage extends React.Component {
             dogName: "",
             colors: "",
             breeds: "",
+            alerts: ""
         }
         
     }
@@ -69,6 +70,7 @@ class AddDogImage extends React.Component {
         this.setState({dogAge: this.props.navigation.getParam("dogAge", "dogAge")});
         this.setState({size: this.props.navigation.getParam('size', 'size')});
         this.setState({colors: this.props.navigation.getParam('colors', 'colors')});
+        this.setState({alerts: this.props.navigation.getParam("alerts", "dogAlerts")});
         this.setState({breeds: this.props.navigation.getParam('breeds', 'breeds')});
         this.getPermissionAsync();
         const isLoggedIn = await deviceStorage.getItem('isLoggedIn');    
@@ -141,6 +143,7 @@ class AddDogImage extends React.Component {
         data.append("dogAge", this.state.dogAge);
         data.append("colors", this.state.colors);
         data.append("size", this.state.size);
+        data.append("alerts", this.state.alerts);
         data.append("dogName", this.state.dogName);
         data.append("dogImage", this.state.dogImage);
 

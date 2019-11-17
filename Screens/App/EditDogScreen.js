@@ -5,6 +5,8 @@ import axios from '../../util/Axios';
 import { 
     View,
     TextInput, 
+    TouchableOpacity,
+    Image,
     StyleSheet,
     ScrollView,
     Button,
@@ -16,12 +18,14 @@ class Dog extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            isLoadingImage: false,
+            image: null,
             isLoading: true,
             dogName: this.props.navigation.getParam('dogName', 'My Name'),
-            color: this.props.navigation.getParam('color', 'What Color\'s am I '),
+            colors: this.props.navigation.getParam('colors', 'What Color\'s am I '),
             size: this.props.navigation.getParam('size', 'My Size'),
-            breed: this.props.navigation.getParam('breed', 'My Breed'),
-            file: this.props.navigation.getParam('file', 'No file found'),
+            breeds: this.props.navigation.getParam('breeds', 'My Breed'),
+            fileuri: axios.defaults.baseURL + "/static/images/" + this.props.navigation.getParam('fileLocation', 'No file found'),
             dogAge: this.props.navigation.getParam('dogAge', 'My Age'),
             dogId: this.props.navigation.getParam('dogId', 'NO-ID'),
             alerts: this.props.navigation.getParam('dogId', 'alerts')
@@ -34,9 +38,9 @@ class Dog extends React.Component {
         const token = await deviceStorage.getItem("userKey");  
         const data = {
             dogId: this.state.dogId,
-            breed: this.state.breed,
+            breeds: this.state.breeds,
             dogAge: parseInt(this.state.dogAge, 10),
-            color: this.state.color,
+            colors: this.state.colors,
             size: this.state.size, 
             dogName: this.state.dogName
         };
@@ -62,27 +66,57 @@ class Dog extends React.Component {
     }
 
     componentDidMount() { 
+        this.getPermissionAsync();
     }
 
-    render() {
 
+    getPermissionAsync = async () => {
+        if (Constants.platform.ios) {
+        const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+        if (status !== 'granted') {
+            alert('Sorry, we need camera roll permissions to make this work!');
+        }
+        }
+    };
+
+    _pickImage = async () => {
+        let result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.All,
+        allowsEditing: true,
+        aspect: [4, 3],
+        });
+
+        if (!result.cancelled) {
+            this.setState({isLoadingImage: true});
+            this.setState({ image: result.uri });
+        }
+    };
+
+    render() {
         return(
             <View style={styles.container}>
+                <TouchableOpacity onPress={this._pickImage }>    
+
+                <Image source={{ uri: this.state.fileuri }}
+                    style={{ width: 200, height: 200, marginBottom: 10 }} 
+                />
+
+                </TouchableOpacity>
                 <TextInput
                     value={this.state.dogName}
                     onChangeText={(dogName) => this.setState({dogName})}
                 />
                 <TextInput
-                value={this.state.color}
-                onChangeText={(color) => this.setState({color})}
+                value={this.state.colors}
+                onChangeText={(colors) => this.setState({colors})}
                 />
                 <TextInput
                     value={this.state.size}
                     onChangeText={(size) => this.setState({size})}
                 />
                 <TextInput
-                    value={this.state.breed}
-                    onChangeText={(breed) => this.setState({breed})}
+                    value={this.state.breeds}
+                    onChangeText={(breeds) => this.setState({breeds})}
                 />    
                 <TextInput
                     value={this.state.dogAge}

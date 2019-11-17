@@ -9,12 +9,12 @@ var upload = require('../middleware/upload');
 const { dogUpdate, dogCreate, dogId, validate } = require("../middleware/validateData");
 
 
-router.get('/lost/:dogId', [authorize], (req, res) => {
+router.get('/lost/:dogID', [authorize], (req, res) => {
   model.Dog.findAll({ 
     raw:true,
     where: { 
-      id: req.params.dogId,
-      userId: req.userData.id 
+      dogID: req.params.dogID,
+      userID: req.userData.userID 
     } 
   
   })
@@ -22,6 +22,7 @@ router.get('/lost/:dogId', [authorize], (req, res) => {
     file="/static/images/" + dog[0].fileLocation;
     res.render('dog', { 
       title: dog[0].dogName, 
+      alerts: dog[0].alerts,
       message: 'Help I am Lost', 
       file: file
     })
@@ -34,6 +35,7 @@ router.get('/lost/:dogId', [authorize], (req, res) => {
 router.post("/add", [upload.single('dogImage'), authorize], (req, res, next) => {
     const dog = {
       dogName: req.body.dogName,
+      alerts: req.body.alerts,
       userID : req.userData.userID,
       dogAge : parseInt(req.body.dogAge, 10),
       colors : req.body.colors,

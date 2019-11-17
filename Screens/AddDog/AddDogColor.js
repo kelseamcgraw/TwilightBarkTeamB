@@ -34,6 +34,7 @@ class AddDogColor extends React.Component {
         this.props.navigation.navigate('AddDogBreed',  {
             dogName: this.props.navigation.getParam("dogName","dogName"),
             dogAge: this.props.navigation.getParam("dogAge", "dogAge"),
+            alerts: this.props.navigation.getParam("alerts", "dogAlerts"),
             size: this.props.navigation.getParam('size', 'size'),
             colors: colorString,
         });

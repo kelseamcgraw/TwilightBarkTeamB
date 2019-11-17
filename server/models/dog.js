@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     dogName: DataTypes.STRING,
     userID: DataTypes.INTEGER,
+    isLost: DataTypes.BOOLEAN,
     dogAge: DataTypes.INTEGER,
     colors: DataTypes.STRING,
     alerts: DataTypes.STRING,

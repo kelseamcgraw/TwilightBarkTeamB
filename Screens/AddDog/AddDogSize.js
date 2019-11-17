@@ -23,6 +23,7 @@ class AddDogSize extends React.Component {
         this.props.navigation.navigate('AddDogColor', {
             dogName: this.props.navigation.getParam("dogName","dogName"),
             dogAge: this.props.navigation.getParam("dogAge", "dogAge"),
+            alerts: this.props.navigation.getParam("alerts", "dogAlerts"),
             size: this.state.size
         });    
 

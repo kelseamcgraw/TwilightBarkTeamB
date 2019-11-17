@@ -17,6 +17,7 @@ class AddDogInfo extends React.Component {
             dogName : "",
             dogAge : "",
             token : "",
+            alerts: ""
         }
         
     }
@@ -38,6 +39,13 @@ class AddDogInfo extends React.Component {
                     placeholder={ "Dogs Age" }
                     style={ styles.input }
                 />
+                <Text>Notes about me</Text>
+                <TextInput
+                    value={this.state.alerts}
+                    onChangeText={(alerts) => this.setState({ alerts })}
+                    placeholder={ "Do I bite?" }
+                    style={ styles.input }
+                />
                 <Button
                     title={ 'Next' }
                     style={ styles.input }
@@ -54,7 +62,8 @@ class AddDogInfo extends React.Component {
 
         this.props.navigation.navigate('AddDogSize', {
             dogName: this.state.dogName,
-            dogAge: this.state.dogAge
+            dogAge: this.state.dogAge,
+            alerts: this.state.alerts
         });    
                 
     }
