@@ -57,7 +57,7 @@ class CreateAccount extends React.Component {
 
     render() {
         return (
-            <View style={styles.co/ntainer}>
+            <View style={styles.container}>
                 <Button/>
                 <Text>sign up with google/facebook</Text>
                 <TextInput
