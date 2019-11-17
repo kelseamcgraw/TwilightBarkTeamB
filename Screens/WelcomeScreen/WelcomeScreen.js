@@ -3,6 +3,7 @@ import * as React from 'react';
 import { 
     Button,
     View,
+    Text
 } from 'react-native';
 import styles from '../Styles.js';
 
@@ -33,6 +34,7 @@ class WelcomScreen extends React.Component {
                   this.props.navigation.navigate("QuickReport")
                 }
                 />
+                <Text>Your information will not be shared with third parties.</Text>
             </View>
         );
     }
