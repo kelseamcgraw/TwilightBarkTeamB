@@ -8,8 +8,10 @@ import {
     StyleSheet,
     ScrollView,
     Button,
-    ActivityIndicator
+    ActivityIndicator,
+    Text
 } from 'react-native';
+import { element } from 'prop-types';
 
 class Dog extends React.Component {
 
@@ -20,11 +22,12 @@ class Dog extends React.Component {
             dogName: this.props.navigation.getParam('dogName', 'My Name'),
             color: this.props.navigation.getParam('color', 'What Color\'s am I '),
             size: this.props.navigation.getParam('size', 'My Size'),
-            breed: this.props.navigation.getParam('breed', 'My Breed'),
+            breeds: "",
             file: this.props.navigation.getParam('file', 'No file found'),
             dogAge: this.props.navigation.getParam('dogAge', 'My Age'),
             dogId: this.props.navigation.getParam('dogId', 'NO-ID'),
-            alerts: this.props.navigation.getParam('dogId', 'alerts')
+            alerts: this.props.navigation.getParam('dogId', 'alerts'),
+            dogList: this.props.navigation.getParam('dogList', 'no data'),
 
         }
     }
@@ -34,7 +37,7 @@ class Dog extends React.Component {
         const token = await deviceStorage.getItem("userKey");  
         const data = {
             dogId: this.state.dogId,
-            breed: this.state.breed,
+            breeds: this.state.breeds,
             dogAge: parseInt(this.state.dogAge, 10),
             color: this.state.color,
             size: this.state.size, 
@@ -61,31 +64,44 @@ class Dog extends React.Component {
 
     }
 
+    handleBreedChange(i) {
+        
+    }
+
     componentDidMount() { 
     }
 
     render() {
-
         return(
             <View style={styles.container}>
                 <TextInput
-                    value={this.state.dogName}
+                    value={this.state.dogList.dogName}
                     onChangeText={(dogName) => this.setState({dogName})}
                 />
                 <TextInput
-                value={this.state.color}
+                value={this.state.dogList.colors}
                 onChangeText={(color) => this.setState({color})}
                 />
                 <TextInput
-                    value={this.state.size}
+                    value={this.state.dogList.size}
                     onChangeText={(size) => this.setState({size})}
                 />
+                {
+                this.state.dogList.fk_dogID.map((breed, i) => {
+                    return (
+                    <TextInput
+                        value={breed.name}
+                        onChangeText={() => this.handleBreedChange(i)}
+                    />
+                    );
+                })
+                }
                 <TextInput
-                    value={this.state.breed}
+                    value={this.state.dogList.breeds}
                     onChangeText={(breed) => this.setState({breed})}
                 />    
                 <TextInput
-                    value={this.state.dogAge}
+                    value={this.state.dogList.dogAge}
                     onChangeText={(dogAge) => this.setState({dogAge})}
                 /> 
                 <Button
