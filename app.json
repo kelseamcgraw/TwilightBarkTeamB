@@ -8,13 +8,13 @@
       "ios",
       "android",
       "web"
-    ],
-    "ios": {
+    ],"ios": {
       "bundleIdentifier": "org.duckdns.twilightbark",
       "config": {
-        "googleSignIn": {
-          "reservedClientId": "1052898278525-mmgduocm94ekp53nojsnr2bhrho7bt3v.apps.googleusercontent.com"
-        }
+
+      }
+      }, "android": {
+        "package" : "host.exp.exponent"
       }
   },
     "version": "1.0.0",
@@ -34,5 +34,5 @@
     "ios": {
       "supportsTablet": true
     }
-  }
+  
 }

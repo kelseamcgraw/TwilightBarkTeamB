@@ -12,7 +12,6 @@ typedef NSNumber* REANodeID;
 @end
 
 @interface REAUpdateContext : NSObject
-@property (nonatomic) NSString* callID;
 @end
 
 @interface REANode : NSObject

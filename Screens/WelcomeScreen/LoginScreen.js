@@ -1,82 +1,97 @@
-import React from "react"
-import { StyleSheet, Text, View, Image, Button } from "react-native"
-import Expo from "expo"
-import * as Google from 'expo-google-app-auth';
+import * as React from 'react';
+import axios from '../../util/Axios';
+// https://snack.expo.io/@zvona/a-simple-login-form was referenced for this file
 
+import deviceStorage from '../../services/deviceStorage';
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      signedIn: false,
-      name: "",
-      photoUrl: "",
-      isAndroid: false
+import { 
+    Button,
+    View,
+    TextInput,
+    Text
+} from 'react-native';
+import styles from '../Styles.js';
+
+class Login extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            username: "",
+            password: ""
+        }
     }
-  }
-  signIn = async () => {
-      let config = {   clientId : this.state.isAndroid
-            ?
-            '1052898278525-c0tbueohhc3rqcto0gu8e8umkqt6p9mr.apps.googleusercontent.com'
-            :
-             '1052898278525-voe0dlmojlm2p9dn5da16u16fald8u69.apps.googleusercontent.com' // ios client id
-    }
-        const { type, accessToken, user } = await Google.logInAsync(config)
 
-      if (type === 'success') {
-        // Then you can use the Google REST API
-        let userInfoResponse = await fetch('https://www.googleapis.com/userinfo/v2/me', {
-          headers: { Authorization: `Bearer ${accessToken}` },
+    handleLoginButtonPress = () => {
+
+        axios.post('/user/login', {
+
+            username: this.state.username,
+            password: this.state.password
+    
+        })
+        .then((res) => {
+
+            if(res.data.message !== undefined || res.data.error !== undefined) {
+                //to-do show error or message
+                console.log(res.data);
+    
+            } else if (res.data.token !== undefined) {
+
+                const { navigate } = this.props.navigation;
+                deviceStorage.saveItem("userKey", res.data.token);
+                this.props.navigation.navigate('AuthLoading');
+            }
+        })
+        .catch((err) => {
+            console.log(err);
         });
-      }
-  }
-  render() {
-    return (
-      <View style={styles.container}>
-        {this.state.signedIn ? (
-          <LoggedInPage name={this.state.name} photoUrl={this.state.photoUrl} />
-        ) : (
-          <LoginPage signIn={this.signIn} />
-        )}
-      </View>
-    )
-  }
+
+    }
+    
+    handleFailedLogin = (data) => {
+
+
+
+    }
+
+    handleGoogleLogin = () => {
+        this.props.navigation.navigate('GoogleLogin')
+    }
+
+    
+    render() {
+        return (
+            <View style={styles.container}>
+                <Button
+                    title={'Google Login'}
+                    onPress={this.handleGoogleLogin}
+                />
+                <TextInput
+                value={this.state.username}
+                onChangeText={(username) => this.setState({ username })}
+                placeholder={'Username'}
+                autoCapitalize = 'none'
+                style={styles.input}
+                />
+                <TextInput
+                secureTextEntry={true}
+                value={this.state.password}
+                onChangeText={(password) => this.setState({ password })}
+                placeholder={'Password'}
+                autoCapitalize = 'none'
+                secureTextEntry={true}
+                style={styles.input}
+                />
+                <Button
+                title={'Login'}
+                style={styles.input}
+                onPress={this.handleLoginButtonPress.bind(this)}
+                />
+                <Text>google/facebook here</Text>
+            </View>
+        );
+    }
+
 }
 
-const LoginPage = props => {
-  return (
-    <View>
-      <Text style={styles.header}>Sign In With Google</Text>
-      <Button title="Sign in with Google" onPress={() => props.signIn()} />
-    </View>
-  )
-}
-
-const LoggedInPage = props => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.header}>Welcome:{props.name}</Text>
-      <Image style={styles.image} source={{ uri: props.photoUrl }} />
-    </View>
-  )
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  header: {
-    fontSize: 25
-  },
-  image: {
-    marginTop: 15,
-    width: 150,
-    height: 150,
-    borderColor: "rgba(0,0,0,0.2)",
-    borderWidth: 3,
-    borderRadius: 150
-  }
-})
+export default Login;

@@ -83,9 +83,7 @@ export default function spring(clock, state, config) {
   );
 
   // conditions for stopping the spring animations
-  const prevPosition = state.prevPosition
-    ? state.prevPosition
-    : new AnimatedValue(0);
+  const prevPosition = new AnimatedValue(0);
 
   const isOvershooting = cond(
     and(config.overshootClamping, neq(config.stiffness, 0)),
