@@ -8,14 +8,7 @@
       "ios",
       "android",
       "web"
-    ],"ios": {
-      "bundleIdentifier": "org.duckdns.twilightbark",
-      "config": {
-
-      }
-      }, "android": {
-        "package" : "host.exp.exponent"
-      }
+    ]
   },
     "version": "1.0.0",
     "orientation": "portrait",

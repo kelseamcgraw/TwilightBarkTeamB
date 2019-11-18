@@ -11,7 +11,7 @@ import {
     Text
 } from 'react-native';
 import styles from '../Styles.js';
-
+import signIn from './GoogleLogin';
 class Login extends React.Component {
     constructor(props) {
         super(props)
@@ -55,7 +55,8 @@ class Login extends React.Component {
     }
 
     handleGoogleLogin = () => {
-        this.props.navigation.navigate('GoogleLogin')
+        // this.props.navigation.navigate('GoogleLogin')
+        signIn();
     }
 
     
