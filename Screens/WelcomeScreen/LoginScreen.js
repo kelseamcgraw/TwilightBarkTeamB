@@ -11,8 +11,7 @@ import {
     Text
 } from 'react-native';
 import styles from '../Styles.js';
-import GooglesignIn from './GoogleLogin';
-import FacebooksignIn from './FacebookLogin';
+
 class Login extends React.Component {
     constructor(props) {
         super(props)
@@ -55,15 +54,6 @@ class Login extends React.Component {
 
     }
 
-    handleFacebookLogin = () => {
-        // this.props.navigation.navigate('GoogleLogin')
-        FacebooksignIn();
-    }
-
-    handleGoogleLogin = () => {
-        // this.props.navigation.navigate('GoogleLogin')
-        GooglesignIn();
-    }
 
     
     render() {
@@ -89,14 +79,6 @@ class Login extends React.Component {
                 title={'Login'}
                 style={styles.input}
                 onPress={this.handleLoginButtonPress.bind(this)}
-                />
-                <Button
-                    title={'Google Login'}
-                    onPress={this.handleGoogleLogin}
-                />
-                <Button
-                    title={'Facebook Login'}
-                    onPress={this.handleFacebookLogin}
                 />
             </View>
         );

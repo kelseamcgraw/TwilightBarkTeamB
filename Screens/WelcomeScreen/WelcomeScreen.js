@@ -51,13 +51,11 @@ class WelcomScreen extends React.Component {
     }
 
     handleFacebookLogin = () => {
-      // this.props.navigation.navigate('GoogleLogin')
-      FacebooksignIn();
+      FacebooksignIn.logIn(this.props.navigation);
   }
 
   handleGoogleLogin = () => {
       GooglesignIn.signIn(this.props.navigation);
-      // this.props.navigation.navigate('AddDogInfo')
   }
 
 }
