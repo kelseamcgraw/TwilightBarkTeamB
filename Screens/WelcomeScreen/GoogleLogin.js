@@ -19,10 +19,9 @@ class GoogleLogin extends React.Component{
         if (u.data.token !== undefined) {
             await deviceStorage.saveItem("userKey", u.data.token);
             if(u.data.message === 'user created') {
-                console.log(u.data.message)
                 navigation.navigate('AddDogInfo')
             } else if (u.data.message === 'success') {
-                console.log(u.data.message)
+                deviceStorage.saveItem('isLoggedIn', '1');
                 navigation.navigate('Feed')
             }
         } 

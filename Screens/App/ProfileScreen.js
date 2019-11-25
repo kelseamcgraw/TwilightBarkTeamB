@@ -24,8 +24,6 @@ class Profile extends React.Component {
 
     handleLogoutButton = () => {
         deviceStorage.removeAllKeys();
-        deviceStorage.deleteItem("userKey");
-        deviceStorage.deleteItem('isLoggedIn');
         this.props.navigation.navigate('Splash', {
             nextScreen: "Auth"
         });

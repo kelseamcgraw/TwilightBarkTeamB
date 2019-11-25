@@ -12,8 +12,7 @@ const deviceStorage = {
 
     async getItem(key) {
         try {
-          const token = await AsyncStorage.getItem(key);
-          return token
+          await AsyncStorage.getItem(key);
         } catch (error) {
           console.log('AsyncStorage Error: ' + error.message);
         }
@@ -21,16 +20,24 @@ const deviceStorage = {
 
       async deleteItem(key) {
         try{
-          await AsyncStorage.removeItem(key);
+          const l = await AsyncStorage.removeItem(key);
+          console.log(l);
         } catch (error) {
           console.log('AsyncStorage Error: ' + error.message);
         }
       },
-    
+      
       async removeAllKeys() {
         AsyncStorage.getAllKeys()
-        .then(keys => AsyncStorage.multiRemove(keys));
+        .then((keys) => {
+          try {
+            AsyncStorage.multiRemove(keys);
+          }catch (e) {
+            console.log(e);
+          }
+        })
       }
-};
+  }
+
 
 export default deviceStorage;

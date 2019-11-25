@@ -85,11 +85,11 @@ class AddDogImage extends React.Component {
             NavigationActions.navigate({ routeName: 'Profile' })
             ],
         });
-        if(this.state.isLoggedIn === "0") {
+        if(this.state.isLoggedIn === "1") {
             this.props.navigation.dispatch(resetAction);
-            deviceStorage.saveItem('isLoggedIn', "1");
             this.props.navigation.navigate('Feed')
         } else {
+            deviceStorage.saveItem('isLoggedIn', "1");
             this.props.navigation.dispatch(resetAction);
             this.props.navigation.navigate('Profile')
         }
