@@ -39,6 +39,26 @@ const userCreate = () => {
 
 }
 
+const externalCreate = () => {
+
+    return [
+        check('username')
+        .blacklist(blacklist)
+        .trim()
+        .escape()
+        .isString(),
+    check("externalID")
+        .trim()
+        .escape()
+        .isString(),
+    check("externalType")
+        .blacklist(blacklist)
+        .trim()
+        .escape()
+    ];
+
+}
+
 const updateUser = () => {
 
     return [
@@ -234,6 +254,7 @@ module.exports = {
 
   userCreate,
   userLogin,
+  externalCreate,
   updateUser,
   userId,
   dogId,

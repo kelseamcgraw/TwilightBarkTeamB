@@ -11,7 +11,8 @@ import {
     Text
 } from 'react-native';
 import styles from '../Styles.js';
-import signIn from './GoogleLogin';
+import GooglesignIn from './GoogleLogin';
+import FacebooksignIn from './FacebookLogin';
 class Login extends React.Component {
     constructor(props) {
         super(props)
@@ -54,19 +55,20 @@ class Login extends React.Component {
 
     }
 
+    handleFacebookLogin = () => {
+        // this.props.navigation.navigate('GoogleLogin')
+        FacebooksignIn();
+    }
+
     handleGoogleLogin = () => {
         // this.props.navigation.navigate('GoogleLogin')
-        signIn();
+        GooglesignIn();
     }
 
     
     render() {
         return (
             <View style={styles.container}>
-                <Button
-                    title={'Google Login'}
-                    onPress={this.handleGoogleLogin}
-                />
                 <TextInput
                 value={this.state.username}
                 onChangeText={(username) => this.setState({ username })}
@@ -88,7 +90,14 @@ class Login extends React.Component {
                 style={styles.input}
                 onPress={this.handleLoginButtonPress.bind(this)}
                 />
-                <Text>google/facebook here</Text>
+                <Button
+                    title={'Google Login'}
+                    onPress={this.handleGoogleLogin}
+                />
+                <Button
+                    title={'Facebook Login'}
+                    onPress={this.handleFacebookLogin}
+                />
             </View>
         );
     }

@@ -90,7 +90,7 @@ class Dog extends React.Component {
                     })
                     }
                     <Card style={styles.card}>
-                        <TouchableOpacity onPress={ this.state.handleAddDogPress.bind(this) }>
+                        <TouchableOpacity onPress={ this.handleAddDogPress.bind(this) }>
                             <Text style={styles.addDog}>
                             + Add A Dog
                             </Text>
@@ -102,7 +102,7 @@ class Dog extends React.Component {
                 return ( 
                     <View style={styles.container}>
                         <Card style={styles.card}>
-                            <TouchableOpacity onPress={ this.state.handleAddDogPress.bind(this) }>
+                            <TouchableOpacity onPress={ this.handleAddDogPress.bind(this) }>
                                 <Text style={styles.addDog}>
                                 + Add A Dog
                                 </Text>

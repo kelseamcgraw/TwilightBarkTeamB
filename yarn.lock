@@ -2074,7 +2074,7 @@ expand-range@^1.8.1:
   dependencies:
     fill-range "^2.1.0"
 
-expo-app-auth@~7.0.0:
+expo-app-auth@^7.0.0, expo-app-auth@~7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/expo-app-auth/-/expo-app-auth-7.0.0.tgz#6d75dd561ba12a6b039a76cdc8dc519c69a715d1"
   integrity sha512-j5lSTm0uFcqSye8YJYB7bwBAS1VWYh1BcZc9NZPKn9hMz+RKdqJChB0Vx51mu07dDyD3eaV4U2Um7pKihAAatg==
@@ -2101,6 +2101,11 @@ expo-constants@~7.0.0:
   integrity sha512-oLINuMtGcAwfHGInSVhq6xGojp3atUpSIp7KImo9rqXhWwD5FNmqA5Jflo4J0ODPq590kN5ieiYCCqwls2/u0w==
   dependencies:
     ua-parser-js "^0.7.19"
+
+expo-facebook@~7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/expo-facebook/-/expo-facebook-7.0.0.tgz#532b42d67ec91df051fa1f41ee8a1322154fba2b"
+  integrity sha512-R/ogRMxFqUCh08f575IR8aPy8q5463E5Sg/Ef7nasuqKKh1tEcVh4JoRXN3pEnZ9hivnRsXvJOchmPsy+L1upw==
 
 expo-file-system@~7.0.0:
   version "7.0.0"

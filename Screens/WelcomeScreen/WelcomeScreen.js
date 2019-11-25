@@ -7,6 +7,9 @@ import {
 } from 'react-native';
 import styles from '../Styles.js';
 
+import GooglesignIn from './GoogleLogin';
+import FacebooksignIn from './FacebookLogin';
+
 class WelcomScreen extends React.Component {
 
     render() {
@@ -34,10 +37,28 @@ class WelcomScreen extends React.Component {
                   this.props.navigation.navigate("QuickReport")
                 }
                 />
+                <Button
+                    title={'Google Login'}
+                    onPress={this.handleGoogleLogin}
+                />
+                <Button
+                    title={'Facebook Login'}
+                    onPress={this.handleFacebookLogin}
+                />
                 <Text>Your information will not be shared with third parties.</Text>
             </View>
         );
     }
+
+    handleFacebookLogin = () => {
+      // this.props.navigation.navigate('GoogleLogin')
+      FacebooksignIn();
+  }
+
+  handleGoogleLogin = () => {
+      GooglesignIn.signIn(this.props.navigation);
+      // this.props.navigation.navigate('AddDogInfo')
+  }
 
 }
 

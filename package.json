@@ -13,6 +13,7 @@
     "expo": "^35.0.0",
     "expo-app-auth": "^7.0.0",
     "expo-constants": "~7.0.0",
+    "expo-facebook": "~7.0.0",
     "expo-google-app-auth": "^7.0.0",
     "expo-google-sign-in": "~7.0.0",
     "expo-hsv-color-picker": "0.0.3",

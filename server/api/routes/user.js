@@ -8,7 +8,7 @@ const authorize = require("../middleware/check-auth");
 const router = express.Router();
 const isAdmin = require('../middleware/check-isAdmin');
 
-const { userLogin, updateUser, userCreate, validate } = require("../middleware/validateData");
+const { userLogin, updateUser, userCreate, externalCreate, validate } = require("../middleware/validateData");
 
 const model = require('../../models/index');
 
@@ -201,6 +201,120 @@ router.post("/login", [upload.none(), userLogin(), validate], (req, res, next) =
 
     }
 
+  
+  })
+  .catch((error) => {
+
+    res.json({
+      
+      error: error
+
+    });
+
+  });
+
+});
+
+router.post("/external/login", [upload.none(), externalCreate(), validate], (req, res, next) => {
+
+  model.User.findOrCreate({ 
+    
+    where: { 
+      externalID: req.body.externalID,
+      externalType: req.body.externalType
+      },
+    defaults: {
+        isAdmin: false,
+        username: req.body.username,
+        email: req.body.email,
+        externalID: req.body.externalID,
+        externalType: req.body.externalType,
+    }
+  
+  })
+  .then(([user, created]) => { 
+
+          jwt.sign({ 
+            userID: user.userID, 
+            externalID: user.externalID,
+            externalType: user.externalType,
+            username: user.username, 
+            isAdmin: user.isAdmin,
+            exp: Date.now()
+           }, process.env.TOKEN_KEY, (err, token) => {
+  
+            if(err) {
+  
+              res.json({
+  
+                error: err
+  
+              });
+  
+            } else {
+
+              res.json({
+  
+                token: token, 
+                message: (created) ? 'user created' : 'success'
+              
+              });
+  
+            }
+  
+          });
+        
+    // } else {
+
+    //   const u = {
+    //     isAdmin: false,
+    //     username: req.body.username,
+    //     email: req.body.email,
+    //     externalID: req.body.externalID,
+    //     externalType: req.body.externalType,
+    //   }
+      
+    //   model.User.create(u);
+    //   model.User.findOrCreate({ 
+    
+    //     where: { 
+    //       externalID: req.body.externalID,
+    //       externalType: req.body.externalType
+    //       } 
+      
+    //   }).then((user) => {
+    //     console.log(user)
+    //     jwt.sign({ 
+    //       userID: user.userID, 
+    //       externalID: user.externalID,
+    //       externalType: user.externalType,
+    //       username: user.username, 
+    //       isAdmin: user.isAdmin,
+    //       exp: Date.now()
+    //     }, process.env.TOKEN_KEY, (err, token) => {
+
+    //       if(err) {
+
+    //         res.json({
+
+    //           error: err
+
+    //         });
+
+    //       } else {
+
+    //         res.json({
+
+    //           token: token, 
+    //           message: 'user created'
+            
+    //         });
+
+    //       }
+
+    //     });
+    //   })
+    // }
   
   })
   .catch((error) => {

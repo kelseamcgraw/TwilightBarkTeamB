@@ -20,7 +20,6 @@ import AddDogImageScreen from '../Screens/AddDog/AddDogImage';
 import AddDogColorScreen from '../Screens/AddDog/AddDogColor';
 import AddDogBreedScreen from '../Screens/AddDog/AddDogBreed';
 import AddDogSizeScreen from '../Screens/AddDog/AddDogSize'
-import GoogleLogin from '../Screens/WelcomeScreen/GoogleLogin';
 
 const FeedStack = createStackNavigator({
     Feed: { screen: FeedScreen },
@@ -50,7 +49,6 @@ const TabNavigator = createBottomTabNavigator({
 const AuthStack = createStackNavigator({ 
     Welcome: { screen: WelcomScreen},
     Login: { screen: LoginScreen },
-    GoogleLogin: { screen: GoogleLogin },
     QuickReport: { screen: QuickReportScreen },
     CreateAccount: { screen: CreateAccountScreen},
     AddDogInfo: { screen: AddDogInfoScreen },

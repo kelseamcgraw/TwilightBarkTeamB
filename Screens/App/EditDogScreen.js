@@ -90,6 +90,7 @@ class Dog extends React.Component {
                 this.state.dogList.fk_dogID.map((breed, i) => {
                     return (
                     <TextInput
+                        key={i}
                         value={breed.name}
                         onChangeText={() => this.handleBreedChange(i)}
                     />
@@ -101,7 +102,7 @@ class Dog extends React.Component {
                     onChangeText={(breed) => this.setState({breed})}
                 />    
                 <TextInput
-                    value={this.state.dogList.dogAge}
+                    value={this.state.dogList.dogAge.toString()}
                     onChangeText={(dogAge) => this.setState({dogAge})}
                 /> 
                 <Button

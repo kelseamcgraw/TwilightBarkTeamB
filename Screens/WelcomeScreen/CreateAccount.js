@@ -2,10 +2,6 @@ import * as React from 'react';
 import axios from '../../util/Axios';
 
 import deviceStorage from '../../services/deviceStorage'; 
-
-import * as Google from 'expo-google-app-auth';
-import * as GoogleSignIn from 'expo-google-sign-in';
-
 import { 
     Button,
     View,
@@ -26,8 +22,6 @@ class CreateAccount extends React.Component {
             email : ""
         }
     }
-
-
 
     handleCreateAccountButton = () => {
 
@@ -58,7 +52,6 @@ class CreateAccount extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>sign up with google/facebook</Text>
                 <TextInput
                     value={this.state.name}
                     onChangeText={(username) => this.setState({ username })}
