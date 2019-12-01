@@ -10,7 +10,8 @@ import {
     Text, 
     ActivityIndicator
 } from 'react-native';
-
+import styles from '../Styles';
+import DogCard from '../../Components/DogCard';
 import { Card, ListItem} from 'react-native-elements';
 class Dog extends React.Component {
 
@@ -25,7 +26,6 @@ class Dog extends React.Component {
 
     async componentDidMount() { 
         try {
-            this.setState({dataList: this.props.navigation.getParam("dataList", "no data")});
             const token = await deviceStorage.getItem("userKey");
             const dogs =  await axios.get('/user/dogs', {
                 headers: {
@@ -45,7 +45,7 @@ class Dog extends React.Component {
 
     handleCardPress = (i, e) => {
         this.props.navigation.navigate('EditDog', {
-             dogList: this.state.dogList[i]
+             dogList: this.state.dogList
 
         });
     }
@@ -60,35 +60,12 @@ class Dog extends React.Component {
         if(!isLoading){
             if(dogList.length > 0) {
                 return (
-                <View style={styles.container}>
-                    {
-                    dogList.map((d, i) => {
-
-                        return (
-                    <TouchableOpacity
-                    key={i}
-                    onPress={ this.handleCardPress.bind(this, i) }
-                    >
-                        <Card 
-                         style={styles.card}
-                        >
-                            <ListItem
-                            style={styles.listItems}
-                            leftAvatar={{
-                                title: d.dogName,
-                                size: "large",
-                                source: { uri: axios.defaults.baseURL + '/static/images/' + d.fileLocation },
-                                showEditButton: false
-                            }}
-                            title={d.dogName}
-                            subtitle={d.dogAge + ""}
-                            chevron
-                            />
-                        </Card>
-                    </TouchableOpacity>
-                        );
-                    })
-                    }
+                <View >
+                        <DogCard
+                            navigation={this.props.navigation}
+                            dogList={this.state.dogList}
+                            nextScreen={'EditDog'}
+                        />
                     <Card style={styles.card}>
                         <TouchableOpacity onPress={ this.handleAddDogPress.bind(this) }>
                             <Text style={styles.addDog}>
@@ -100,7 +77,7 @@ class Dog extends React.Component {
                 );
             } else {
                 return ( 
-                    <View style={styles.container}>
+                    <View >
                         <Card style={styles.card}>
                             <TouchableOpacity onPress={ this.handleAddDogPress.bind(this) }>
                                 <Text style={styles.addDog}>
@@ -117,30 +94,5 @@ class Dog extends React.Component {
     }
 
 }
-  
-const styles = StyleSheet.create({
-
-    addDog: {
-        fontSize: 20,
-        color: "#007AFF"
-    }, 
-    separator: {
-        flex: 1,
-        height: 1,
-        backgroundColor: '#e4e4e4',
-        marginLeft: 10,
-      },
-      leftAction: {
-        backgroundColor: '#388e3c',
-        justifyContent: 'center',
-        flex: 1,
-      },
-      rightAction: {
-        backgroundColor: '#dd2c00',
-        justifyContent: 'center',
-        // flex: 1,
-        alignItems: 'flex-end',
-      }
-  });
 
 export default Dog;

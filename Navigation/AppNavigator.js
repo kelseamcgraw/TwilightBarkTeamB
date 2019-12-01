@@ -10,7 +10,6 @@ import AuthLoadingScreen from '../Screens/AuthLoading';
 // welcome page navigator componenets
 import LoginScreen from '../Screens/WelcomeScreen/LoginScreen';
 import WelcomScreen from '../Screens/WelcomeScreen/WelcomeScreen';
-import QuickReportScreen from '../Screens/WelcomeScreen/QuickReportScreen';
 import CreateAccountScreen from '../Screens/WelcomeScreen/CreateAccount';
 import SplashScreen from '../Screens/SpashScreen';
 import DetailsScreen from '../Screens/App/DetailsScreen';
@@ -20,9 +19,11 @@ import AddDogImageScreen from '../Screens/AddDog/AddDogImage';
 import AddDogColorScreen from '../Screens/AddDog/AddDogColor';
 import AddDogBreedScreen from '../Screens/AddDog/AddDogBreed';
 import AddDogSizeScreen from '../Screens/AddDog/AddDogSize'
+import LostDogScreen from '../Screens/App/LostDogScreen';
 
 const FeedStack = createStackNavigator({
     Feed: { screen: FeedScreen },
+    LostDog: { screen: LostDogScreen }
 });
 
 const AddDogStack = createStackNavigator({
@@ -49,7 +50,6 @@ const TabNavigator = createBottomTabNavigator({
 const AuthStack = createStackNavigator({ 
     Welcome: { screen: WelcomScreen},
     Login: { screen: LoginScreen },
-    QuickReport: { screen: QuickReportScreen },
     CreateAccount: { screen: CreateAccountScreen},
     AddDogInfo: { screen: AddDogInfoScreen },
     AddDogSize: { screen: AddDogSizeScreen },

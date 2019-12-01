@@ -17,6 +17,8 @@ class AddDogInfo extends React.Component {
             dogName : "",
             dogAge : "",
             token : "",
+            alert: "",
+            zipCode: ""
         }
         
     }
@@ -24,6 +26,13 @@ class AddDogInfo extends React.Component {
     render() {
         return (
             <View style={styles.container}>
+                <Text>What Zip Code do you want to be notified about</Text>
+                <TextInput
+                    value={this.state.zipCode}
+                    onChangeText={(zipCode) => this.setState({ zipCode })}
+                    placeholder={ "Zip Code" }
+                    style={ styles.input }
+                />
                 <Text>Whats my name?</Text>
                 <TextInput
                     value={this.state.name}
@@ -36,6 +45,13 @@ class AddDogInfo extends React.Component {
                     value={this.state.dogAge}
                     onChangeText={(dogAge) => this.setState({ dogAge })}
                     placeholder={ "Dogs Age" }
+                    style={ styles.input }
+                />
+                <Text>Please add any important info about me</Text>
+                <TextInput
+                    value={this.state.alert}
+                    onChangeText={(alert) => this.setState({ alert })}
+                    placeholder={ "Will I bite?" }
                     style={ styles.input }
                 />
                 <Button
@@ -54,7 +70,9 @@ class AddDogInfo extends React.Component {
 
         this.props.navigation.navigate('AddDogSize', {
             dogName: this.state.dogName,
-            dogAge: this.state.dogAge
+            dogAge: this.state.dogAge,
+            alerts: this.state.alert,
+            zipCode: this.state.zipCode
         });    
                 
     }

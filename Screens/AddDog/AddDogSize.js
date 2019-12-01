@@ -15,6 +15,7 @@ class AddDogSize extends React.Component {
         super(props)
         this.state = {
             size : "",
+
         }
         
     }
@@ -23,7 +24,9 @@ class AddDogSize extends React.Component {
         this.props.navigation.navigate('AddDogColor', {
             dogName: this.props.navigation.getParam("dogName","dogName"),
             dogAge: this.props.navigation.getParam("dogAge", "dogAge"),
-            size: this.state.size
+            size: this.state.size,
+            zipCode: this.props.navigation.getParam("zipCode", "zipCode"),
+            alert: this.props.navigation.getParam("alert", "alerts")
         });    
 
     }

@@ -52,7 +52,9 @@ class AddDogBreed extends React.Component {
             dogName: this.props.navigation.getParam("dogName","dogName"),
             dogAge: this.props.navigation.getParam("dogAge", "dogAge"),
             size: this.props.navigation.getParam('size', 'size'),
-            colors: this.props.navigation.getParam('colors', 'colors')
+            colors: this.props.navigation.getParam('colors', 'colors'),
+            zipCode: this.props.navigation.getParam("zipCode", "zipCode"),
+            alert: this.props.navigation.getParam("alert", "alerts")
         });
     }
 

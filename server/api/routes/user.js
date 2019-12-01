@@ -19,58 +19,41 @@ router.get('/dogs', [authorize], (req, res) => {
   model.User.findAll({
     where : {
       userID : req.userData.userID
-    },
+    }, attributes: [
+      'username',
+      'zipCode',
+      'userID',
+      'email',
+      'phoneNumber'
+    ],
     include: [
       {
         model:  model.Dog,
          as: "dogs",
+         attributes: [
+          'dogID',
+          'dogName',
+          'isLost',
+          'dogAge',
+          'size',
+          'colors',
+          'fileLocation'
+         ],
          include: [
            {
            model: model.Breed,
-           as: "fk_dogID"
+           as: "fk_dogID",
+           attributes: [
+             'breedID',
+             'name'
+           ]
            }
          ]
-
       }
     ]
   }).then(users => {
-    const resObj = users.map(user => {
 
-      return Object.assign(
-        {},
-        {
-
-          userId : user.userID,
-          username : user.username,
-          email : user.email,
-          phoneNumber : user.phoneNumber,
-          dogs : user.dogs.map(dog => {
-            return Object.assign(
-              {},
-              {
-
-                dogId : dog.dogID,
-                dogName : dog.dogName,
-                userId : dog.userID,
-                dogAge : dog.dogAge,
-                colors : dog.colors,
-                size: dog.size,
-                fileLocation: dog.fileLocation,
-                fk_dogID: dog.fk_dogID.map(breed => {
-                  
-                  return Object.assign(
-                    {},
-                    {
-                      id : breed.breedID,
-                      name: breed.name
-                    })
-                })
-              })
-            })
-          })
-      });
-
-      res.json(resObj);
+      res.json(users);
 
   });
 
@@ -103,6 +86,7 @@ router.post("/signup", [upload.none(), userCreate(), validate], (req, res, next)
 
           jwt.sign({ 
             userID: user.userID, 
+            zipCode: user.zipCode,
             username: user.username, 
             isAdmin: user.isAdmin,
             exp: Date.now()
@@ -154,6 +138,7 @@ router.post("/login", [upload.none(), userLogin(), validate], (req, res, next) =
   
           jwt.sign({ 
             userID: user.userID, 
+            zipCode: user.zipCode,
             username: user.username, 
             isAdmin: user.isAdmin,
             exp: Date.now()
@@ -237,6 +222,7 @@ router.post("/external/login", [upload.none(), externalCreate(), validate], (req
           jwt.sign({ 
             userID: user.userID, 
             externalID: user.externalID,
+            zipCode: user.zipCode,
             externalType: user.externalType,
             username: user.username, 
             isAdmin: user.isAdmin,
@@ -263,59 +249,6 @@ router.post("/external/login", [upload.none(), externalCreate(), validate], (req
             }
   
           });
-        
-    // } else {
-
-    //   const u = {
-    //     isAdmin: false,
-    //     username: req.body.username,
-    //     email: req.body.email,
-    //     externalID: req.body.externalID,
-    //     externalType: req.body.externalType,
-    //   }
-      
-    //   model.User.create(u);
-    //   model.User.findOrCreate({ 
-    
-    //     where: { 
-    //       externalID: req.body.externalID,
-    //       externalType: req.body.externalType
-    //       } 
-      
-    //   }).then((user) => {
-    //     console.log(user)
-    //     jwt.sign({ 
-    //       userID: user.userID, 
-    //       externalID: user.externalID,
-    //       externalType: user.externalType,
-    //       username: user.username, 
-    //       isAdmin: user.isAdmin,
-    //       exp: Date.now()
-    //     }, process.env.TOKEN_KEY, (err, token) => {
-
-    //       if(err) {
-
-    //         res.json({
-
-    //           error: err
-
-    //         });
-
-    //       } else {
-
-    //         res.json({
-
-    //           token: token, 
-    //           message: 'user created'
-            
-    //         });
-
-    //       }
-
-    //     });
-    //   })
-    // }
-  
   })
   .catch((error) => {
 

@@ -14,7 +14,7 @@ const ColorPalette = (props) => {
     paletteStyles,
     insertColor,
     removeColor,
-    maxCount,
+    maxCount = 3,
     scaleToWindow,
     title,
     titleStyles,
@@ -34,7 +34,6 @@ const ColorPalette = (props) => {
       numSelected(count => count + 1 );
       setCount(count);
       onChange(color);
-
     }
   }, []);
 
@@ -42,6 +41,7 @@ const ColorPalette = (props) => {
     numSelected(count => count - 1 );
     removeColor(color)
     setCount(count);
+
   }, []);
 
   return (

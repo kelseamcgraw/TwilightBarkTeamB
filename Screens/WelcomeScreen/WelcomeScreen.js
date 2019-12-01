@@ -34,7 +34,7 @@ class WelcomScreen extends React.Component {
                 title={'Make a report without account'}
                 style={styles.input}
                 onPress={() =>
-                  this.props.navigation.navigate("QuickReport")
+                  this.props.navigation.navigate("AddDogInfo")
                 }
                 />
                 <Button

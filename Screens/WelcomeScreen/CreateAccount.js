@@ -19,6 +19,7 @@ class CreateAccount extends React.Component {
             password : "",
             repassword : "",
             phoneNumber : "",
+            zipCode: "",
             email : ""
         }
     }
@@ -30,6 +31,7 @@ class CreateAccount extends React.Component {
             username: this.state.username,
             password: this.state.password,
             email: this.state.email,
+            zipCode: this.state.zipCode,
             phoneNumber: this.state.phoneNumber
     
         })
@@ -79,6 +81,13 @@ class CreateAccount extends React.Component {
                     value={this.state.phoneNumber}
                     onChangeText={(phoneNumber) => this.setState({ phoneNumber })}
                     placeholder={ "phone number" }
+                    style={ styles.input }
+                    autoCapitalize = 'none'
+                />
+                <TextInput
+                    value={this.state.zipCode}
+                    onChangeText={(zipCode) => this.setState({ zipCode })}
+                    placeholder={ "Your ZipCode" }
                     style={ styles.input }
                     autoCapitalize = 'none'
                 />

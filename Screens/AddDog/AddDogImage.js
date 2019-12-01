@@ -26,6 +26,8 @@ class AddDogImage extends React.Component {
             isLoggedIn: "",
             token : "",
             dogAge: "",
+            zipCode: "",
+            alert: "",
             size: "",
             dogName: "",
             colors: "",
@@ -68,6 +70,8 @@ class AddDogImage extends React.Component {
         this.setState({dogName:this.props.navigation.getParam("dogName","dogName")});
         this.setState({dogAge: this.props.navigation.getParam("dogAge", "dogAge")});
         this.setState({size: this.props.navigation.getParam('size', 'size')});
+        this.setState({zipCode: this.props.navigation.getParam("zipCode", "zipCode")}),
+        this.setState({alert: this.props.navigation.getParam("alert", "alerts")})
         this.setState({colors: this.props.navigation.getParam('colors', 'colors')});
         this.setState({breeds: this.props.navigation.getParam('breeds', 'breeds')});
         this.getPermissionAsync();
@@ -134,16 +138,19 @@ class AddDogImage extends React.Component {
     }
 
     async postData() {
+
         const token = await deviceStorage.getItem("userKey");    
         const data = new FormData();
-
+        const route = (this.state.isLoggedIn === '1' ? '/dog/add' : 'dog/add-nouser')
         data.append("breeds", this.state.breeds);
         data.append("dogAge", this.state.dogAge);
+        data.append("alert", this.state.alert);
+        data.append("zipCode", this.state.zipCode);
         data.append("colors", this.state.colors);
         data.append("size", this.state.size);
         data.append("dogName", this.state.dogName);
         data.append("dogImage", this.state.dogImage);
-
+        console.log(data);
         data.append('dogImage', {
             uri: this.state.image,
             name: 'my_image',
@@ -155,7 +162,7 @@ class AddDogImage extends React.Component {
             'Content-Type':'multipart/form-data',
             'Authorization':'Bearer ' + token
         };
-        axios.post('/dog/add', data, {
+        axios.post(route, data, {
         headers: headers
         })
         .then((res) => {

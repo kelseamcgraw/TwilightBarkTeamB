@@ -1,42 +1,21 @@
-import * as React from 'react';
-import axios from '../../util/Axios';
+import React from 'react';
 
 import { 
-    View,
-    TouchableOpacity,
-    Image,
-    Button,
-    TextInput,
-    StyleSheet,
-    Text,
+    View, Button
 } from 'react-native';
 
 import ColorPalette from '../../Components/ColorPalette/index';
 
-class AddDogColor extends React.Component {
+class Colors extends React.Component {
 
     constructor(props) {
         super(props)
         this.state = {
             colors: [],
-            count : 0
+            count : 0,
 
         }
         
-    }
-
-    handleAddColor = () => {
-        let colorString = ""
-        this.state.colors.forEach((element) => {
-            colorString = colorString + element + ","
-        })
-
-        this.props.navigation.navigate('AddDogBreed',  {
-            dogName: this.props.navigation.getParam("dogName","dogName"),
-            dogAge: this.props.navigation.getParam("dogAge", "dogAge"),
-            size: this.props.navigation.getParam('size', 'size'),
-            colors: colorString,
-        });
     }
 
 
@@ -50,7 +29,24 @@ class AddDogColor extends React.Component {
         if (index !== -1) {
             array.splice(index, 1);
             this.setState({colors: array});
-  }
+
+        }
+    }
+
+    handleAddColor = () => {
+        let colorString = ""
+        this.state.colors.forEach((element) => {
+            colorString = colorString + element + ","
+        })
+        let newstr = colorString.slice(0,-1);
+        this.props.navigation.navigate('AddDogBreed',  {
+            dogName: this.props.navigation.getParam("dogName","dogName"),
+            dogAge: this.props.navigation.getParam("dogAge", "dogAge"),
+            size: this.props.navigation.getParam('size', 'size'),
+            zipCode: this.props.navigation.getParam("zipCode", "zipCode"),
+            alert: this.props.navigation.getParam("alert", "alerts"),
+            colors: newstr,
+        });
     }
 
     render() {
@@ -68,9 +64,10 @@ class AddDogColor extends React.Component {
                     colors={['#000000', '#A52A2A', '#FFFFFF', '#FFD700', '#F5F5DC', '#D2B48C', '#808080']}        
                 />
                 <Button
-                    title={ "Next" }
-                    onPress={ this.handleAddColor.bind(this)}
+                    title={"Next"}
+                    onPress={this.handleAddColor.bind(this)}
                 />
+
             </View>
         );
     }
@@ -78,4 +75,4 @@ class AddDogColor extends React.Component {
 }
 
 
-export default AddDogColor;
+export default Colors;

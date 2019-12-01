@@ -3,53 +3,64 @@ import * as React from 'react';
 import axios from '../../util/Axios';
 
 import deviceStorage from '../../services/deviceStorage'; 
-
+import DogCard from '../../Components/DogCard';
 import { List, ListItem} from 'react-native-elements';
-
+import styles from '../Styles';
 import { 
     Text,
     View,
-    StyleSheet
+    StyleSheet,
+    TouchableOpacity,
+    ActivityIndicator
 } from 'react-native';
 
-import Dog from '../../Components/Dog';
+import Dog from '../../Components/DogCard';
 class Home extends React.Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            isLoading: true
-            
+            isLoading: true,
+            dogList: []
         }
     }
 
+    async componentDidMount() {
+        try {
+            const token = await deviceStorage.getItem("userKey");
+            const dogs =  await axios.get('/dog/lost', {
+                headers: {
+                    Authorization: "Bearer " + token
+                }
+            })
+            if(dogs.data.length > 0) {
+                this.setState({dogList: dogs.data, isLoading: false});
+            } else {
+                this.setState({dogList: [], isLoading: false})
+            }
+        } catch(err) {
+            console.log(err);
+        }
 
-
-
-    
+    }
 
     render() {
-        return (
-            <View style={styles.container}>
-                <Text>Feed</Text>
-            </View>
-        )
+        const {isLoading, dogList } = this.state;
+        if(!isLoading) {
+            return (
+                <View >
+                        <DogCard
+                            nextScreen={"LostDog"}
+                            navigation={this.props.navigation}
+                            dogList={dogList}
+                        />
+                </View>
+            );
+        } else {
+            return <ActivityIndicator/>
+        }
     }
 
 }
-
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: '#ecf0f1',
-    },
-    text: {
-      width: 250,
-      height: 44,
-      padding: 10,
-    },
-  });
 
 export default Home;

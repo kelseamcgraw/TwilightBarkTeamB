@@ -12,9 +12,9 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     isAdmin: DataTypes.BOOLEAN,
     token: DataTypes.STRING,
-    City: DataTypes.STRING,
-    State: DataTypes.STRING,
-    ZipCode: DataTypes.STRING,
+    city: DataTypes.STRING,
+    state: DataTypes.STRING,
+    zipCode: DataTypes.STRING,
     externalID: DataTypes.STRING,
     externalType: DataTypes.STRING,
     phoneNumber: DataTypes.STRING

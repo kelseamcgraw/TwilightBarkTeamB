@@ -7,6 +7,10 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       backgroundColor: '#ecf0f1',
     },
+    addDog: {
+      fontSize: 20,
+      color: "#007AFF"
+    }, 
     input: {
       width: 250,
       height: 44,
@@ -14,6 +18,9 @@ const styles = StyleSheet.create({
       borderWidth: 1,
       borderColor: 'black',
       marginBottom: 10,
+    },
+    card: {
+      
     },
     smallImage: {
       width: 100,

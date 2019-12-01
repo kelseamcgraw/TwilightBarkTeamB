@@ -6,7 +6,7 @@ const router = express.Router();
 const model = require('../../models/index');
 
 
-router.get('/breeds', [authorize], (req, res) => {
+router.get('/breeds', [], (req, res) => {
   model.Breed.findAll().then(breeds => res.json(breeds));
 });
 
